@@ -1,0 +1,51 @@
+/* ----- HEADER INICIO -----*/
+
+header {
+    width: 100%;
+
+    background-color: var(--blue-background);
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+li {
+    list-style: none;
+}
+
+header a {
+    background-color: var(--blue-medium);
+    color: var(--main-white);
+    padding: 0.7rem 2rem;
+
+    border: none;
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+header a:hover {
+    color: var(--main-white);
+    background-color: var(--blue-dark);
+    /*#1d4ed8*/
+}
+
+
+footer {
+    background-color: #030d4f;
+    color: white;
+    
+    margin-top: 70px;
+
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}

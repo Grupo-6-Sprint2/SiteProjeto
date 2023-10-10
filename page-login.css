@@ -1,30 +1,30 @@
+:root {
+    --blue-dark: #030d4f;
+    --blue-medium: #1d4ed8;
+    --blue-light: #3b82f6;
+    --blue-background: #60a5fa;
+    --main-white: #e4e4e7;
+  }
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
 body {
     margin: 0;
     
 }
 
+strong {
+    color: var(--blue-medium);
+  }
+
+  a {
+    text-decoration: none;
+  }
+
 
 /* ----- HEADER ----- */
-
-.header {
-    border-bottom: 2px solid  #fff;
-    background-color: #030d4f;
-    color: white;
-    
-}
-
-.imagem_header {
-    width: 250px;
-    height: 100px;
-}
-
-.header .container {
-    width: 95%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
 
 .navBar {
     width: 500px;
@@ -46,58 +46,71 @@ body {
 
 /* --- INICIO BANNER --- */
 
-.banner {
-    background-image: url(images/fundo-login.png);
-    width: 100%;
-    height: 800px;
-    padding: 1px 0 200px;
-    
-}
+
 
 .imagem_login {
-    height: 80px;
-    width: 80px;
-    padding-bottom: 20px;
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
 }
 
-.formulario {
+ .formulario {
     width: 400px;
-    height: 470px;
-    background-color: #e5e5e5;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 20px;
-    margin: auto;
-    margin-top: 20px;
-    background-color: #030d4f;
-    color: #fff;
+    margin: 40px 200px 0 0;
+    color: #000;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+    padding: 15px 0;
+}
+
+.banner .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+    
+}
+
+.banner .container .imagem_fundo {
+    width: 500px;
+    
+    
 }
 
 .formulario input {
     width: 200px;
-    border: 3px solid #54a0ff;
     border-radius: 10px;
+    border: none;
+    padding: 4px;
 }
 
-.formulario span {
-    padding-right: 160px;
+.formulario input:focus {
+    border: 3px solid #54a0ff;
+}
+
+.formulario .campo {
+    display: flex;
+    flex-direction: column;
 }
 
 .formulario h2 {
-    padding-bottom: 30px;
+    font-family:'Poppins', sans-serif;
 }
 
 .formulario button {
-    width: 100px;
+    
     height: 35px;
     background-color: #54a0ff;
     font-weight: bold;
     color: white;
-    margin-top: 40px;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
+    cursor: pointer;
     
 } 
 
@@ -114,12 +127,3 @@ button:hover {
     margin-bottom: 20px;
 }
 
-.footer {
-    margin-top: 500px;
-    height: 80px;
-    background-color: #030d4f;
-    color: white;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-}

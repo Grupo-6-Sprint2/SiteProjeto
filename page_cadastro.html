@@ -258,8 +258,14 @@
         var email = input_email;
         var emailConfirma = input_email_confirma.value;
 
-        if (senha == senhaConfirma || email == emailConfirma){
-            alert("Cadastro efetuado!");
+        if (senha == senhaConfirma){
+            if(email == emailConfirma){
+                alert("Cadastro efetuado!");
+            }else{
+                alert(`Email errado! Não foi possivel efetuar o cadastro`)
+            }
+        }else{
+            alert(`Senha errada! Não foi possivel efetuar o cadastro`)
         }
     }
 </script>

@@ -46,25 +46,25 @@
 
           <div class="campo">
             <span>E-mail:</span>
-            <input />
+            <input id="input_email" />
           </div>
 
           <div class="campo">
             <span>Confirmar E-mail:</span>
-            <input />
+            <input id="input_email_confirma"/>
           </div>
 
           <div class="campo">
             <span>Senha:</span>
-            <input type="password" placeholder="********" />
+            <input id="input_senha" type="password" placeholder="*****" />
           </div>
 
           <div class="campo">
             <span>Confirmar senha:</span>
-            <input type="password" placeholder="********" />
+            <input id="input_senha_confirma" type="password" placeholder="*****" />
           </div>
 
-          <button>Cadastrar</button>
+          <button onclick="cadastrar()">Cadastrar</button>
         </div>
       </div>
     </div>
@@ -118,3 +118,23 @@
     </footer>
   </body>
 </html>
+
+<script>
+    function cadastrar(){
+        var senha = input_senha.value;
+        var senhaConfirma = input_senha_confirma.value;
+        var email = input_email.value;
+        var emailConfirma = input_email_confirma.value;
+
+        if (senha == senhaConfirma){
+            if(email == emailConfirma){
+                alert("Cadastro efetuado!");
+            }else{
+                alert(`Email errado! Não foi possivel efetuar o cadastro`); 
+            }
+        }else{
+            alert(`Senha errada! Não foi possivel efetuar o cadastro`);
+        }
+      
+    }
+</script>

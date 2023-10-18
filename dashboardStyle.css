@@ -1,0 +1,250 @@
+
+    /* HEADER */
+
+:root {
+    --blue-dark: rgba(3, 13, 79, 0.5);
+    --blue-medium: rgba(29, 78, 216, 0.5);
+    --blue-light: rgba(59, 130, 246, 0.5);
+    --blue-background: rgba(96, 165, 250, 0.5);
+    --main-white: #e4e4e7;
+  }
+  
+  * {
+    font-family: Arial;
+  }
+  
+  body {
+    margin:0;
+    justify-content: center;
+    background-color: rgb(226, 226, 226);
+
+  }
+  
+  strong {
+    color: var(--blue-medium);
+  }
+  
+  /* navbar */
+  
+  .header {
+    background-color: rgba(53, 124, 208, 1);
+    width: 100%;
+  }
+  
+  .header .container {
+   
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  
+  .header .logo h1 {
+    color: var(--main-white);
+  }
+  
+  .container ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .container li {
+    font-family: arial;
+  }
+  
+  .container ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: arial
+  }
+
+  /* HEADER */
+
+
+  .esquerda {
+    background-color: rgba(29, 78, 216, 1);
+    height: 100%;
+    width: 160px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .esquerda .lista {
+width: 95%;
+height: 95%;
+display: flex;
+flex-direction: column;
+align-items: center;
+
+font-weight: 700;
+font-size: large;  
+}
+
+.lista span {
+    margin: 20px;
+}
+
+.estoque {
+background-color: rgba(3, 13, 79, 0.3);
+width: 100%;
+height: 100px;
+border-radius: 20px;
+display: flex;
+justify-content: center;
+align-items: center;
+margin: 3px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.estoque:hover{
+background-color: rgba(3, 13, 79, 0.6);
+}
+
+/* FIM DA COISINHA DO LADO */
+
+
+
+
+/* VISÃO GERAL */
+
+
+.geral {
+width: 100%;
+height: 100%;
+background-color: #e9e9e9;
+}
+
+.geral .BemVindo {
+background-color: #ffffff;
+height: 8%;
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 0px 40px;
+position: sticky;
+}
+
+.BemVindo span{
+font-weight: 600;
+font-size: 20px;
+}
+
+.foto {
+    background-color: blue;
+    width: 50px;
+    height: 50px;
+    border-radius: 100px;
+}
+
+.BemVindo input{
+background-color: #dbdbdb;
+border-color: #e7e7e7;
+border-radius: 100px;
+width: 400px;
+height: 40px;
+padding-left: 15px;
+font-size: 20px;
+}
+
+.geral {
+display: flex;
+flex-direction: column;
+}
+
+.geral .dashboards {
+padding: 50px 100px;
+
+}
+
+.geral .container {
+    width: 60%;
+    height: 150px;
+    display: flex;
+}
+
+.card {
+background-color: white;
+height: 100%;
+width: 25%;
+border-radius: 20px;
+box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.4);
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding-left: 10px;
+margin: 0px 20px;
+}
+
+b {
+font-size: 30px;
+margin-left: 10px;
+}
+
+.barra {
+width: 5px;
+height: 40px;
+}
+
+.azul {
+    background-color: blue;
+}
+
+.amarelo {
+    background-color: rgb(255, 187, 0);
+}
+
+.verde  {
+    background-color: rgb(101, 168, 0);
+}
+
+.grafico {
+background-color: #f7f7f7;
+border: solid;
+border-color: rgba(29, 78, 216, 1);
+border-radius: 10px;
+margin: 30px 25px;
+display: flex;
+flex-direction: column;
+}
+
+.grafico span{
+margin: 20px 0px 30px 230px;
+}
+
+.rolha  {
+background-color: rgb(255, 255, 255);
+height: 675px;
+width: 450px;
+margin-left: 40px;
+border-radius: 20px;
+box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.3);
+}
+
+.rolha .perdidos{
+font-weight: 800;
+font-size: 19px;
+margin: 30px 0px;
+}
+
+.rolha .graficoRolha {
+margin-top: 30px;
+}
+
+.informações {
+margin-top: 50px;
+display: flex;
+font-weight: 600;
+justify-content: space-evenly;
+}

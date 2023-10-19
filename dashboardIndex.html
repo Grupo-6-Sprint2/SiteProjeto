@@ -69,11 +69,11 @@
   <div class="dashboards">
       
       <!-- cards -->
-      <div style="display: flex;"> <!-- container com tudo debaixo da barra de cima -->
+      <div style="display: flex; width: 100%;"> <!-- container com tudo debaixo da barra de cima -->
 
 
           
-        <div style="display: flex; flex-direction: column;"> <!-- div utilizada para manter os cards e o gráfico de barras na mesma coluna -->
+        <div class="status"> <!-- div utilizada para manter os cards e o gráfico de barras na mesma coluna -->
                                
                                <div class="container"> <!-- container contendo os cards -->
                                
@@ -81,7 +81,7 @@
                                  <!-- card1 -->
                                  <div class="card">
                                    <div style="margin: 5px;">
-                                     <span>número de sensores</span>
+                                     <span>Número de sensores</span>
                                      <div style="display: flex; margin-top: 10px;">
                                        <div class="barra azul"></div>
                                        <b>2532</b>
@@ -92,7 +92,7 @@
                                  <!-- card2 -->
                                  <div class="card">
                                    <div style="margin: 5px;">
-                                     <span>quantidade de geladeiras</span>
+                                     <span>Quantidade de geladeiras</span>
                                      <div style="display: flex; margin-top: 10px;">
                                          <div class="barra amarelo"></div>
                                          <b>3647</b>
@@ -103,10 +103,10 @@
                                  <!-- card3 -->
                                  <div class="card">
                                    <div style="margin: 5px;">
-                                     <span>status</span>
+                                     <span>Status</span>
                                      <div style="display: flex; margin-top: 10px;">
                                          <div class="barra verde"></div>
-                                         <b>tudo ok!</b>
+                                         <b>Tudo ok!</b>
                                      </div>
                                    </div>
                                  </div>
@@ -170,7 +170,7 @@
         borderColor: 'rgba(255, 99, 131, 1)',
         backgroundColor: 'rgba(255, 99, 131, 1)',
         data: [870, 290, 100, 450, 220, 590, 90, 420, 900, 20, 130, 521],
-        borderWidth: 2
+        borderWidth: 2,
       },
       {label: '2023',
         borderColor: 'rgba(145, 145, 255, 1)',

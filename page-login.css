@@ -55,7 +55,7 @@ strong {
 }
 
  .formulario {
-    width: 400px;
+    width: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -111,6 +111,7 @@ strong {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 15px;
     
 } 
 

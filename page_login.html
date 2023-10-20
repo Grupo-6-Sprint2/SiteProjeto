@@ -116,8 +116,13 @@
         email == 'samuel@saveblood.com' && senha == 'samuel123' ||
         email == 'victor@saveblood.com' && senha == 'victor123') {
 
-        // permite que interagir com url
-        window.location.href = 'dashboardindex.html';
+          span_confirmacao.innerHTML = `Acessando ...`
+
+
+        // demora 3 segundos para mudar de pagina
+        setTimeout(function() {
+          window.location.href = 'dashboardindex.html';
+        }, 3000); // = 3 segundos
 
       }
 

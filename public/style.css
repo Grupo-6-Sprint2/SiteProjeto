@@ -1,0 +1,171 @@
+
+*{
+    font-family: Arial;
+}
+
+body{
+    /* background-color: #263F6B; */
+    background-image: url('assets/imgs/fundo.png');
+    background-size: cover;
+}
+
+.header {
+background-color: rgb(82, 82, 153);
+width: 100%;
+height: 100px;
+display: flex;
+justify-content: end;
+align-items: center;
+
+}
+
+.logo {
+    display: flex;
+    justify-content: end;
+}
+
+.principal{
+    display: flex;
+    justify-content: center;
+}
+
+#i_title{
+    color: white;
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.form{
+    background-color: rgb(241, 241, 241);
+    border: solid rgb(180, 180, 180) 10px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    font-weight: 800;
+}
+
+.resultado {
+    background-color: rgb(241, 241, 241);
+    border: solid rgb(180, 180, 180) 10px;
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 25px;
+    margin: 10px;
+    border-radius: 20px;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    /* texto do resultado */
+    color: #333;
+    font-size: 25px;
+}
+
+.sifrao {
+    /* animação do sifrão */
+    animation-name: girandinho;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-delay: 2s;
+}
+
+@keyframes girandinho{
+from {transform: (-0.10turn);}
+to {transform: rotate(-0.04turn);}
+}
+
+.span_text{
+    color: #333;
+    font-size: large;
+    font-weight: 530;
+}
+
+.input_informacao{
+    width: 200px;
+    height: 30px;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(212, 210, 210);
+}
+
+#button_botao{
+    background-color: rgb(182, 22, 67);
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#button_botao:hover{
+    background-color: #801932 ;
+}
+
+
+#div b{
+    color: rgb(19, 202, 95);
+    text-decoration: underline;
+}
+
+#div i{
+    color: rgb(252, 71, 71);
+    font-weight: 800;
+    text-decoration: underline;
+}
+
+/* lugarP/info */
+
+.lugarPinfo {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    height: 190px;
+}
+
+.informacoes {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: start;
+}
+
+.bolsa img{
+    height: 150px;
+}
+
+#info {
+width: 750px;
+color: rgb(255, 255, 255);
+font-weight: 800;
+display: flex;
+justify-content: end;
+align-items: center;
+font-size: 25px;
+
+animation-name: aparecendo;
+animation-duration: 4s;
+}
+
+@keyframes aparecendo {
+
+from {color: rgba(252, 71, 71, 0);}
+to {color:  rgb(255, 255, 255);}
+
+from {width: 1000px;}
+to {width:  750px;}
+}

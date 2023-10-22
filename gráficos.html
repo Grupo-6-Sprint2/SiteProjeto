@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>gráficos</title>
+    <link rel="stylesheet" href="dashboardStyle.css">
+    <link rel="stylesheet" href="graficos.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ------------------------------------------------------------------ HEADER --------------------------------------------------------------- -->
+<div class="header">
+
+    <div class="logo">
+        <h1>SaveBlood</h1>    
+    </div>
+
+</div>  
+  <!-- ------------------------------------------------------------- FIM DA HEADER ---------------------------------------------------- ------- -->
+
+
+<div class="tudo">
+
+
+      <!-- ------------------------------------------------------   div da esquerda ----------------------------------------------------------- -->
+
+    <div class="parteEsquerda">
+        <div class="lista">
+            <span>ESTOQUES</span>
+
+            <div class="estoque">Estoque Norte</div>
+            <div class="estoque">Estoque Leste</div>
+            <div class="estoque">Estoque Sul</div>
+            <div class="estoque">Estoque Oeste</div>
+        </div>
+
+    </div>
+
+
+      <!-- ------------------------------------------------------ fim div da esquerda ---------------------------------------------------------- -->
+
+
+    <!-- ------------------------------------------------------------- sensores ---------------------------------------------------------------- -->
+
+    <div class="espaço_sensores">
+
+        <!-- sensor 1 -->
+        <div id="sensorDiv" class="container_sensor">
+            <div class="metadeCima">   <!--div com a metade de cima (imagem e dados) -->
+                <div class="sensor"> <!--imagem do sensor-->
+                    <img src="lm35.png" width="100%">
+                </div>
+
+                <div class="dadosSensores">
+                    <span class="identificação"> Sensor #1012</span>
+                    <span class="geladeira"> Geladeira: 012</span>
+                    <div class="status"> <span>status:</span> <span id="joinha">&#128077;</span></div>
+                    
+                </div> 
+            </div >        
+                
+            <div class="metadeBaixo">   <!--div com a metade de baixo (status e temperatura) -->
+                <div class="grafico_linha" style="height:100%; width:70%">
+                    <canvas id="myChart"></canvas>
+                </div>
+
+                <input type="text" value="4.2" id="temperaturaValor" onkeydown="funcao()">
+            </div>
+        </div>
+
+                <!-- sensor 2 -->
+        <div class="container_sensor">
+            <div class="metadeCima">   <!--div com a metade de cima (imagem e dados) -->
+                <div class="sensor"> <!--imagem do sensor-->
+                    <img src="lm35.png" width="100%">
+                </div>
+
+                <div class="dadosSensores">
+                    <span class="identificação"> Sensor #1013</span>
+                    <span class="geladeira"> Geladeira: 013</span>
+                    <div class="status"> <span>status:</span> <span id="joinha">&#128077;</span></div>
+                    
+                </div> 
+            </div >        
+                
+            <div class="metadeBaixo">   <!--div com a metade de baixo (status e temperatura) -->
+                <div class="grafico_linha" style="height:100%; width:70%">
+                    <canvas id="myChart2"></canvas>
+                </div>
+
+                <input type="text" value="2,3">
+            </div>
+        </div>
+
+                <!-- sensor 3 -->
+        <div id="sensorDiv" class="container_sensor">
+            <div class="metadeCima">   <!--div com a metade de cima (imagem e dados) -->
+                <div class="sensor"> <!--imagem do sensor-->
+                    <img src="lm35.png" width="100%">
+                </div>
+
+                <div class="dadosSensores">
+                    <span class="identificação"> Sensor #1014</span>
+                    <span class="geladeira"> Geladeira: 014</span>
+                    <div class="status"> <span>status:</span> <span id="joinha">&#128077;</span></div>
+                    
+                </div> 
+            </div >        
+                
+            <div class="metadeBaixo">   <!--div com a metade de baixo (status e temperatura) -->
+                <div class="grafico_linha" style="height:100%; width:70%">
+                    <canvas id="myChart3"></canvas>
+                </div>
+
+                <input type="text" value="3,2">
+            </div>
+        </div>
+
+                 <!-- sensor 4 -->
+        <div class="container_sensor">
+            <div class="metadeCima">   <!--div com a metade de cima (imagem e dados) -->
+                <div class="sensor"> <!--imagem do sensor-->
+                    <img src="lm35.png" width="100%">
+                </div>
+
+                <div class="dadosSensores">
+                    <span class="identificação"> Sensor #1015</span>
+                    <span class="geladeira"> Geladeira: 015</span>
+                    <div class="status"> <span>status:</span> <span id="joinha">&#128077;</span></div>
+                    
+                </div> 
+            </div >        
+                
+            <div class="metadeBaixo">   <!--div com a metade de baixo (status e temperatura) -->
+                <div class="grafico_linha" style="height:100%; width:70%">
+                    <canvas id="myChart4"></canvas>
+                </div>
+
+                <input type="text" value="2,2">
+            </div>
+        </div>
+        
+                                <!-- sensor 5 -->
+        <div class="container_sensor">
+            <div class="metadeCima">   <!--div com a metade de cima (imagem e dados) -->
+                <div class="sensor"> <!--imagem do sensor-->
+                    <img src="lm35.png" width="100%">
+                </div>
+
+                <div class="dadosSensores">
+                    <span class="identificação"> Sensor #1016</span>
+                    <span class="geladeira"> Geladeira: 016</span>
+                    <div class="status"> <span>status:</span> <span id="joinha">&#128077;</span></div>
+                    
+                </div> 
+            </div >        
+                
+            <div class="metadeBaixo">   <!--div com a metade de baixo (status e temperatura) -->
+                <div class="grafico_linha" style="height:100%; width:70%">
+                    <canvas id="myChart5"></canvas>
+                </div>
+
+                <input type="text" value="3,4">
+            </div>
+        </div>
+
+
+
+    </div>
+
+</div>
+
+  <button onclick="funcao()">simular</button>
+</body>
+</html>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ['12:00', '13:00', '14:00', '15:00'],
+    datasets: [{
+      label: 'temp',
+      borderColor: 'rgba(255, 99, 131, 1)',
+      backgroundColor: 'rgba(255, 99, 131, 1)',
+      data: [2, 3, 3, 4],
+      borderWidth: 2,
+    },
+    ]
+    
+  },
+  options: {
+    scales: {
+      y: {
+        max: 6,
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const ctx2 = document.getElementById('myChart2');
+
+new Chart(ctx2, {
+  type: 'line',
+  data: {
+    labels: ['12:00', '13:00', '14:00', '15:00'],
+    datasets: [{
+      label: 'temp',
+      borderColor: 'rgba(79, 131, 226, 1)',
+      backgroundColor: 'rgba(79, 131, 226, 1)',
+      data: [5, 2, 5, 2],
+      borderWidth: 2,
+    },
+    ]
+    
+  },
+  options: {
+    scales: {
+      y: {
+        max: 6,
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const ctx3 = document.getElementById('myChart3');
+
+new Chart(ctx3, {
+  type: 'line',
+  data: {
+    labels: ['12:00', '13:00', '14:00', '15:00'],
+    datasets: [{
+      label: 'temp',
+      borderColor: 'rgba(223, 163, 0, 1)',
+      backgroundColor: 'rgba(223, 163, 0, 1)',
+      data: [2, 5, 2, 3],
+      borderWidth: 2,
+    },
+    ]
+    
+  },
+  options: {
+    scales: {
+      y: {
+        max: 6,
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const ctx4 = document.getElementById('myChart4');
+
+new Chart(ctx4, {
+  type: 'line',
+  data: {
+    labels: ['12:00', '13:00', '14:00', '15:00'],
+    datasets: [{
+      label: 'temp',
+      borderColor: 'rgba(91, 48, 104, 1)',
+      backgroundColor: 'rgba(91, 48, 104, 1)',
+      data: [2, 4, 5, 2],
+      borderWidth: 2,
+    },
+    ]
+    
+  },
+  options: {
+    scales: {
+      y: {
+        max: 6,
+        beginAtZero: true
+      }
+    }
+  }
+});
+
+const ctx5 = document.getElementById('myChart5');
+
+new Chart(ctx5, {
+  type: 'line',
+  data: {
+    labels: ['12:00', '13:00', '14:00', '15:00'],
+    datasets: [{
+      label: 'temp',
+      borderColor: 'rgba(30, 129, 80, 1)',
+      backgroundColor: 'rgba(30, 129, 80, 1)',
+      data: [5, 3, 3, 2],
+      borderWidth: 2,
+    },
+    ]
+    
+  },
+  options: {
+    scales: {
+      y: {
+        max: 6,
+        beginAtZero: true
+      }
+    }
+  }
+});
+</script>
+
+<script>
+
+function funcao() {
+
+var cor = getElementById('sensorDiv');
+var temp = Number(temperaturaValor.value);
+
+
+if (temp > 6 || temp < 2) {
+
+  document.sensorDiv.style.backgroundColor = 'red';
+}
+
+
+}
+</script>

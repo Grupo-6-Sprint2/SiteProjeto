@@ -1,7 +1,7 @@
 .tudo {
-width: 100%;
-height: 89vh;
-display: flex;
+    width: 100%;
+    height: 89vh;
+    display: flex;
 }
 
 .parteEsquerda {
@@ -20,35 +20,22 @@ display: flex;
     display: flex;
     flex-direction: column;
     align-items: center;
-    
+
     font-weight: 700;
-font-size: large;
+    font-size: large;
 }
 
 .espaço_sensores {
-width: 100%;
-height: 100%;
-background-color: rgb(226, 226, 226);
-display: flex;
-justify-content: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(226, 226, 226);
+    display: flex;
+    justify-content: center;
 
 }
 
 .container_sensor {
-background-color: rgb(189, 201, 212);    
-border-radius: 10px;
-width: 225px;
-height: 250px;
-margin: 15px;
-display: flex;
-flex-direction: column;
-cursor: pointer;
-border: solid;
-border-color: rgb(93, 135, 182);
-}
-
-.container_sensor_alterado {
-    background-color: rgb(252, 176, 14);    
+    background-color: rgb(189, 201, 212);
     border-radius: 10px;
     width: 225px;
     height: 250px;
@@ -56,88 +43,101 @@ border-color: rgb(93, 135, 182);
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    }
+    border: solid;
+    border-color: rgb(93, 135, 182);
+}
+
+.container_sensor_alterado {
+    background-color: rgb(252, 176, 14);
+    border-radius: 10px;
+    width: 225px;
+    height: 250px;
+    margin: 15px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+}
 
 .metadeCima {
-display: flex;
+    display: flex;
 }
 
 .metadeBaixo {
-display: flex;
-height: 50%;
+    display: flex;
+    height: 50%;
 }
 
 
 .sensor {
-width: 15%;
-height: 45%;
-margin: 20px;
+    width: 15%;
+    height: 45%;
+    margin: 20px;
 }
 
 .dadosSensores {
-display: flex;
-justify-content: center;
-align-items: center;
-flex-direction: column;
-height: 50%;
-margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    margin-top: 16px;
 }
 
 .identificação {
-background-color: rgb(134, 111, 156);  
-color: rgb(247, 240, 255);  
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 25px;
-width: 135px;
-height: 30px;
-font-size: 20px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-border-radius: 10px;
+    background-color: rgb(134, 111, 156);
+    color: rgb(247, 240, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
+    width: 135px;
+    height: 30px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
 }
 
 .geladeira {
-background-color: rgb(134, 111, 156);  
-color: rgb(247, 240, 255); 
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 10px;
-width: 135px;
-height: 30px;
-font-size: 19px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-border-radius: 10px;
+    background-color: rgb(134, 111, 156);
+    color: rgb(247, 240, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    width: 135px;
+    height: 30px;
+    font-size: 19px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
 }
 
 .status {
-background-color: rgb(189, 201, 212);       
-color: rgb(56, 21, 95);   
-margin-top: 10px;
-display: flex;
-justify-content: space-around;
-align-items: center;
-width: 135px;
-height: 20px;
-font-size: 20px;
-font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-border-radius: 10px;
+    background-color: rgb(189, 201, 212);
+    color: rgb(56, 21, 95);
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 135px;
+    height: 20px;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 10px;
 }
 
-.container_sensor input{
-width: 50px;
-height: 40px;
-border: 0;
-background-color: rgb(189, 201, 212);   
-/* background-color: rgb(90, 109, 99);  */
-font-size: 35px;
-display: flex;
-text-align: end;
-align-self: end;
-margin: 0px 5px 5px 5px;
+.container_sensor input {
+    width: 50px;
+    height: 40px;
+    border: 0;
+    background-color: rgb(189, 201, 212);
+    /* background-color: rgb(90, 109, 99);  */
+    font-size: 35px;
+    display: flex;
+    text-align: end;
+    align-self: end;
+    margin: 0px 5px 5px 5px;
 }
 
 #joinha {
-margin-bottom: 5px;
+    margin-bottom: 5px;
 }

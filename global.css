@@ -1,137 +1,148 @@
 :root {
-    --blue-dark: #030d4f;
-    --blue-medium: #1d4ed8;
-    --blue-light: #3b82f6;
-    --blue-background: #60a5fa;
-    --main-white: #e4e4e7;
+  --blue-dark: #030d4f;
+  --blue-medium: #1d4ed8;
+  --blue-light: #3b82f6;
+  --blue-background: #60a5fa;
+  --main-white: #e4e4e7;
+}
+
+* {
+  font-family: 'Poppins', sans-serif;
 }
 
 /* ----- HEADER INICIO -----*/
 
+a {
+  text-decoration: none;
+}
+
 header {
-    width: 100%;
+  background-color: var(--blue-light);
+  height: 70px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
-    background-color: var(--blue-background);
-
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+header .logo h1 {
+  color: var(--main-white)
 }
 
 ul {
-    display: flex;
-    align-items: center;
-    gap: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
 }
 
 li {
-    list-style: none;
+  list-style: none;
 }
 
-header a {
-    background-color: var(--blue-medium);
-    color: var(--main-white);
-    padding: 0.7rem 2rem;
+header ul .button {
+  background-color: var(--blue-medium);
+  color: black;
+  padding: 0.7rem 2rem;
 
-    border: none;
-    border-radius: 0.5rem;
+  border: none;
+  border-radius: 0.5rem;
 
-    cursor: pointer;
-    transition: 0.2s;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-header a:hover {
-    color: var(--main-white);
-    background-color: var(--blue-dark);
-    /*#1d4ed8*/
+header ul a:hover {
+  color: var(--main-white);
+  background-color: var(--blue-dark);
+  /*#1d4ed8*/
 }
 
 .container {
-    display: flex;
-    width: 80%;
-    margin: auto;
+  display: flex;
+  width: 80%;
+  margin: auto;
 }
 
 footer {
-    margin-top: 5rem;
-    background-color: var(--blue-dark);
-    padding: 3rem 0;
-    color: var(--main-white);
+  margin-top: 5rem;
+  background-color: var(--blue-dark);
+  padding: 3rem 0;
+  color: var(--main-white);
 }
 
 footer .container {
-    justify-content: center;
-    width: 100%;
+  justify-content: center;
+  width: 100%;
 }
 
 .dividerFooter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contacts {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: 3rem;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 3rem;
 }
 
 .contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .contact img {
-    width: 40px;
+  width: 40px;
 }
 
 .infoContact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .footer .input {
-    background-color: #052f6c;
-    border: 0px 0px 4px 0px white;
+  background-color: #052f6c;
+  border: 0px 0px 4px 0px white;
 }
 
 .divider {
-    height: 2px;
-    width: 80%;
-    background-color: gray;
+  height: 2px;
+  width: 80%;
+  background-color: gray;
 }
 
 .footerDown {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .footerLogo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .footerLogo img {
-    width: 200px;
+  width: 200px;
 }
 
 .redesSocial {
-    display: flex;
-    flex-direction: column;
-    align-items: end;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
 }
 
 .iconSocial {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
 .iconSocial img {
-    width: 30px;
+  width: 30px;
 }

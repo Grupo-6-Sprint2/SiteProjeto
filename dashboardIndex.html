@@ -1,161 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>dashboards</title>
-    <link rel="stylesheet" href="dashboardStyle.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-</head>
-<body>
-<!-- HEADER -->
-<div class="header">
-    <div class="container">
-      <div class="logo">
-        <h1>SaveBlood</h1>
-      </div>
-      <ul style="margin-left: 100px">
-        <li><a href="https://www.google.com/"> Sobre nós</a></li>
-        <li>Projetos</li>
-        <li>Membros</li>
-        <li>Contato</li>
-      </ul>
-      <div class="btn_login" style="margin-left: 200px">Login</div>
-      <div
-        href="page_cadastro.html"
-        class="btn_login"
-        style="margin-left: 20px"
-      >
-        Cadastro
-      </div>
-    </div>
-  </div>
-</div>  
-  <!-- FIM DA HEADER -->
 
-  <div style="display: flex; height: 879px;">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dashboards</title>
+  <link rel="stylesheet" href="dashboardStyle.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <main>
 
     <!-- COISINHA DO LADO -->
     <div class="esquerda">
       <div class="lista">
-          <span>ESTOQUES</span>
-  
-          <div class="estoque">Estoque Norte</div>
-          <div class="estoque">Estoque Leste</div>
-          <div class="estoque">Estoque Sul</div>
-          <div class="estoque">Estoque Oeste</div>
+        <span>ESTOQUES</span>
+
+        <div class="estoque">Estoque Norte</div>
+        <div class="estoque">Estoque Leste</div>
+        <div class="estoque">Estoque Sul</div>
+        <div class="estoque">Estoque Oeste</div>
       </div>
-  </div>
-      <!-- FIM DA COISINHA DO LADO -->
+    </div>
+    <!-- FIM DA COISINHA DO LADO -->
 
 
-<!-- VISÃO GERAL -->
-<div class="geral">
-   
+    <!-- VISÃO GERAL -->
+    <div class="geral">
+
       <!-- nome + barra de pesquisa -->
 
       <div class="BemVindo">
         <div>
-        <span>Bem vindo, Samuel</span>
+          <span>Bem vindo, Samuel</span>
         </div>
-    
+
         <div style="display: flex; justify-content: space-evenly;width: 650px; align-items: center;">
-        <input id="input_pesquisa" placeholder="Pesquisar">
-        <span>Samuel</span>  
-        <div class="foto"></div>  
+          <input id="input_pesquisa" placeholder="Pesquisar">
+          <span>Samuel</span>
+          <div class="foto"></div>
         </div>
       </div>
- 
-  <div class="dashboards">
-      
-      <!-- cards -->
-      <div style="display: flex; width: 100%;"> <!-- container com tudo debaixo da barra de cima -->
 
+      <div class="dashboards">
 
-          
-        <div class="status"> <!-- div utilizada para manter os cards e o gráfico de barras na mesma coluna -->
-                               
-                               <div class="container"> <!-- container contendo os cards -->
-                               
-                               
-                                 <!-- card1 -->
-                                 <div class="card">
-                                   <div style="margin: 5px;">
-                                     <span>Número de sensores</span>
-                                     <div style="display: flex; margin-top: 10px;">
-                                       <div class="barra azul"></div>
-                                       <b>2532</b>
-                                     </div>
-                                   </div>
-                                 </div>
-                               
-                                 <!-- card2 -->
-                                 <div class="card">
-                                   <div style="margin: 5px;">
-                                     <span>Quantidade de geladeiras</span>
-                                     <div style="display: flex; margin-top: 10px;">
-                                         <div class="barra amarelo"></div>
-                                         <b>3647</b>
-                                     </div>
-                                   </div>
-                                 </div>
-                               
-                                 <!-- card3 -->
-                                 <div class="card">
-                                   <div style="margin: 5px;">
-                                     <span>Status</span>
-                                     <div style="display: flex; margin-top: 10px;">
-                                         <div class="barra verde"></div>
-                                         <b>Tudo ok!</b>
-                                     </div>
-                                   </div>
-                                 </div>
-                               </div>
-                             
-                             
-                             <!-- gráfico -->
-                             <div class="grafico" style="position: relative; height:52vh; width:42vw">
-                               <span>QUANTIDADE LITROS DE SANGUE PERDIDOS</span>
-                               <canvas id="myChart"></canvas>
-                             </div>
-         </div>                     
-    
-         <div class="rolha"> <!--div para o gráfico de rolhas + dados adicionais-->
-
-                          <div style="display: flex; flex-direction: column; align-items: center;"> 
-                              <div class="perdidos">
-                                  <span>LITROS DE SANGUE PERDIDOS NO MÊS</span>
-                              </div>
-
-
-                              <!-- grafico de rolha -->
-                              <div class="graficoRolha" style="position: relative; height:40vh; width:20vw;">
-                                <canvas id="myChart2"></canvas>
-                              </div>
-
-                          </div>
-
-                              <div class="informações">
-                                <span>Total de litros armazenado: <br>
-                                      Total de litros Perdidos: 
-                                </span>
-
-                                <span>1500L<br>
-                                      150
-                                L</span>
-                              </div>
-
-        </div>
+        <!-- cards -->
+        <div class="graphics"> <!-- container com tudo debaixo da barra de cima -->
 
 
 
-</div>  <!--fim da div "dashboards" -->
+          <div class="status"> <!-- div utilizada para manter os cards e o gráfico de barras na mesma coluna -->
+
+            <div class="container"> <!-- container contendo os cards -->
 
 
-<!-- FIM DA VISÃO GERAL -->
+              <!-- card1 -->
+              <div class="card">
+                <div style="margin: 5px;">
+                  <span>Número de sensores</span>
+                  <div style="display: flex; margin-top: 10px;">
+                    <div class="barra azul"></div>
+                    <b>2532</b>
+                  </div>
+                </div>
+              </div>
 
-</div>
+              <!-- card2 -->
+              <div class="card">
+                <div style="margin: 5px;">
+                  <span>Quantidade de geladeiras</span>
+                  <div style="display: flex; margin-top: 10px;">
+                    <div class="barra amarelo"></div>
+                    <b>3647</b>
+                  </div>
+                </div>
+              </div>
+
+              <!-- card3 -->
+              <div class="card">
+                <div style="margin: 5px;">
+                  <span>Status</span>
+                  <div style="display: flex; margin-top: 10px;">
+                    <div class="barra verde"></div>
+                    <b>Tudo ok!</b>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- gráfico -->
+            <div class="grafico" style="position: relative; height:52vh; width:42vw">
+              <span>QUANTIDADE LITROS DE SANGUE PERDIDOS</span>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+
+          <div class="rolha"> <!--div para o gráfico de rolhas + dados adicionais-->
+
+            <div style="display: flex; flex-direction: column; align-items: center;">
+              <div class="perdidos">
+                <span>LITROS DE SANGUE PERDIDOS NO MÊS</span>
+              </div>
+
+
+              <!-- grafico de rolha -->
+              <div class="graficoRolha" style="position: relative; height:40vh; width:20vw;">
+                <canvas id="myChart2"></canvas>
+              </div>
+
+            </div>
+
+            <div class="informações">
+              <span>Total de litros armazenado: <br>
+                Total de litros Perdidos:
+              </span>
+
+              <span>1500L<br>
+                150
+                L</span>
+            </div>
+
+          </div>
+
+
+
+        </div> <!--fim da div "dashboards" -->
+
+
+        <!-- FIM DA VISÃO GERAL -->
+
+      </div>
 </body>
+
 </html>
 
 <script>
@@ -172,15 +151,16 @@
         data: [870, 290, 100, 450, 220, 590, 90, 420, 900, 20, 130, 521],
         borderWidth: 2,
       },
-      {label: '2023',
+      {
+        label: '2023',
         borderColor: 'rgba(145, 145, 255, 1)',
         backgroundColor: 'rgba(145, 145, 255, 1)',
         data: [10, 100, 80, 50, 320, 100, 40, 220, 100, 0],
         borderWidth: 2
       },
-      
+
       ]
-      
+
     },
     options: {
       scales: {
@@ -194,24 +174,24 @@
 
   const ctx2 = document.getElementById('myChart2');
 
-new Chart(ctx2, {
-  type: 'doughnut',
-  data: {
-    labels: ['Total', 'Perdidos'],
-    datasets: [{
-      label: 'litros de sangue',
-      backgroundColor: [
-      'rgba(67, 209, 67, 1)',
-      'rgba(255, 99, 131, 1)'
-    ],
-      data: [1500, 150],
-      borderWidth: 0
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Total', 'Perdidos'],
+      datasets: [{
+        label: 'litros de sangue',
+        backgroundColor: [
+          'rgba(67, 209, 67, 1)',
+          'rgba(255, 99, 131, 1)'
+        ],
+        data: [1500, 150],
+        borderWidth: 0,
+      },
+      ]
+
     },
-  ]
-    
-  },
-  hoverOffset: 4
-});
+    hoverOffset: 4
+  });
 
 
 </script>

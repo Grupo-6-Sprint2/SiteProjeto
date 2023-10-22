@@ -31,7 +31,7 @@
     background-color: rgb(226, 226, 226);
     display: flex;
     justify-content: center;
-
+    overflow: auto;
 }
 
 .container_sensor {

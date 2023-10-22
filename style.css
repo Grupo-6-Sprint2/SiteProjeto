@@ -1,8 +1,8 @@
-*{
+* {
     font-family: 'inika';
 }
 
-body{
+body {
     margin: 0;
     justify-content: center;
     background-color: white;
@@ -13,43 +13,43 @@ body{
 
 /* navbar */
 
-.header{
+.header {
     background-color: #357CD0;
 }
 
-.header .container{
+.header .container {
     width: 80%;
     margin: auto;
     display: flex;
-    justify-content: center ;
+    justify-content: center;
     align-items: center;
     height: 60px;
 }
 
-.container ul{
+.container ul {
     width: 400px;
     list-style: none;
     display: flex;
     justify-content: space-between;
-    color:white;
+    color: white;
 }
 
-.container li{
+.container li {
     font-family: 'inika';
 
 }
 
-.container ul li a{
+.container ul li a {
     text-decoration: none;
     color: white;
     font-family: 'Times New Roman', Times, serif;
 }
 
-.header .container .btn_login{
+.header .container .btn_login {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #fafafa ;
+    background-color: #fafafa;
     color: black;
     font-size: 16px;
     border-radius: 10px;
@@ -63,18 +63,18 @@ body{
 
 /* banner (imagem) */
 
-.container{
+.container {
     display: flex;
     width: 80%;
     margin: auto;
 }
 
-.banner{
+.banner {
     height: 500px;
     background-image: url(images/fundo.jpg);
 }
 
-.banner .container{
+.banner .container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -82,14 +82,14 @@ body{
     height: 470px;
 }
 
-.banner h3{
+.banner h3 {
     color: white;
     font-size: 50px;
     font-family: 'inika';
 }
 
-.banner .btn{
-    background-color: #357CD0 ;
+.banner .btn {
+    background-color: #357CD0;
     color: white;
     font-size: 20px;
     border-radius: 10px;
@@ -101,7 +101,7 @@ body{
     box-shadow: 1px 2px 2px 0px black;
 }
 
-.banner .btn a{
+.banner .btn a {
     text-decoration: none;
     color: white;
     font-family: 'Times New Roman', Times, serif;
@@ -113,30 +113,30 @@ body{
 
 
 /* cartões */
-.social{
+.social {
     background-color: #D9D9D9;
     display: flex;
     height: 30%;
 }
 
-.social .container{
+.social .container {
     justify-content: center;
 }
 
-.social .container .boxes{
+.social .container .boxes {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
 }
 
-.caixa{
+.caixa {
     width: 300px;
     height: 170px;
     border-radius: 10px;
     margin-bottom: 390px;
 }
 
-.box{
+.box {
     display: flex;
     justify-content: center;
     background-color: #F0EDE4;
@@ -151,14 +151,14 @@ body{
     box-shadow: 12px 12px 0px 0px #357CD0;
 }
 
-.box h4{
+.box h4 {
     font-family: 'inika';
     font-size: 16px;
     margin: 0;
     color: black;
 }
 
-.box p{
+.box p {
     display: flex;
     font-size: 14px;
     width: 250px;
@@ -166,7 +166,8 @@ body{
     justify-content: center;
     margin: 0;
 }
-.social .container .boxes .caixa .box img{
+
+.social .container .boxes .caixa .box img {
     width: 70px;
     border: 0;
     border-radius: 100%;
@@ -176,97 +177,92 @@ body{
 
 
 /* sobre nos */
-.sobre-fundo{
+.sobre-fundo {
     display: flex;
 }
 
-.sobre-fundo .container{
+.sobre-fundo .container {
     justify-content: center;
     align-items: center;
 }
 
-.sobre-fundo .container .sobre-titulo{
+.sobre-fundo .container .sobre-titulo {
     margin-top: 200px;
     margin-left: 10px;
-    width: 87% ;
+    width: 87%;
     height: 60px;
     background-color: #052F6C;
     border-radius: 40px 40px 40px 0px;
 }
 
-.sobre-fundo .container .sobre-titulo h1{
+.sobre-fundo .container .sobre-titulo h1 {
     color: white;
     margin-left: 40%;
     margin-top: 8px;
 }
 
-.sobre-nos .container{
+.sobre-nos .container {
     display: flex;
 }
 
-.sobre-nos .container .texto{
+.sobre-nos .container .texto {
     display: flex;
     justify-content: space-around;
     margin-left: 7%;
 }
 
-.sobre-nos .container img{
+.sobre-nos .container img {
     width: 320px;
     height: 400px;
-    border-radius: 0px 0px 60px 60px ;
-    box-shadow: 1px 1px 0px 1px  #052F6C;
+    border-radius: 0px 0px 60px 60px;
+    box-shadow: 1px 1px 0px 1px #052F6C;
     margin-top: 0;
 
 }
 
-.sobre-nos .container .texto .txt{
+.sobre-nos .container .texto .txt {
     width: 600px;
     height: 60px;
     margin-left: 20px;
     font-size: 20px;
 }
 
-
-
-
-
 /* projeto */
-.projeto{
+.projeto {
     margin-top: 100px;
     background: linear-gradient(130deg, #357CD0 55%, #052F6C 30%);
-    height:640px;
     display: flex;
 }
 
-.projeto .container{
+.projeto .container {
     justify-content: space-between;
     align-items: normal;
 }
 
-.projeto .container .texto h2{
+.projeto .container .texto h2 {
     font-size: 35px;
     color: white;
 }
 
-.projeto .container .texto p{
+.projeto .container .texto p {
     font-size: 17px;
     color: white;
     width: 490px;
 }
 
-.projeto .container .imagem img{
+.projeto .container .imagem img {
     width: 550px;
     height: 440px;
     border-radius: 10px;
     margin-top: 50px;
 }
 
-.projeto .container .btn_calculadora{
+.projeto .container .btn_calculadora {
     color: white;
     background-color: #052F6C;
     width: 150px;
     height: 40px;
-    border: 2px solid  white;
+    border: 2px solid white;
     border-radius: 10px;
     margin-left: 300px;
     margin-top: 30px;
@@ -279,23 +275,23 @@ body{
 
 
 /* membros titulo */
-.membro_titulo{
+.membro_titulo {
     display: flex;
 }
 
-.membro_titulo .container{
+.membro_titulo .container {
     justify-content: center;
     align-items: center;
 }
 
-.membro_titulo .container .texto{
+.membro_titulo .container .texto {
     margin-top: 10px;
-    width: 800px ;
+    width: 800px;
     background-color: #052F6C;
     border-radius: 100px 0 100px 0;
 }
 
-.membro_titulo .container .texto h1{
+.membro_titulo .container .texto h1 {
     margin-bottom: 10px;
     color: white;
     justify-content: center;
@@ -303,7 +299,7 @@ body{
     font-size: 36px;
 }
 
-.membro_titulo .container .texto p{
+.membro_titulo .container .texto p {
     margin-top: 10px;
     color: white;
     justify-content: center;
@@ -313,49 +309,48 @@ body{
 
 /* membros cartôes*/
 
-.membro-fundo{
-  margin-top: 100px;
+.membro-fundo {
+    margin-top: 100px;
 }
 
-.membro{
+.membro {
     display: flex;
 }
 
-.membro .container{
+.membro .container {
     justify-content: center;
 }
 
-.membro .container .boxes{
-    display:flex; 
-    justify-content: space-evenly; 
-    margin-top: 80px; 
+.membro .container .boxes {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 80px;
     width: 100%;
 }
 
-.membro .container .boxes .caixa{
-    height: 50px; 
+.membro .container .boxes .caixa {
+    height: 50px;
     width: 280px;
 }
 
-.membro .container .boxes .caixa .box{
-    height: 350px; 
-    width: 270px; 
-    background-color: #357CD0; 
-    box-shadow: 12px 12px 0px 0px  #052F6C;
+.membro .container .boxes .caixa .box {
+    height: 350px;
+    width: 270px;
+    background-color: #357CD0;
+    box-shadow: 12px 12px 0px 0px #052F6C;
     border: 1px solid white;
 }
 
-.membro .container .boxes .caixa .box h4{
+.membro .container .boxes .caixa .box h4 {
     font-size: 18px;
     color: white;
     margin-top: 60px;
     width: 70%;
 }
 
-.membro .container .boxes .caixa .box img{
+.membro .container .boxes .caixa .box img {
     background-color: white;
     width: 200px;
     height: 200px;
     border-radius: 80px;
 }
-

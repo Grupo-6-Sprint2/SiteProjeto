@@ -1,165 +1,84 @@
-:root {
-    --blue-dark: #030d4f;
-    --blue-medium: #1d4ed8;
-    --blue-light: #3b82f6;
-    --blue-background: #60a5fa;
-    --main-white: #e4e4e7;
-  }
-
-* {
-    font-family: 'Poppins', sans-serif;
-}
-
-body {
-    margin: 0;
-    
-}
-
-
-  a {
-    text-decoration: none;
-  }
-
-
-/* ----- HEADER ----- */
-
-/* INICIO HEADER */
-
-body {
-    margin: auto;
-    background-color:#d8d8d8 ;
-}
-
-
-.header {
-    background-color: #357CD0;
-    margin: 0px 0px 3px 0px;
-    
-}
-
-.header .container {
-    width: 80%;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header .container ul {
-    width: 400px;
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    color: white;
-    justify-content: space-around;
-    
-}
-
 html {
-    scroll-behavior: smooth;
-  }
-
-#li_home {
-    padding-left: 200px;
-}
-
-.header a {
-    color: white;
-    text-decoration: none;
-} 
-
-.header h1 {
-    color: white;
+  scroll-behavior: smooth;
 }
 
 .container {
-    display: flex;
-    width: 80%;
-    margin: auto;
+  display: flex;
+  width: 80%;
+  margin: auto;
 }
-
 
 /* --- INICIO BANNER --- */
 
-
-
 .imagem_login {
-    height: 100px;
-    width: 100px;
-    margin-bottom: 20px;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 20px;
 }
 
- .formulario {
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 40px 0px 0 0;
-    color: #000;
-    border-radius: 50px;
-    background: #e0e0e0;
-    box-shadow:  20px 20px 60px #bebebe,
-             -20px -20px 60px #ffffff;
-    padding: 15px 0;
+.formulario {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px 0 0;
+  color: #000;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  padding: 15px 0;
 }
 
 .banner .container {
-    display: flex;
-    justify-content: center;
-    flex-direction: row-reverse;
-    
+  display: flex;
+  justify-content: center;
+  flex-direction: row-reverse;
 }
 
 .banner .container .imagem_fundo {
-    width: 500px;
-    
-    
+  width: 500px;
 }
 
 .formulario input {
-    width: 700px;
-    border-radius: 10px;
-    border: none;
-    padding: 4px;
+  width: 700px;
+  border-radius: 10px;
+  border: none;
+  padding: 4px;
 }
 
 .formulario input:focus {
-    border: 3px solid #54a0ff;
+  border: 3px solid #54a0ff;
 }
 
 .formulario .campo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .formulario h2 {
-    font-family:'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 .formulario button {
-    
-    height: 35px;
-    background-color: #54a0ff;
-    font-weight: bold;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    
-} 
+  height: 35px;
+  background-color: #54a0ff;
+  font-weight: bold;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
 
 button:hover {
-    background-color: #2980b9; 
+  background-color: #2980b9;
 }
 
 .botao_cadastro:hover {
-    background-color: #2980b9; 
+  background-color: #2980b9;
 }
-
 
 .formulario input {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
-

@@ -7,10 +7,16 @@
 }
 
 * {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
-/* ----- HEADER INICIO -----*/
+body {
+  margin: 0;
+}
+
+strong {
+  color: var(--blue-medium);
+}
 
 a {
   text-decoration: none;
@@ -26,7 +32,7 @@ header {
 }
 
 header .logo h1 {
-  color: var(--main-white)
+  color: var(--main-white);
 }
 
 ul {

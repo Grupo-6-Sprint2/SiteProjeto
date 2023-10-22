@@ -1,158 +1,161 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cadastre-se</title>
+    <link rel="stylesheet" href="cadastro-empresa.css" />
+    <link rel="stylesheet" href="global.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <title>Cadastre-se</title>
-  <link rel="stylesheet" href="cadastro-empresa.css" />
-  <link rel="stylesheet" href="global.css" />
-</head>
-
-<body>
- <!-- Nosso Header -->
- <div class="header">
-  <div class="container">
-      <h1>
-          SaveBlood
-      </h1>
+  <body>
+    <!-- Nosso Header -->
+    <header>
+      <div class="logo">
+        <h1>Save<strong>Blood</strong></h1>
+      </div>
       <ul>
-          <li id="li_home">Home</li>
-          <li id="li_contato"><a href="#rodape">Contato</a></li>
-
+        <li><a href="page_home.html">Home</a></li>
+        <li>Contato</li>
+        <li>Quem somos</li>
       </ul>
-  </div>
-</div>
+    </header>
 
-  <!-- INICIO BANNER -->
+    <!-- INICIO BANNER -->
 
-  <div class="banner">
-    <div class="container">
-      
+    <div class="banner">
+      <div class="container">
+        <div class="formulario">
+          <h2>Informações do Responsável</h2>
 
-      <div class="formulario">
-        <h2>Informações do Responsável</h2>
+          <img
+            class="imagem_login"
+            src="images/simbolo-responsavel.png"
+            alt=""
+          />
+          <!--IMAGEM LOGIN -->
 
-        <img class="imagem_login" src="images/simbolo-responsavel.png" alt="" />
-        <!--IMAGEM LOGIN -->
-
-        <div class="campo">
-          <span>Nome:</span>
-          <input id="input_nome" />
-        </div>
-
-        <div class="campo">
-          <span>E-mail:</span>
-          <input id="input_email" />
-        </div>
-
-        <div class="campo">
-          <span>Senha:</span>
-          <input id="input_senha" type="password" placeholder="********" />
-        </div>
-
-        <div class="campo">
-          <span>Confirmar Senha:</span>
-          <input id="input_senha_confirma" type="password" placeholder="********" />
-        </div>
-
-        <div class="campo">
-          <span>DDD + Telefone</span>
-          <input type="tel" id="input_telefone" />
-        </div>
-
-        <h2>Informações da Empresa</h2>
-
-        <img class="imagem_login" src="images/simbolo-empresa.png" alt="" />
-        <!--IMAGEM LOGIN -->
-
-        <div class="campo">
-          <span>Nome Fantasia:</span>
-          <input id="input_nome_fantasia" />
-        </div>
-
-        <div class="campo">
-          <span>CNPJ:</span>
-          <input id="input_cnpj" />
-        </div>
-
-        <div class="campo">
-          <span>Endereço:</span>
-          <input id="input_endereco">
-        </div>
-
-        <div class="campo">
-          <span>CEP:</span>
-          <input id="input_cep"/>
-          <span>Bairro:</span>
-          <input id="input_bairro">
-        </div>
-
-        <div class="campo">
-          <span>DDD + Telefone</span>
-          <input type="tel" id="input_telefone" />
-        </div>
-
-  
-
-        <button onclick="cadastrar()">Cadastrar</button> <br>
-        <span style="margin-bottom: 10px;" id="span_confirmacao"></span>
-      </div>
-    </div>
-  </div>
-
-  <footer id="rodape">
-    <div class="container">
-      <div class="dividerFooter">
-        <div class="contacts">
-          <div class="contact">
-            <img src="images/location.svg" alt="" />
-            <div class="infoContact">
-              <h4>Endereço</h4>
-              <p style="font-size: 12px">
-                Rua Haddock Lobo, 595 São Paulo - SP
-              </p>
-            </div>
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="input_nome" />
           </div>
 
-          <div class="contact">
-            <img src="images/phone.svg" alt="" />
-            <div class="infoContact">
-              <h4>Telefone</h4>
-              <p style="font-size: 12px">(11) 3589-4043</p>
-            </div>
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="input_email" />
           </div>
 
-          <div class="contact">
-            <img src="images/letter.svg" alt="" />
-            <div class="infoContact">
-              <h4>E-mail</h4>
-              <p style="font-size: 12px">save.blood@sptech.school</p>
-            </div>
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="input_senha" type="password" placeholder="********" />
           </div>
-        </div>
-        <div class="divider"></div>
-        <div class="footerDown">
-          <div class="footerLogo">
-            <img src="images/logo.png" alt="" />
+
+          <div class="campo">
+            <span>Confirmar Senha:</span>
+            <input
+              id="input_senha_confirma"
+              type="password"
+              placeholder="********"
+            />
           </div>
-          <div class="redesSocial">
-            <h3>Nos siga!</h3>
-            <div class="iconSocial">
-              <img src="images/instagram-2016-5.svg" alt="" />
-              <img src="images/whatsapp-3.svg" alt="" />
-              <img src="images/facebook-3-2.svg" alt="" />
-            </div>
+
+          <div class="campo">
+            <span>DDD + Telefone</span>
+            <input type="tel" id="input_telefone" />
           </div>
+
+          <h2>Informações da Empresa</h2>
+
+          <img class="imagem_login" src="images/simbolo-empresa.png" alt="" />
+          <!--IMAGEM LOGIN -->
+
+          <div class="campo">
+            <span>Nome Fantasia:</span>
+            <input id="input_nome_fantasia" />
+          </div>
+
+          <div class="campo">
+            <span>CNPJ:</span>
+            <input id="input_cnpj" />
+          </div>
+
+          <div class="campo">
+            <span>Endereço:</span>
+            <input id="input_endereco" />
+          </div>
+
+          <div class="campo">
+            <span>CEP:</span>
+            <input id="input_cep" />
+            <span>Bairro:</span>
+            <input id="input_bairro" />
+          </div>
+
+          <div class="campo">
+            <span>DDD + Telefone</span>
+            <input type="tel" id="input_telefone" />
+          </div>
+
+          <button onclick="cadastrar()">Cadastrar</button> <br />
+          <span style="margin-bottom: 10px" id="span_confirmacao"></span>
         </div>
       </div>
     </div>
-  </footer>
-</body>
 
+    <footer id="rodape">
+      <div class="container">
+        <div class="dividerFooter">
+          <div class="contacts">
+            <div class="contact">
+              <img src="images/location.svg" alt="" />
+              <div class="infoContact">
+                <h4>Endereço</h4>
+                <p style="font-size: 12px">
+                  Rua Haddock Lobo, 595 São Paulo - SP
+                </p>
+              </div>
+            </div>
+
+            <div class="contact">
+              <img src="images/phone.svg" alt="" />
+              <div class="infoContact">
+                <h4>Telefone</h4>
+                <p style="font-size: 12px">(11) 3589-4043</p>
+              </div>
+            </div>
+
+            <div class="contact">
+              <img src="images/letter.svg" alt="" />
+              <div class="infoContact">
+                <h4>E-mail</h4>
+                <p style="font-size: 12px">save.blood@sptech.school</p>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="footerDown">
+            <div class="footerLogo">
+              <img src="images/logo.png" alt="" />
+            </div>
+            <div class="redesSocial">
+              <h3>Nos siga!</h3>
+              <div class="iconSocial">
+                <img src="images/instagram-2016-5.svg" alt="" />
+                <img src="images/whatsapp-3.svg" alt="" />
+                <img src="images/facebook-3-2.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <script>
@@ -166,27 +169,21 @@
     if (senha.length >= 8) {
       if (senha == senhaConfirma) {
         if (email == emailConfirma) {
-
           // Senha com menos de 8 caracteres
-      span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px;">Cadastro realizado com sucesso! <br> <br>
+          span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px;">Cadastro realizado com sucesso! <br> <br>
         Direcionando para pagina de Login ...
         </span>`;
 
-     // Aguardar 5 segundos antes de redirecionar para a página de login
-        setTimeout(function() {
-          window.location.href = 'page_login.html';
-        }, 3000); // 5000 milissegundos = 5 segundos
-
-        } 
-        
-        else {
+          // Aguardar 5 segundos antes de redirecionar para a página de login
+          setTimeout(function () {
+            window.location.href = "page_login.html";
+          }, 3000); // 5000 milissegundos = 5 segundos
+        } else {
           span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha ou e-mail preenchido <br>incorretamente!</span>`;
         }
       }
-    }
-    else {
+    } else {
       span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha deve ter pelo menos 8 caracteres!</span>`;
     }
-
   }
 </script>

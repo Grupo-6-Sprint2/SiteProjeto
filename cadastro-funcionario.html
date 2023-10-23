@@ -9,7 +9,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
       rel="stylesheet"
     />
-    <title>Cadastre-se</title>
+    <title>Cadastro de funcionario </title>
     <link rel="stylesheet" href="cadastro-empresa-funcionario.css" />
     <link rel="stylesheet" href="global.css" />
   </head>
@@ -28,16 +28,16 @@
     </header>
 
     <!-- INICIO BANNER -->
-
+<div class="formulario_funcionario">
     <div class="banner">
       <div class="container">
         <div class="formulario">
-          <h2>Informações do Responsável</h2>
+          <h2> Cadastro funcionário </h2>
 
           <img
             class="imagem_login"
-            src="images/simbolo-responsavel.png"
-            alt=""
+            src="images/simbolo-funcionario.svg"
+            alt="foto do funcionário"
           />
           <!--IMAGEM LOGIN -->
 
@@ -57,56 +57,31 @@
           </div>
 
           <div class="campo">
-            <span>Confirmar Senha:</span>
-            <input
-              id="input_senha_confirma"
-              type="password"
-              placeholder="********"
-            />
-          </div>
-
-          <div class="campo">
             <span>DDD + Telefone</span>
             <input type="tel" id="input_telefone" />
           </div>
 
-          <h2>Informações da Empresa</h2>
-
-          <img class="imagem_login" src="images/simbolo-empresa.png" alt="" />
-          <!--IMAGEM LOGIN -->
-
           <div class="campo">
-            <span>Nome Fantasia:</span>
-            <input id="input_nome_fantasia" />
-          </div>
-
-          <div class="campo">
-            <span>CNPJ:</span>
-            <input id="input_cnpj" />
-          </div>
-
-          <div class="campo">
-            <span>Endereço:</span>
+            <span>Cargo:</span>
             <input id="input_endereco" />
           </div>
 
           <div class="campo">
-            <span>CEP:</span>
-            <input id="input_cep" />
-            <span>Bairro:</span>
-            <input id="input_bairro" />
+            <span>Permissões:</span>
+            <select name="selecionar" id="selecionar_valor">
+                <option value=5 selected>Apenas visualização de relatórios e dashboards</option>
+                <option value=8>Acesso aos relatórios e dashboards, Permissão para editar, gravar ou excluir dados.</option>
+                <option value=13>Acesso irrestrito as telas e dados. Permissão para inserir ou excluir funcionários </option>
+              </select><br>
           </div>
 
-          <div class="campo">
-            <span>DDD + Telefone</span>
-            <input type="tel" id="input_telefone" />
-          </div>
-
+          
           <button onclick="cadastrar()">Cadastrar</button> <br />
           <span style="margin-bottom: 10px" id="span_confirmacao"></span>
         </div>
       </div>
     </div>
+</div>
 
     <footer id="rodape">
       <div class="container">
@@ -161,27 +136,19 @@
 <script>
   function cadastrar() {
     var senha = input_senha.value;
-    var senhaConfirma = input_senha_confirma.value;
-    var email = input_email.value;
-    var emailConfirma = input_email_confirma.value;
-    var telefone = input_telefone.value;
 
     if (senha.length >= 8) {
-      if (senha == senhaConfirma) {
-        if (email == emailConfirma) {
+      
           // Senha com menos de 8 caracteres
-          span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px;">Cadastro realizado com sucesso! <br> <br>
-        Direcionando para pagina de Login ...
+          span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px; display:flex; justify-content: center; flex-direction: column; align-items: center;">Cadastro realizado com sucesso! <br> <br>
+        <span><button onclick="cadastrar()">Cadastrar novo funcionário</button>
+        <button onclick="dashboard()">Ir para Dashboards</button></span>
         </span>`;
 
           // Aguardar 5 segundos antes de redirecionar para a página de login
-          setTimeout(function () {
+         /* setTimeout(cadastrar() {
             window.location.href = "page_login.html";
-          }, 3000); // 5000 milissegundos = 5 segundos
-        } else {
-          span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha ou e-mail preenchido <br>incorretamente!</span>`;
-        }
-      }
+          }, 3000); // 5000 milissegundos = 5 segundos */
     } else {
       span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha deve ter pelo menos 8 caracteres!</span>`;
     }

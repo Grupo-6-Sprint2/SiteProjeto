@@ -29,6 +29,21 @@ html {
   padding: 15px 0;
 }
 
+/* card do formulario - cadastro funcionario */
+.formulario_funcionario .banner .container .formulario {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0px 0 0;
+  color: #000;
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  padding: 15px 0;
+}
+/* ----------------------- */
+
 .banner .container {
   display: flex;
   justify-content: center;
@@ -46,7 +61,16 @@ html {
   padding: 4px;
 }
 
-.formulario input:focus {
+/* input e select do formulario - cadastro funcionario */
+.formulario_funcionario .banner .container .formulario input, select {
+  width: 440px;
+  border-radius: 10px;
+  border: none;
+  padding: 4px;
+}
+/* --------------------- */
+
+.formulario input, select:focus {
   border: 3px solid #54a0ff;
 }
 
@@ -79,6 +103,6 @@ button:hover {
   background-color: #2980b9;
 }
 
-.formulario input {
+.formulario input, select {
   margin-bottom: 20px;
 }

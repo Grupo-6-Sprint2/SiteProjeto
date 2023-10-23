@@ -45,9 +45,12 @@ li {
   list-style: none;
 }
 
+header ul a {
+  color: white;
+}
+
 header ul .button {
   background-color: var(--blue-medium);
-  color: black;
   padding: 0.7rem 2rem;
 
   border: none;
@@ -57,7 +60,7 @@ header ul .button {
   transition: 0.2s;
 }
 
-header ul a:hover {
+header ul .button:hover {
   color: var(--main-white);
   background-color: var(--blue-dark);
   /*#1d4ed8*/

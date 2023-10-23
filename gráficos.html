@@ -45,8 +45,7 @@
       <div class="espaço_sensores">
         <!-- sensor 1 -->
         <div id="sensorDiv" class="container_sensor">
-          
-          <div class="metadeCima" style="margin-top: -20xp;">
+          <div class="metadeCima" style="margin-top: -20xp">
             <!--div com a metade de cima (imagem e dados) -->
             <div class="sensor">
               <!--imagem do sensor-->
@@ -55,8 +54,8 @@
 
             <div class="dadosSensores">
               <a href="sensor.html">
-              <span class="identificação corAlt"> Sensor #1012</span>
-            </a>
+                <span class="identificação corAlt"> Sensor #1012</span>
+              </a>
               <span class="geladeira corAlt2"> Geladeira: 012</span>
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
@@ -70,7 +69,8 @@
               <canvas id="myChart"></canvas>
             </div>
 
-            <input class="container_sensor_input"
+            <input
+              class="container_sensor_input"
               type="text"
               value="4.2"
               id="temperaturaValor"
@@ -89,8 +89,12 @@
             </div>
 
             <div class="dadosSensores">
-              <span  id="corDados" class="identificação corAlt"> Sensor #1013</span>
-              <span  id="corDados" class="geladeira corAlt2"> Geladeira: 013</span>
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1013</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 013</span
+              >
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
               </div>
@@ -103,7 +107,13 @@
               <canvas id="myChart2"></canvas>
             </div>
 
-            <input  class="container_sensor_input" id="temperaturaValor" onkeyup="funcao()" type="text" value="2,3" />
+            <input
+              class="container_sensor_input"
+              id="temperaturaValor"
+              onkeyup="funcao()"
+              type="text"
+              value="2,3"
+            />
           </div>
         </div>
 
@@ -117,8 +127,12 @@
             </div>
 
             <div class="dadosSensores">
-              <span   id="corDados" class="identificação corAlt"> Sensor #1014</span>
-              <span   id="corDados" class="geladeira corAlt2"> Geladeira: 014</span>
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1014</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 014</span
+              >
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
               </div>
@@ -131,7 +145,13 @@
               <canvas id="myChart3"></canvas>
             </div>
 
-            <input  class="container_sensor_input" type="text" value="3,2" id="temperaturaValor" onkeyup="funcao()"/>
+            <input
+              class="container_sensor_input"
+              type="text"
+              value="3,2"
+              id="temperaturaValor"
+              onkeyup="funcao()"
+            />
           </div>
         </div>
 
@@ -145,8 +165,12 @@
             </div>
 
             <div class="dadosSensores">
-              <span   id="corDados" class="identificação corAlt"> Sensor #1015</span>
-              <span   id="corDados" class="geladeira corAlt2"> Geladeira: 015</span>
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1015</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 015</span
+              >
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
               </div>
@@ -159,7 +183,7 @@
               <canvas id="myChart4"></canvas>
             </div>
 
-            <input  class="container_sensor_input" type="text" value="2,2" />
+            <input class="container_sensor_input" type="text" value="2,2" />
           </div>
         </div>
 
@@ -173,8 +197,12 @@
             </div>
 
             <div class="dadosSensores">
-              <span   id="corDados" class="identificação corAlt"> Sensor #1016</span>
-              <span   id="corDados" class="geladeira corAlt2"> Geladeira: 016</span>
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1016</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 016</span
+              >
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
               </div>
@@ -187,12 +215,11 @@
               <canvas id="myChart5"></canvas>
             </div>
 
-            <input  class="container_sensor_input" type="text" value="3,4" />
+            <input class="container_sensor_input" type="text" value="3,4" />
           </div>
         </div>
       </div>
     </div>
-
   </body>
 </html>
 
@@ -329,17 +356,17 @@
 </script>
 
 <script>
-function funcao() {
+  function funcao() {
     var sensor = document.querySelector(".container_sensor");
     var temp = document.getElementById("temperaturaValor");
-    var cor = document.querySelector(".corAlt")
+    var cor = document.querySelector(".corAlt");
     var cor2 = document.querySelector(".corAlt2");
-    var corInput = document.querySelector(".container_sensor_input")
+    var corInput = document.querySelector(".container_sensor_input");
     var status = document.querySelector(".status");
     var joia = document.getElementById("joinha");
 
     if (temp.value >= 6 || temp.value <= 2) {
-      sensor.style.backgroundColor = '#ff0022';
+      sensor.style.backgroundColor = "#ff0022";
       sensor.style.borderColor = "#3b1111";
       cor.style.backgroundColor = "#3b1111";
       cor2.style.backgroundColor = "#3b1111";
@@ -347,19 +374,16 @@ function funcao() {
       status.style.backgroundColor = "#ff0022";
       status.style.color = "#3b1111";
       joia.innerHTML = "&#9888;";
-    }
-    else if (temp.value >= 5.5 || temp.value <= 2.5) {
-      sensor.style.backgroundColor = '#ffc342';
+    } else if (temp.value >= 5.5 || temp.value <= 2.5) {
+      sensor.style.backgroundColor = "#ffc342";
       sensor.style.borderColor = "#ee8742";
       cor.style.backgroundColor = "#86523b";
       cor2.style.backgroundColor = "#86523b";
       corInput.style.backgroundColor = "#ffc342";
       status.style.backgroundColor = "#ffc342";
       joia.innerHTML = "&#10071;";
-    }
-    else {
-      sensor.style.backgroundColor = 'rgb(189, 201, 212);';
+    } else {
+      sensor.style.backgroundColor = "rgb(189, 201, 212);";
     }
   }
-  
 </script>

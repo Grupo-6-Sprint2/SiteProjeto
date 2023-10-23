@@ -46,7 +46,9 @@
         <div style="display: flex; justify-content: space-evenly;width: 650px; align-items: center;">
           <input id="input_pesquisa" placeholder="Pesquisar">
           <span>Samuel</span>
-          <div class="foto"></div>
+          <div id="profile" onclick="viewExit()">
+            <div class="foto"></div>
+          </div>
         </div>
       </div>
 
@@ -98,7 +100,7 @@
 
 
             <!-- gráfico -->
-            <div class="grafico" style="position: relative; height:52vh; width:42vw">
+            <div class="grafico">
               <span>QUANTIDADE LITROS DE SANGUE PERDIDOS</span>
               <canvas id="myChart"></canvas>
             </div>
@@ -145,6 +147,7 @@
 
 <script>
   const ctx = document.getElementById('myChart');
+  var viewDivExit = 0;
 
   new Chart(ctx, {
     type: 'bar',
@@ -198,6 +201,16 @@
     },
     hoverOffset: 4
   });
+
+  function viewExit() {
+    viewDivExit = !viewDivExit
+    if(viewDivExit) {
+      profile.innerHTML = '<div class="foto"></div>'
+    } else {
+      profile.innerHTML = '<div class="foto"></div><div class="exit"><a href="page_login.html">Sair</a></div>'
+    }
+            
+  }
 
 
 </script>

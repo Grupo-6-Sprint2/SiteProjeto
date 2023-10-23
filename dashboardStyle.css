@@ -8,6 +8,11 @@ strong {
   color: var(--blue-medium);
 }
 
+a {
+  color: white;
+  text-decoration: none;
+  }
+
 main {
   display: flex;
   height: 100vh;

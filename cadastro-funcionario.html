@@ -42,7 +42,7 @@
           <!--IMAGEM LOGIN -->
 
           <div class="campo">
-            <span>Nome:</span>
+            <span>Nome completo:</span>
             <input id="input_nome" />
           </div>
 
@@ -140,15 +140,15 @@
     if (senha.length >= 8) {
       
           // Senha com menos de 8 caracteres
-          span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px; display:flex; justify-content: center; flex-direction: column; align-items: center;">Cadastro realizado com sucesso! <br> <br>
-        <span><button onclick="cadastrar()">Cadastrar novo funcionário</button>
-        <button onclick="dashboard()">Ir para Dashboards</button></span>
-        </span>`;
+          span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px; display:flex; justify-content: center; flex-direction: column; align-items: center;">Cadastro realizado com sucesso! <br><br>
 
-          // Aguardar 5 segundos antes de redirecionar para a página de login
-         /* setTimeout(cadastrar() {
-            window.location.href = "page_login.html";
-          }, 3000); // 5000 milissegundos = 5 segundos */
+              <span>
+                <a href="cadastro-funcionario.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Cadastrar novo funcionário</a>
+                
+                <a href="dashboardIndex.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Ir para Dashboards</a>
+              </span>
+
+</span>`;
     } else {
       span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha deve ter pelo menos 8 caracteres!</span>`;
     }

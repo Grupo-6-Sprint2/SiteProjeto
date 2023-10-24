@@ -115,7 +115,7 @@
 
 
               <!-- grafico de rolha -->
-              <div class="graficoRolha" style="position: relative; height:40vh; width:20vw;">
+              <div class="graficoRolha">
                 <canvas id="myChart2"></canvas>
               </div>
 
@@ -131,11 +131,16 @@
                 L</span>
             </div>
 
+            
           </div>
 
 
 
+
         </div> <!--fim da div "dashboards" -->
+        <div class="">
+          <canva id="moneyChart"></canva>
+        </div>
 
 
         <!-- FIM DA VISÃO GERAL -->
@@ -187,6 +192,27 @@
     type: 'doughnut',
     data: {
       labels: ['Total', 'Perdidos'],
+      datasets: [{
+        label: 'litros de sangue',
+        backgroundColor: [
+          'rgba(67, 209, 67, 1)',
+          'rgba(255, 99, 131, 1)'
+        ],
+        data: [1500, 150],
+        borderWidth: 0,
+      },
+      ]
+
+    },
+    hoverOffset: 4
+  });
+
+  const moneyCtx = document.getElementById('moneyChart');
+  
+  new Chart(moneyCtx, {
+    type: 'line',
+    data: {
+      labels: ['Total'],
       datasets: [{
         label: 'litros de sangue',
         backgroundColor: [

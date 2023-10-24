@@ -1,11 +1,12 @@
 
 *{
-    font-family: Arial;
+    
+    font-family: "Poppins", sans-serif;
 }
 
 body{
     /* background-color: #263F6B; */
-    background-image: url('assets/imgs/fundo.png');
+    background-color: white;
     background-size: cover;
 }
 
@@ -30,7 +31,7 @@ align-items: center;
 }
 
 #i_title{
-    color: white;
+    color: #000;
     font-size: 25px;
     display: flex;
     justify-content: center;
@@ -38,7 +39,7 @@ align-items: center;
 
 .form{
     background-color: rgb(241, 241, 241);
-    border: solid rgb(180, 180, 180) 10px;
+    border: solid #1d4ed8 8px;
     width: 400px;
     height: 400px;
     text-align: center;
@@ -54,11 +55,10 @@ align-items: center;
 }
 
 .resultado {
-    background-color: rgb(241, 241, 241);
-    border: solid rgb(180, 180, 180) 10px;
+    background-color: white;
+    border: solid #1d4ed8 8px;
     width: 400px;
     height: 400px;
-    text-align: center;
     padding: 25px;
     margin: 10px;
     border-radius: 20px;
@@ -73,7 +73,7 @@ align-items: center;
     font-size: 25px;
 }
 
-.sifrao {
+#resultado_imagem {
     /* animação do sifrão */
     animation-name: girandinho;
     animation-duration: 4s;
@@ -103,7 +103,7 @@ to {transform: rotate(-0.04turn);}
 }
 
 #button_botao{
-    background-color: rgb(182, 22, 67);
+    background-color: #1d4ed8;
     color: white;
     width: 150px;
     height: 50px;
@@ -113,7 +113,7 @@ to {transform: rotate(-0.04turn);}
 }
 
 #button_botao:hover{
-    background-color: #801932 ;
+    background-color: #030d4f ;
 }
 
 
@@ -150,7 +150,7 @@ to {transform: rotate(-0.04turn);}
 
 #info {
 width: 750px;
-color: rgb(255, 255, 255);
+color: #000;
 font-weight: 800;
 display: flex;
 justify-content: end;
@@ -164,7 +164,7 @@ animation-duration: 4s;
 @keyframes aparecendo {
 
 from {color: rgba(252, 71, 71, 0);}
-to {color:  rgb(255, 255, 255);}
+to {color:  #000;}
 
 from {width: 1000px;}
 to {width:  750px;}

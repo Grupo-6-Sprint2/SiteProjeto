@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulador Financeiro</title>
+    <link rel="stylesheet" href="calculadora.css">
+    <link rel="stylesheet" href="global.css">
+</head>
+
+<body>
+
+
+    <!-- INICIO CABEÇALHO -->
+    <header>
+        <div class="logo">
+            <h1>Save<strong>Blood</h1>
+        </div>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="cadastro-empresa.html" class="button">cadastro </a></li>
+        </ul>
+    </header>
+
+    <br>
+
+    <i id="i_title"><b>Calculadora Financeira - Controle de armazenamento de bolsas de sangue</b></i><br><br>
+
+    
+    <div class="lugarPinfo">
+
+        <!-- lugar que tudo vai ficar -->
+
+        <div class="informacoes">
+
+            <!-- imagem da bolsa -->
+            <div class="bolsa">
+                <img onclick="informações()"
+                    src="https://static.vecteezy.com/system/resources/previews/024/097/589/original/donation-blood-bag-free-png.png"
+                    alt="">
+            </div>
+            <!-- fim da imagem -->
+
+            <!-- aqui aparece as informações do calculo -->
+
+            <div id="info">
+
+                1 bolsa de sangue equivale a 450ml de sangue <Br>
+                1 bolsa de sangue equivale a R$585,00 <br>
+                a média da taxa de erro humano é considerada 12%
+
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- AMBOS OS CARDS -->
+
+    <div class="principal">
+
+        <div class="form">
+
+            <span class="span_text">Insira a quantidade média de litros de sangue armazenados no último ano</span> <br>
+            <input class="input_informacao" type="number" id="litrosRecebidosV" placeholder="100"> <br> <br>
+
+            <span class="span_text">Insira a quantidade de litros de sangue perdidos por conta da má conduta de
+                temperatura no último ano</span> <br>
+            <input class="input_informacao" type="number" id="litrosPerdidos" placeholder="20"> <br><br>
+
+
+            <button id="button_botao" onclick="calculo()">
+                <b>Ver resultado!</b>
+            </button>
+
+        </div>
+
+        <div class="mostrar">
+            <span class="resultado" id="span">
+                <img id="resultado_imagem" src="public/assets/imgs/resultado-calculadora.png" alt="" height="180px"
+                    style="margin-right: 0;">
+            </span>
+
+        </div>
+
+    </div>
+
+    <div>
+
+        <!-- INFORMAÇÕES SOBRE O CALCULO -->
+
+       
+
+</body>
+
+</html>
+<script>
+    function calculo() {
+
+        var litros = Number(litrosPerdidos.value)
+        var litrosRecebidos = Number(litrosRecebidosV.value)
+        var mls = litros * 1000
+        var bolsas = mls / 450
+        var preço = bolsas * 585
+        var porcentagemPerda = (litros / litrosRecebidos) * 100
+        var economia = porcentagemPerda - 12
+        var perdaMenor = (litros / economia) * 100
+        var total = preço - perdaMenor
+
+        span.innerHTML = `Você perdeu ${bolsas.toFixed(0)} bolsas de sangue no último ano. Isso equivale a ${porcentagemPerda.toFixed(0)}% do total de sangue coletado, totalizando R$${preço.toFixed(2)}.<br>`
+
+
+        if (economia > porcentagemPerda) { span.innerHTML += `<br>Com nossa solução a taxa de erro humano será reduzido consideravelmente. ` }
+
+
+        else { span.innerHTML += `<br>Com a taxa de erro humano sendo reduzida, você diminuiria a taxa de erro para apenas ${economia.toFixed(0)}%, economizando assim <b> R$${total.toFixed(2)} </b>` }
+    }
+
+
+    /*você perdeu 22 bolsas de sangue no último ano, isso equivale a 10% do total de sangue recebido e
+    R$13000.00
+    perdidos com a taxa de erro humano sendo reduzida completamente, você teria uma taxa de erro de apenas -2.00%, economizando assim
+    R$13500.00 */
+
+</script>

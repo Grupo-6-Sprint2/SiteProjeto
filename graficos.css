@@ -30,8 +30,6 @@ a {
     text-decoration: none;
 }
 
-
-
 .espaço_sensores {
     width: 100%;
     height: 100%;
@@ -49,8 +47,6 @@ a {
     display: flex;
     flex-direction: column;
     cursor: pointer;
-    border: solid;
-    border-color: rgb(93, 135, 182);
 }
 
 .container_sensor_alterado {
@@ -147,7 +143,7 @@ a {
     border: 0;
     background-color: rgb(189, 201, 212);
     /* background-color: rgb(90, 109, 99);  */
-    font-size: 35px;
+    font-size: 25px;
     display: flex;
     text-align: end;
     align-self: end;

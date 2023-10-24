@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <title>Gráficos dinâmicos</title>
+    <link rel="stylesheet" href="dashboardStyle.css" />
+    <link rel="stylesheet" href="graficos.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- ------------------------------------------------------------------ HEADER --------------------------------------------------------------- -->
+    <div class="header">
+      <div class="logo">
+        <a href="dashboardIndex.html"><h1>SaveBlood</h1></a>
+      </div>
+    </div>
+    <!-- ------------------------------------------------------------- FIM DA HEADER ---------------------------------------------------- ------- -->
+
+    <div class="tudo">
+      <!-- tudo ksksk -->
+      <!-- ------------------------------------------------------   div da esquerda ----------------------------------------------------------- -->
+
+      <div class="parteEsquerda">
+        <div class="lista">
+          <span>ESTOQUES</span>
+
+          <div class="estoque"><a href="gráficos.html">Estoque Norte</a></div>
+          <div class="estoque"><a href="gráficos.html">Estoque Leste</a></div>
+          <div class="estoque"><a href="gráficos.html">Estoque Sul</a></div>
+          <div class="estoque"><a href="gráficos.html">Estoque Oeste</a></div>
+        </div>
+      </div>
+
+      <!-- ------------------------------------------------------ fim div da esquerda ---------------------------------------------------------- -->
+
+      <!-- ------------------------------------------------------------- sensores ---------------------------------------------------------------- -->
+
+      <div class="espaço_sensores">
+        <!-- sensor 1 -->
+        <div id="sensorDiv" class="container_sensor">
+          <div class="metadeCima" style="margin-top: -20xp">
+            <!--div com a metade de cima (imagem e dados) -->
+            <div class="sensor">
+              <!--imagem do sensor-->
+              <img src="images/lm35.png" width="100%" />
+            </div>
+
+            <div class="dadosSensores">
+              <a href="sensor.html">
+                <span class="identificação corAlt"> Sensor #1012</span>
+              </a>
+              <span class="geladeira corAlt2"> Geladeira: 012</span>
+              <div class="status">
+                <span>status:</span> <span id="joinha">&#128077;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metadeBaixo">
+            <!--div com a metade de baixo (status e temperatura) -->
+            <div class="grafico_linha" style="height: 100%; width: 70%">
+              <canvas id="lm35Temperatura"></canvas>
+            </div>
+
+            <p class="container_sensor_input" id="valorTemperatura"></p>
+          </div>
+        </div>
+
+        <!-- sensor 2 -->
+        <div class="container_sensor">
+          <div class="metadeCima">
+            <!--div com a metade de cima (imagem e dados) -->
+            <div class="sensor">
+              <!--imagem do sensor-->
+              <img src="images/lm35.png" width="100%" />
+            </div>
+
+            <div class="dadosSensores">
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1013</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 013</span
+              >
+              <div class="status">
+                <span>status:</span> <span id="joinha">&#128077;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metadeBaixo">
+            <!--div com a metade de baixo (status e temperatura) -->
+            <div class="grafico_linha" style="height: 100%; width: 70%">
+              <canvas id="myChart2"></canvas>
+            </div>
+
+            <input
+              class="container_sensor_input"
+              id="temperaturaValor"
+              onkeyup="funcao()"
+              type="text"
+              value="2,3"
+            />
+          </div>
+        </div>
+
+        <!-- sensor 3 -->
+        <div id="sensorDiv" class="container_sensor">
+          <div class="metadeCima">
+            <!--div com a metade de cima (imagem e dados) -->
+            <div class="sensor">
+              <!--imagem do sensor-->
+              <img src="images/lm35.png" width="100%" />
+            </div>
+
+            <div class="dadosSensores">
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1014</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 014</span
+              >
+              <div class="status">
+                <span>status:</span> <span id="joinha">&#128077;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metadeBaixo">
+            <!--div com a metade de baixo (status e temperatura) -->
+            <div class="grafico_linha" style="height: 100%; width: 70%">
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- sensor 4 -->
+        <div class="container_sensor">
+          <div class="metadeCima">
+            <!--div com a metade de cima (imagem e dados) -->
+            <div class="sensor">
+              <!--imagem do sensor-->
+              <img src="images/lm35.png" width="100%" />
+            </div>
+
+            <div class="dadosSensores">
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1015</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 015</span
+              >
+              <div class="status">
+                <span>status:</span> <span id="joinha">&#128077;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metadeBaixo">
+            <!--div com a metade de baixo (status e temperatura) -->
+            <div class="grafico_linha" style="height: 100%; width: 70%">
+              <canvas id="myChart4"></canvas>
+            </div>
+
+            <input class="container_sensor_input" type="text" value="2,2" />
+          </div>
+        </div>
+
+        <!-- sensor 5 -->
+        <div class="container_sensor">
+          <div class="metadeCima">
+            <!--div com a metade de cima (imagem e dados) -->
+            <div class="sensor">
+              <!--imagem do sensor-->
+              <img src="images/lm35.png" width="100%" />
+            </div>
+
+            <div class="dadosSensores">
+              <span id="corDados" class="identificação corAlt">
+                Sensor #1016</span
+              >
+              <span id="corDados" class="geladeira corAlt2">
+                Geladeira: 016</span
+              >
+              <div class="status">
+                <span>status:</span> <span id="joinha">&#128077;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="metadeBaixo">
+            <!--div com a metade de baixo (status e temperatura) -->
+            <div class="grafico_linha" style="height: 100%; width: 70%">
+              <canvas id="myChart5"></canvas>
+            </div>
+
+            <input class="container_sensor_input" type="text" value="3,4" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+  var contextoLm35Temperatura = document
+    .getElementById("lm35Temperatura")
+    .getContext("2d");
+  contextoLm35Temperatura.canvas.width = 1000;
+  contextoLm35Temperatura.canvas.height = 500;
+  var lm35Temperatura = new Chart(contextoLm35Temperatura, {
+    type: "line",
+    data: {
+      datasets: [
+        {
+          label: "Temperatura",
+          type: "line",
+          borderColor: ["#ffd902"],
+          backgroundColor: ["#ffe135"],
+          pointRadius: 0,
+        },
+      ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+      },
+      scales: {
+        x: {
+          display: false,
+        },
+        y: {
+          max: 7,
+          min: 0,
+        },
+      },
+      animation: {
+        duration: 0,
+      },
+    },
+  });
+
+  var paginacao = {};
+  var tempo = {};
+
+  var sensor = document.querySelector(".container_sensor");
+  var temp = document.getElementById("temperaturaValor");
+  var cor = document.querySelector(".corAlt");
+  var cor2 = document.querySelector(".corAlt2");
+  var corInput = document.querySelector(".container_sensor_input");
+  var status = document.querySelector(".status");
+  var joia = document.getElementById("joinha");
+
+  const ctx2 = document.getElementById("myChart2");
+
+  new Chart(ctx2, {
+    type: "line",
+    data: {
+      labels: ["12:00", "13:00", "14:00", "15:00"],
+      datasets: [
+        {
+          label: "temp",
+          borderColor: "rgba(79, 131, 226, 1)",
+          backgroundColor: "rgba(79, 131, 226, 1)",
+          data: [5, 2, 5, 2],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      legend: {
+        display: false,
+      },
+      scales: {
+        y: {
+          max: 6,
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  const ctx3 = document.getElementById("myChart3");
+
+  new Chart(ctx3, {
+    type: "line",
+    data: {
+      labels: ["12:00", "13:00", "14:00", "15:00"],
+      datasets: [
+        {
+          label: "temp",
+          borderColor: "rgba(223, 163, 0, 1)",
+          backgroundColor: "rgba(223, 163, 0, 1)",
+          data: [2, 5, 2, 3],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          max: 6,
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  const ctx4 = document.getElementById("myChart4");
+
+  new Chart(ctx4, {
+    type: "line",
+    data: {
+      labels: ["12:00", "13:00", "14:00", "15:00"],
+      datasets: [
+        {
+          label: "temp",
+          borderColor: "rgba(91, 48, 104, 1)",
+          backgroundColor: "rgba(91, 48, 104, 1)",
+          data: [2, 4, 5, 2],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          max: 6,
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  const ctx5 = document.getElementById("myChart5");
+
+  new Chart(ctx5, {
+    type: "line",
+    data: {
+      labels: ["12:00", "13:00", "14:00", "15:00"],
+      datasets: [
+        {
+          label: "temp",
+          borderColor: "rgba(30, 129, 80, 1)",
+          backgroundColor: "rgba(30, 129, 80, 1)",
+          data: [5, 3, 3, 2],
+          borderWidth: 2,
+        },
+      ],
+    },
+    options: {
+      scales: {
+        y: {
+          max: 6,
+          beginAtZero: true,
+        },
+      },
+    },
+  });
+
+  function obterDados(grafico, endpoint) {
+    var http = new XMLHttpRequest();
+    http.open("GET", "http://localhost:3300/sensores/" + endpoint, false);
+    http.send(null);
+    var valores = JSON.parse(http.responseText);
+    if (paginacao[endpoint] == null) {
+      paginacao[endpoint] = 0;
+    }
+    if (tempo[endpoint] == null) {
+      tempo[endpoint] = 0;
+    }
+    // Exibir à partir do último elemento exibido anteriormente
+    var ultimaPaginacao = paginacao[endpoint];
+    paginacao[endpoint] = valores.length;
+    var valores = valores.slice(ultimaPaginacao);
+    valores.forEach((valor) => {
+      //Máximo de 60 itens exibidos no gráfico
+      if (
+        grafico.data.labels.length == 10 &&
+        grafico.data.datasets[0].data.length == 10
+      ) {
+        grafico.data.labels.shift();
+        grafico.data.datasets[0].data.shift();
+      }
+
+      grafico.data.labels.push(tempo[endpoint]++);
+      grafico.data.datasets[0].data.push(parseFloat(valor));
+      grafico.update();
+      valorTemperatura.innerHTML = valores;
+
+      if (valores >= 6 || valores <= 2) {
+        sensor.style.backgroundColor = "#ff0022";
+        sensor.style.borderColor = "#3b1111";
+        cor.style.backgroundColor = "#3b1111";
+        cor2.style.backgroundColor = "#3b1111";
+        corInput.style.backgroundColor = "#ff0022";
+        status.style.backgroundColor = "#ff0022";
+        status.style.color = "#3b1111";
+        joia.innerHTML = "&#9888;";
+      } else if (valores >= 5.5 || valores <= 2.5) {
+        sensor.style.backgroundColor = "#ffc342";
+        sensor.style.borderColor = "#ee8742";
+        cor.style.backgroundColor = "#86523b";
+        cor2.style.backgroundColor = "#86523b";
+        corInput.style.backgroundColor = "#ffc342";
+        status.style.backgroundColor = "#ffc342";
+        joia.innerHTML = "&#10071;";
+      } else {
+        sensor.style.backgroundColor = "rgb(189, 201, 212)";
+        corInput.style.backgroundColor = "rgb(189, 201, 212)";
+      }
+    });
+  }
+
+  setInterval(() => {
+    obterDados(lm35Temperatura, "lm35/temperatura");
+  }, 1000);
+</script>

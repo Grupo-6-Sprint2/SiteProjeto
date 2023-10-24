@@ -4,6 +4,10 @@ body {
   background-color: rgb(226, 226, 226);
 }
 
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
 strong {
   color: var(--blue-medium);
 }

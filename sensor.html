@@ -39,99 +39,114 @@
       </div>
 
       <!-- ------------------------------------------------------ fim div da esquerda ---------------------------------------------------------- -->
-<div class="sensor_isolado">
+      <div class="sensor_isolado">
+        <div class="solitude" id="graficoTemp">
+          <canvas id="lm35Temperatura"></canvas>
+        </div>
 
-    <div class="solitude" id="graficoTemp">
-        <canvas id="myChart"></canvas>
-    </div>
-
-    <div class="dadosSolitude">
-
-        <div class="dadosQuestão">
+        <div class="dadosSolitude">
+          <div class="dadosQuestão">
             <div class="data">
-                <span>data</span>
-                <input type="date" id="diaValor">
+              <span>data</span>
+              <input type="date" id="diaValor" />
             </div>
 
             <div class="hora">
-                <span>hora</span>
-                <input type="time">
+              <span>hora</span>
+              <input type="time" />
             </div>
+          </div>
 
+          <div class="dadosResposta"></div>
         </div>
-          
-        <div class="dadosResposta"></div>
+      </div>
 
+      <script>
+        var contextoLm35Temperatura = document
+          .getElementById("lm35Temperatura")
+          .getContext("2d");
+        var lm35Temperatura = new Chart(contextoLm35Temperatura, {
+          type: "line",
+          data: {
+            datasets: [
+              {
+                label: "Temperatura",
+                type: "line",
+                borderColor: ["#ffd902"],
+                backgroundColor: ["#ffe135"],
+                tension: 0.2,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true,
+                max: 7,
+              },
+              xAxes: [
+                {
+                  distribution: "series",
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+              yAxes: [
+                {
+                  scaleLabel: {
+                    display: true,
+                    labelString: "Temperatura",
+                  },
+                  ticks: {
+                    beginAtZero: true,
+                  },
+                },
+              ],
+            },
+            animation: {
+              duration: 0,
+            },
+          },
+        });
+
+        var paginacao = {};
+        var tempo = {};
+        function obterDados(grafico, endpoint) {
+          var http = new XMLHttpRequest();
+          http.open("GET", "http://localhost:3300/sensores/" + endpoint, false);
+          http.send(null);
+          var valores = JSON.parse(http.responseText);
+          if (paginacao[endpoint] == null) {
+            paginacao[endpoint] = 0;
+          }
+          if (tempo[endpoint] == null) {
+            tempo[endpoint] = 0;
+          }
+          // Exibir à partir do último elemento exibido anteriormente
+          var ultimaPaginacao = paginacao[endpoint];
+          paginacao[endpoint] = valores.length;
+          var valores = valores.slice(ultimaPaginacao);
+          valores.forEach((valor) => {
+            //Máximo de 60 itens exibidos no gráfico
+            if (
+              grafico.data.labels.length == 10 &&
+              grafico.data.datasets[0].data.length == 10
+            ) {
+              grafico.data.labels.shift();
+              grafico.data.datasets[0].data.shift();
+            }
+
+            grafico.data.labels.push(tempo[endpoint]++);
+            grafico.data.datasets[0].data.push(parseFloat(valor));
+            grafico.update();
+          });
+        }
+
+        setInterval(() => {
+          obterDados(lm35Temperatura, "lm35/temperatura");
+        }, 500);
+      </script>
     </div>
-</div>
-
-<script>
-const ctx = document.getElementById("myChart");
-
-new Chart(ctx, {
-  type: "line",
-  data: {
-    labels: ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"],
-    datasets: [
-      {
-        label: "temperatura",
-        borderColor: "rgba(79, 131, 226, 1)",
-        backgroundColor: "rgba(79, 131, 226, 0)",
-        data: [2.3, 2.1, 2.5, 4, 3.1, 2.1, 3.6, 4.7, 3.5],
-        borderWidth: 2,
-        tension: 0.2,
-        fill: false
-      },
-    ],
-  },
-  options: {
-    scales: {
-      y: {
-        max: 8,
-        beginAtZero: true,
-      },
-    },
-  },
-});
-
-const ctx2 = document.getElementById("myChart2");
-
-new Chart(ctx2, {
-  type: "line",
-  data: {
-    labels: ["00:00", "02:00", "04:00", "06:00", "08:00", "10:00", "12:00", "14:00", "16:00", "18:00", "20:00", "22:00"],
-    datasets: [
-      {
-        label: "temperatura",
-        borderColor: "rgba(79, 131, 226, 1)",
-        backgroundColor: "rgba(79, 131, 226, 0)",
-        data: [3.5, 4.5, 2.8, 4.1, 2.1, 2.6, 3.1, 5.5, 5],
-        borderWidth: 2,
-        tension: 0.2,
-        fill: false
-      },
-    ],
-  },
-  options: {
-    scales: {
-      y: {
-        max: 8,
-        beginAtZero: true,
-      },
-    },
-  },
-});
-
-function funcao() {
-
-var dia = diaValor.value
-
-if (dia == "2023-10-23") {
-graficoTemp.innerHTML = '<canvas id="myChart2"></canvas> lmei'
-}
-else {
-graficoTemp.innerHTML = '<canvas id="myChart"></canvas>' 
-}
-
-}
-</script>
+  </body>
+</html>

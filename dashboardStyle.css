@@ -136,6 +136,14 @@ main {
   font-size: 20px;
 }
 
+.buttonCadastrar {
+  background: rgba(29, 78, 216, 1);
+  padding: 8px 12px;
+  border-radius: 10px;
+  margin: 0 15px;
+  text-align: center;
+}
+
 #profile {
   cursor: pointer;
   position: relative;

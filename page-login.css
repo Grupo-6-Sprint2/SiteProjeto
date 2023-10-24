@@ -19,6 +19,10 @@
 
 /* --- INICIO BANNER --- */
 
+.banner {
+  margin-bottom: 220px;
+}
+
 .imagem_login {
   height: 100px;
   width: 100px;

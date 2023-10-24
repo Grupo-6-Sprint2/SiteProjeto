@@ -15,7 +15,7 @@ a {
 
 main {
   display: flex;
-  height: 100vh;
+  height: 100%;
 }
 
 .container {
@@ -71,7 +71,6 @@ main {
 
 .esquerda {
   background-color: rgba(29, 78, 216, 1);
-  height: 100%;
   width: 160px;
   color: white;
   display: flex;

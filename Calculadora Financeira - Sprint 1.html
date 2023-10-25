@@ -25,7 +25,20 @@
 
     <br>
 
-    <i id="i_title"><b>Calculadora Financeira - Controle de armazenamento de bolsas de sangue</b></i><br><br>
+    <h1 style=
+    "font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     font-size: 36px;
+      color: #052f6c;
+       text-align: center;
+        text-transform: uppercase;">
+        Calculadora Financeira</h1>
+
+    <h2 style=
+    "font-family: 'Arial', sans-serif;
+     font-size: 24px;
+      color: #052f6c;
+       text-align: center;">
+       Controle de Armazenamento de Bolsas de Sangue</h2>
 
     
     <div class="lugarPinfo">
@@ -46,9 +59,12 @@
 
             <div id="info">
 
-                1 bolsa de sangue equivale a 450ml de sangue <Br>
-                1 bolsa de sangue equivale a R$585,00 <br>
-                a média da taxa de erro humano é considerada 12%
+                <p>
+                    A média da taxa de erro humano é considerada <b>12%</b>. <br>
+                    <b>1</b> bolsa de sangue equivale a <b>450ml</b> de sangue. <br>
+                    <b>1</b> bolsa de sangue equivale a <b>R$585,00</b>. 
+                    
+                </p>
 
             </div>
         </div>
@@ -76,25 +92,77 @@
         </div>
 
         <div class="mostrar">
-            <span class="resultado" id="span">
+            <div class="resultado" id="span">
                 <img id="resultado_imagem" src="public/assets/imgs/resultado-calculadora.png" alt="" height="180px"
                     style="margin-right: 0;">
-            </span>
+            </div>
 
         </div>
 
     </div>
 
-    <div>
 
-        <!-- INFORMAÇÕES SOBRE O CALCULO -->
+       
+<!-------------------------rodapé-------------------------->
 
+
+<footer id="rodape">
+    <div class="container">
+      <div class="dividerFooter">
+        <div class="contacts">
+          <div class="contact">
+            <img src="images/location.svg" alt="" />
+            <div class="infoContact">
+              <h4>Endereço</h4>
+              <p style="font-size: 12px">
+                Rua Haddock Lobo, 595 São Paulo - SP
+              </p>
+            </div>
+          </div>
+
+          <div class="contact">
+            <img src="images/phone.svg" alt="" />
+            <div class="infoContact">
+              <h4>Telefone</h4>
+              <p style="font-size: 12px">(11) 3589-4043</p>
+            </div>
+          </div>
+
+          <div class="contact">
+            <img src="images/letter.svg" alt="" />
+            <div class="infoContact">
+              <h4>E-mail</h4>
+              <p style="font-size: 12px">save.blood@sptech.school</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="footerDown">
+          <div class="footerLogo">
+            <img src="images/logo.png" alt="" />
+          </div>
+          <div class="redesSocial">
+            <h3>Nos siga!</h3>
+            <div class="iconSocial">
+              <img src="images/instagram-2016-5.svg" alt="" />
+              <img src="images/whatsapp-3.svg" alt="" />
+              <img src="images/facebook-3-2.svg" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <span style="color: red; font-size: 18px;"></span>
+    </div>
+  </footer>
        
 
 </body>
 
 </html>
 <script>
+
+/* INFORMAÇÕES SOBRE O CALCULO */
+
     function calculo() {
 
         var litros = Number(litrosPerdidos.value)
@@ -107,7 +175,7 @@
         var perdaMenor = (litros / economia) * 100
         var total = preço - perdaMenor
 
-        span.innerHTML = `Você perdeu ${bolsas.toFixed(0)} bolsas de sangue no último ano. Isso equivale a ${porcentagemPerda.toFixed(0)}% do total de sangue coletado, totalizando R$${preço.toFixed(2)}.<br>`
+        span.innerHTML = `<p>Você perdeu ${bolsas.toFixed(0)} bolsas de sangue no último ano. Isso equivale a ${porcentagemPerda.toFixed(0)}% do total de sangue coletado, totalizando R$${preço.toFixed(2)}.</p><br>`
 
 
         if (economia > porcentagemPerda) { span.innerHTML += `<br>Com nossa solução a taxa de erro humano será reduzido consideravelmente. ` }

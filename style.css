@@ -222,7 +222,7 @@
 }
 
 .projeto .container .btn_calculadora {
-  color: white;
+
   background-color: #052f6c;
   width: 150px;
   height: 40px;
@@ -230,7 +230,10 @@
   border-radius: 10px;
   margin-left: 300px;
   margin-top: 30px;
+  margin-bottom: 10px;
 }
+
+
 
 /* membros titulo */
 .membro_titulo {

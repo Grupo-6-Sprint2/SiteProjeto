@@ -130,6 +130,7 @@
               <div class="status">
                 <span>status:</span> <span id="joinha">&#128077;</span>
               </div>
+              
             </div>
           </div>
 
@@ -251,14 +252,6 @@
 
   var paginacao = {};
   var tempo = {};
-
-  var sensor = document.querySelector(".container_sensor");
-  var temp = document.getElementById("temperaturaValor");
-  var cor = document.querySelector(".corAlt");
-  var cor2 = document.querySelector(".corAlt2");
-  var corInput = document.querySelector(".container_sensor_input");
-  var status = document.querySelector(".status");
-  var joia = document.getElementById("joinha");
 
   const ctx2 = document.getElementById("myChart2");
 
@@ -396,6 +389,14 @@
       grafico.data.datasets[0].data.push(parseFloat(valor));
       grafico.update();
       valorTemperatura.innerHTML = valores;
+
+  var sensor = document.querySelector(".container_sensor");
+  var temp = document.getElementById("temperaturaValor");
+  var cor = document.querySelector(".corAlt");
+  var cor2 = document.querySelector(".corAlt2");
+  var corInput = document.querySelector(".container_sensor_input");
+  var status = document.querySelector(".status");
+  var joia = document.getElementById("joinha");
 
       if (valores >= 6 || valores <= 2) {
         sensor.style.backgroundColor = "#ff0022";

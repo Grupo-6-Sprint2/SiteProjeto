@@ -176,18 +176,16 @@
     var bairro = input_bairro.value;
     var telefoneEmpresa = input_telefone_empresa.value;
 
-
+    // validação das inputs
     if (nomeResponsavel == false || email == false || senha == false || confirmarSenha == false ||
         nomeFantasia == false || CNPJ == false || endereco == false || CEP == false || bairro == false || telefoneEmpresa == false) {
 
           span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Falta Informações!</span>`
-
     }
-
-    else {
-
-      if (senha.length >= 8 && CNPJ.length == 14 && CEP.length == 9) {
-        if (senha == confirmarSenha) {
+    
+    // validação de caracteres
+    else if ((senha.length >= 8 && CNPJ.length == 14 && CEP.length == 9) && senha == confirmarSenha) {
+     
           
 
           // Senha com menos de 8 caracteres
@@ -197,19 +195,15 @@
 
           // Aguardar 5 segundos antes de redirecionar para a página de login
           setTimeout(function () {
-            window.location.href = 'page_login.html';
+            window.location.href = 'page_login.html'; 
           }, 3000); // 5000 milissegundos = 5 segundos
-
-        }
-
       }
 
+      // erro
       else {
         span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Informações Incorretas!</span>`
       }
-
-    }
-
+    
   }
 
 </script>

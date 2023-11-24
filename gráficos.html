@@ -42,13 +42,11 @@
 
       <!-- ------------------------------------------------------------- sensores ---------------------------------------------------------------- -->
 
-      <div class="espaço_sensores">
+      <div class="espaço_sensores" id="espaco_sensores">
         <!-- sensor 1 -->
-        <div id="sensorDiv" class="container_sensor">
+        <!-- <div id="sensorDiv1" class="container_sensor">
           <div class="metadeCima" style="margin-top: -20xp">
-            <!--div com a metade de cima (imagem e dados) -->
             <div class="sensor">
-              <!--imagem do sensor-->
               <img src="images/lm35.png" width="100%" />
             </div>
 
@@ -64,158 +62,63 @@
           </div>
 
           <div class="metadeBaixo">
-            <!--div com a metade de baixo (status e temperatura) -->
             <div class="grafico_linha" style="height: 100%; width: 70%">
-              <canvas id="myChart"></canvas>
+              <canvas id="myChart1"></canvas>
             </div>
 
-            <input
-              class="container_sensor_input"
-              type="text"
-              value="4.2"
-              id="temperaturaValor"
-              onkeyup="funcao()"
-            />
+            <p class="container_sensor_input" id="temperaturaValor1"></p>
+          </div>
+        </div> -->
+
+        <a href="sensor.html" class="sensorContainer" id="sensorDiv1">
+          <div class="dadosSensores">
+            <div>
+              <span class="identificação corAlt"> Sensor #1012</span>
+            </div>
+            <span class="geladeira corAlt2"> Geladeira: 012</span>
+            <div class="status">
+              <span>status:</span> <span id="joinha">&#128077;</span>
+            </div>
+            <span
+              class="valorTemperatura"
+              style="font-size: 30px"
+              id="temperaturaValor1"
+            ></span>
+          </div>
+          <div class="graficoContainer">
+            <canvas id="myChart1"></canvas>
+          </div>
+        </a>
+
+        <div class="sensorContainer" id="sensorDiv2">
+          <div class="dadosSensores">
+            <a href="sensor.html">
+              <span class="identificação corAlt"> Sensor #1012</span>
+            </a>
+            <span class="geladeira corAlt2"> Geladeira: 012</span>
+            <div class="status">
+              <span>status:</span> <span id="joinha">&#128077;</span>
+            </div>
+            <span style="font-size: 30px" id="temperaturaValor2"></span>
+          </div>
+          <div class="graficoContainer">
+            <canvas id="myChart2"></canvas>
           </div>
         </div>
 
-        <!-- sensor 2 -->
-        <div class="container_sensor">
-          <div class="metadeCima">
-            <!--div com a metade de cima (imagem e dados) -->
-            <div class="sensor">
-              <!--imagem do sensor-->
-              <img src="images/lm35.png" width="100%" />
+        <div class="sensorContainer" id="sensorDiv3">
+          <div class="dadosSensores">
+            <a href="sensor.html">
+              <span class="identificação corAlt"> Sensor #1012</span>
+            </a>
+            <span class="geladeira corAlt2"> Geladeira: 012</span>
+            <div class="status">
+              <span>status:</span> <span id="joinha">&#128077;</span>
             </div>
-
-            <div class="dadosSensores">
-              <span id="corDados" class="identificação corAlt">
-                Sensor #1013</span
-              >
-              <span id="corDados" class="geladeira corAlt2">
-                Geladeira: 013</span
-              >
-              <div class="status">
-                <span>status:</span> <span id="joinha">&#128077;</span>
-              </div>
-            </div>
+            <span style="font-size: 30px" id="temperaturaValor3"></span>
           </div>
-
-          <div class="metadeBaixo">
-            <!--div com a metade de baixo (status e temperatura) -->
-            <div class="grafico_linha" style="height: 100%; width: 70%">
-              <canvas id="myChart2"></canvas>
-            </div>
-
-            <input
-              class="container_sensor_input"
-              id="temperaturaValor"
-              onkeyup="funcao()"
-              type="text"
-              value="2,3"
-            />
-          </div>
-        </div>
-
-        <!-- sensor 3 -->
-        <div id="sensorDiv" class="container_sensor">
-          <div class="metadeCima">
-            <!--div com a metade de cima (imagem e dados) -->
-            <div class="sensor">
-              <!--imagem do sensor-->
-              <img src="images/lm35.png" width="100%" />
-            </div>
-
-            <div class="dadosSensores">
-              <span id="corDados" class="identificação corAlt">
-                Sensor #1014</span
-              >
-              <span id="corDados" class="geladeira corAlt2">
-                Geladeira: 014</span
-              >
-              <div class="status">
-                <span>status:</span> <span id="joinha">&#128077;</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="metadeBaixo">
-            <!--div com a metade de baixo (status e temperatura) -->
-            <div class="grafico_linha" style="height: 100%; width: 70%">
-              <canvas id="myChart3"></canvas>
-            </div>
-
-            <input
-              class="container_sensor_input"
-              type="text"
-              value="3,2"
-              id="temperaturaValor"
-              onkeyup="funcao()"
-            />
-          </div>
-        </div>
-
-        <!-- sensor 4 -->
-        <div class="container_sensor">
-          <div class="metadeCima">
-            <!--div com a metade de cima (imagem e dados) -->
-            <div class="sensor">
-              <!--imagem do sensor-->
-              <img src="images/lm35.png" width="100%" />
-            </div>
-
-            <div class="dadosSensores">
-              <span id="corDados" class="identificação corAlt">
-                Sensor #1015</span
-              >
-              <span id="corDados" class="geladeira corAlt2">
-                Geladeira: 015</span
-              >
-              <div class="status">
-                <span>status:</span> <span id="joinha">&#128077;</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="metadeBaixo">
-            <!--div com a metade de baixo (status e temperatura) -->
-            <div class="grafico_linha" style="height: 100%; width: 70%">
-              <canvas id="myChart4"></canvas>
-            </div>
-
-            <input class="container_sensor_input" type="text" value="2,2" />
-          </div>
-        </div>
-
-        <!-- sensor 5 -->
-        <div class="container_sensor">
-          <div class="metadeCima">
-            <!--div com a metade de cima (imagem e dados) -->
-            <div class="sensor">
-              <!--imagem do sensor-->
-              <img src="images/lm35.png" width="100%" />
-            </div>
-
-            <div class="dadosSensores">
-              <span id="corDados" class="identificação corAlt">
-                Sensor #1016</span
-              >
-              <span id="corDados" class="geladeira corAlt2">
-                Geladeira: 016</span
-              >
-              <div class="status">
-                <span>status:</span> <span id="joinha">&#128077;</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="metadeBaixo">
-            <!--div com a metade de baixo (status e temperatura) -->
-            <div class="grafico_linha" style="height: 100%; width: 70%">
-              <canvas id="myChart5"></canvas>
-            </div>
-
-            <input class="container_sensor_input" type="text" value="3,4" />
+          <div class="graficoContainer">
+            <canvas id="myChart3"></canvas>
           </div>
         </div>
       </div>
@@ -224,18 +127,15 @@
 </html>
 
 <script>
-  const ctx = document.getElementById("myChart");
-
-  new Chart(ctx, {
+  const ctx = document.getElementById("myChart1");
+  var grafico1 = new Chart(ctx, {
     type: "line",
     data: {
-      labels: ["12:00", "13:00", "14:00", "15:00"],
       datasets: [
         {
           label: "temp",
           borderColor: "rgba(255, 99, 131, 1)",
           backgroundColor: "rgba(255, 99, 131, 1)",
-          data: [2, 3, 3, 4],
           borderWidth: 2,
         },
       ],
@@ -243,7 +143,6 @@
     options: {
       scales: {
         y: {
-          max: 6,
           beginAtZero: true,
         },
       },
@@ -251,17 +150,14 @@
   });
 
   const ctx2 = document.getElementById("myChart2");
-
-  new Chart(ctx2, {
+  var grafico2 = new Chart(ctx2, {
     type: "line",
     data: {
-      labels: ["12:00", "13:00", "14:00", "15:00"],
       datasets: [
         {
           label: "temp",
-          borderColor: "rgba(79, 131, 226, 1)",
-          backgroundColor: "rgba(79, 131, 226, 1)",
-          data: [5, 2, 5, 2],
+          borderColor: "rgba(255, 99, 131, 1)",
+          backgroundColor: "rgba(255, 99, 131, 1)",
           borderWidth: 2,
         },
       ],
@@ -269,7 +165,6 @@
     options: {
       scales: {
         y: {
-          max: 6,
           beginAtZero: true,
         },
       },
@@ -277,17 +172,14 @@
   });
 
   const ctx3 = document.getElementById("myChart3");
-
-  new Chart(ctx3, {
+  var grafico3 = new Chart(ctx3, {
     type: "line",
     data: {
-      labels: ["12:00", "13:00", "14:00", "15:00"],
       datasets: [
         {
           label: "temp",
-          borderColor: "rgba(223, 163, 0, 1)",
-          backgroundColor: "rgba(223, 163, 0, 1)",
-          data: [2, 5, 2, 3],
+          borderColor: "rgba(255, 99, 131, 1)",
+          backgroundColor: "rgba(255, 99, 131, 1)",
           borderWidth: 2,
         },
       ],
@@ -295,67 +187,75 @@
     options: {
       scales: {
         y: {
-          max: 6,
           beginAtZero: true,
         },
       },
     },
   });
 
-  const ctx4 = document.getElementById("myChart4");
-
-  new Chart(ctx4, {
-    type: "line",
-    data: {
-      labels: ["12:00", "13:00", "14:00", "15:00"],
-      datasets: [
-        {
-          label: "temp",
-          borderColor: "rgba(91, 48, 104, 1)",
-          backgroundColor: "rgba(91, 48, 104, 1)",
-          data: [2, 4, 5, 2],
-          borderWidth: 2,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          max: 6,
-          beginAtZero: true,
-        },
+  var listaGraficos = [grafico1, grafico2, grafico3];
+  setInterval(() => {
+    fetch("http://localhost:3300/sensores/lm35/temperatura", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
       },
-    },
-  });
+    }).then((response) => {
+      response.json().then((json) => {
+        // console.log(json);
+        var randomNumber = 0;
+        randomNumber = json;
 
-  const ctx5 = document.getElementById("myChart5");
+        var listaSensores = [];
+        listaSensores.push(randomNumber);
+        listaSensores.push(randomNumber - 1);
+        listaSensores.push(randomNumber * 2);
+        console.log(listaSensores);
 
-  new Chart(ctx5, {
-    type: "line",
-    data: {
-      labels: ["12:00", "13:00", "14:00", "15:00"],
-      datasets: [
-        {
-          label: "temp",
-          borderColor: "rgba(30, 129, 80, 1)",
-          backgroundColor: "rgba(30, 129, 80, 1)",
-          data: [5, 3, 3, 2],
-          borderWidth: 2,
-        },
-      ],
-    },
-    options: {
-      scales: {
-        y: {
-          max: 6,
-          beginAtZero: true,
-        },
-      },
-    },
-  });
+        for (
+          var incremento = 0;
+          incremento < listaSensores.length;
+          incremento++
+        ) {
+          var text = document.getElementById(
+            `temperaturaValor${incremento + 1}`
+          );
+
+          text.innerHTML = `${listaSensores[incremento].toFixed(1)}ºC`;
+
+          var element = document.getElementById(`sensorDiv${incremento + 1}`);
+
+          if (listaSensores[incremento] < 1 || listaSensores[incremento] > 6) {
+            element.style.border = "3px solid red";
+          } else if (
+            listaSensores[incremento] < 2 ||
+            listaSensores[incremento] > 4
+          ) {
+            element.style.border = "3px solid yellow";
+          } else {
+            element.style.border = "none";
+          }
+          atualizarGrafico(
+            listaGraficos[incremento],
+            listaSensores[incremento]
+          );
+        }
+      });
+    });
+  }, 1000);
+
+  function atualizarGrafico(grafico, dado) {
+    if (grafico.data.datasets[0].data.length == 10) {
+      grafico.data.datasets[0].data.shift();
+      grafico.data.labels.shift();
+    }
+    grafico.data.datasets[0].data.push(dado);
+    grafico.data.labels.push(dado);
+    grafico.update();
+  }
 </script>
 
-<script>
+<!-- <script>
   function funcao() {
     var sensor = document.querySelector(".container_sensor");
     var temp = document.getElementById("temperaturaValor");
@@ -386,4 +286,4 @@
       sensor.style.backgroundColor = "rgb(189, 201, 212);";
     }
   }
-</script>
+</script> -->

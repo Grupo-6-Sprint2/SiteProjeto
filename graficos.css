@@ -25,9 +25,8 @@
     font-size: large;
 }
 
-a {
-    color: white;
-    text-decoration: none;
+.valorTemperatura {
+    color: black;
 }
 
 .espaço_sensores {
@@ -35,7 +34,28 @@ a {
     height: 100%;
     background-color: rgb(226, 226, 226);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    gap: 2rem;
+}
+
+.sensorContainer {
+    width: calc(100% - 200px);
+    border-radius: 0.5rem;
+    background-color: rgb(189, 201, 212);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem 0;
+    gap: 2rem;
+}
+
+.graficoContainer {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .container_sensor {
@@ -69,7 +89,6 @@ a {
     height: 50%;
 }
 
-
 .sensor {
     width: 15%;
     height: 45%;
@@ -81,6 +100,7 @@ a {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 1rem;
     height: 50%;
     margin-top: 16px;
 }
@@ -96,7 +116,6 @@ a {
 }
 
 .identificação {
-
     color: rgb(247, 240, 255);
     display: flex;
     justify-content: center;
@@ -105,12 +124,12 @@ a {
     width: 135px;
     height: 30px;
     font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     border-radius: 10px;
 }
 
 .geladeira {
-
     color: rgb(247, 240, 255);
     display: flex;
     justify-content: center;
@@ -119,7 +138,8 @@ a {
     width: 135px;
     height: 30px;
     font-size: 19px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     border-radius: 10px;
 }
 
@@ -133,21 +153,22 @@ a {
     width: 135px;
     height: 20px;
     font-size: 20px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
     border-radius: 10px;
 }
 
 .container_sensor_input {
     width: 50px;
     height: 40px;
-    border: 0;
-    background-color: rgb(189, 201, 212);
-    /* background-color: rgb(90, 109, 99);  */
     font-size: 25px;
-    display: flex;
-    text-align: end;
+    text-align: center;
     align-self: end;
     margin: 0px 5px 5px 5px;
+}
+
+.alertaCritico {
+    border: 2px solid red;
 }
 
 #joinha {
@@ -155,7 +176,6 @@ a {
 }
 
 /* ------------------------------------------------------------------------------------------------------------ */
-
 
 /* aqui está a parte do css utilizada na pagina de sensores específicos */
 
@@ -182,7 +202,6 @@ a {
     justify-content: space-between;
     /* background-color: red; */
 }
-
 
 .dadosQuestão {
     display: flex;
@@ -232,6 +251,5 @@ a {
     text-align: center;
     font-size: 20px;
 }
-
 
 .dadosResposta {}

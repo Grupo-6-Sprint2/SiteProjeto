@@ -5,20 +5,38 @@ function autenticar(req, res) {
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
 
-    console.log(email, senha)
-
     if (email == undefined) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está indefinida!");
-    } else {    
+    } else {
 
         usuarioModel.autenticar(email, senha)
             .then(
                 function (resultadoAutenticar) {
                     console.log(`\nResultados encontrados: ${resultadoAutenticar.length}`);
+                    console.log(`Resultados: ${JSON.stringify(resultadoAutenticar)}`); // transforma JSON em String
 
-                    res.json(resultadoAutenticar)
+                    if (resultadoAutenticar.length == 1) {
+                        console.log(resultadoAutenticar);
+                                    res.json({
+                                        id: resultadoAutenticar[0].idUsuario,
+                                        email: resultadoAutenticar[0].email,
+                                        nome: resultadoAutenticar[0].nomeNick,
+                                        senha: resultadoAutenticar[0].senha,
+                                        telefone: resultadoAutenticar[0].telefone
+
+                                
+                                    });
+                                } 
+
+                                
+                        
+                     else if (resultadoAutenticar.length == 0) {
+                        res.status(403).send("Email e/ou senha inválido(s)");
+                    } else {
+                        res.status(403).send("Mais de um usuário com o mesmo login e senha!");
+                    }
                 }
             ).catch(
                 function (erro) {
@@ -37,7 +55,6 @@ function cadastrar(req, res) {
     var email = req.body.email;
     var senha = req.body.senha;
     var telefone = req.body.telefone
-    var empresaId = req.body.nomeFantasia;
 
     // Faça as validações dos valores
     if (nome == undefined) {
@@ -46,12 +63,12 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (empresaId == undefined) {
+    } else if (telefone == undefined) {
         res.status(400).send("Sua empresa está undefined!");
     } else {
 
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
-        usuarioModel.cadastrar(nome, email, senha, telefone, empresaId)
+        usuarioModel.cadastrar(nome, email, senha, telefone)
             .then(
                 function (resultado) {
                     res.json(resultado);
@@ -69,7 +86,23 @@ function cadastrar(req, res) {
     }
 }
 
+function pegarID(req, res) {
+
+    var email = req.params.emailUser;
+    var senha = req.params.senhaUser;
+    var cep = req.params.cep
+
+
+    usuarioModel.pegarID(email, senha, cep).then(function(resultado){
+
+        res.status(200).json(resultado);
+    }).catch(function(erro){
+        res.status(500).json(erro.sqlMessage);
+    })
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    pegarID
 }

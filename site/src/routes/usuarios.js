@@ -12,4 +12,11 @@ router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
 });
 
+router.get("/pegarID/:emailUser/:senhaUser/:cep", function (req, res) {
+    usuarioController.pegarID(req, res);
+});
+
+
+
+
 module.exports = router;

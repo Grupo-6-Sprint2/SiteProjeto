@@ -1,168 +1,198 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Cadastre-se</title>
-    <link rel="stylesheet" href="./css/cadastro-empresa-funcionario.css" />
-    <link rel="stylesheet" href="./css/global.css" />
-  </head>
 
-  <body>
-    <!-- Nosso Header -->
-    <header>
-      <div class="logo">
-        <h1>Save<strong>Blood</strong></h1>
-      </div>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-      </ul>
-    </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <title>Cadastre-se</title>
+  <link rel="stylesheet" href="./css/cadastro-empresa-funcionario.css" />
+  <link rel="stylesheet" href="./css/global.css" />
+</head>
 
-    <!-- INICIO BANNER -->
+<body onload="listar()">
+  <!-- Nosso Header -->
+  <header>
+    <div class="logo">
+      <h1>Save<strong>Blood</strong></h1>
+    </div>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+    </ul>
+  </header>
 
-    <div class="banner">
-      <div class="container">
-        <div class="formulario">
-          <!-----------------CADASTRO RESPONSÁVEL------------------>
+  <!-- INICIO BANNER -->
 
-          <h2>Informações do Responsável</h2>
+  <div class="banner">
+    <div class="container">
+      <div class="formulario">
+        <!-----------------CADASTRO RESPONSÁVEL------------------>
 
-          <img
-            class="imagem_login"
-            src="assets/simbolo-responsavel.png"
-            alt=""
-          />
-          <!--IMAGEM LOGIN -->
+        <h2>Informações do Responsável</h2>
 
-          <div class="campo">
-            <span>Nome:</span>
-            <input id="input_nome" />
-          </div>
+        <img class="imagem_login" src="assets/simbolo-responsavel.png" alt="" />
+        <!--IMAGEM LOGIN -->
 
-          <div class="campo">
-            <span>E-mail:</span>
-            <input id="input_email" />
-          </div>
-
-          <div class="campo">
-            <span>Senha:</span>
-            <input id="input_senha" type="password" placeholder="********" />
-          </div>
-
-          <div class="campo">
-            <span>Confirmar Senha:</span>
-            <input
-              id="input_senha_confirma"
-              type="password"
-              placeholder="********"
-            />
-          </div>
-
-          <div class="campo">
-            <span>DDD + Telefone</span>
-            <input type="tel" id="input_telefone_responsavel" />
-          </div>
-
-          <!----------------CADASTRO EMPRESA------------------>
-
-          <h2>Informações da Empresa</h2>
-
-          <img class="imagem_login" src="assets/simbolo-empresa.png" alt="" />
-          <!--IMAGEM LOGIN -->
-
-          <div class="campo">
-            <span>Nome Fantasia:</span>
-            <input id="input_nome_fantasia" />
-          </div>
-
-          <div class="campo">
-            <span>CNPJ:</span>
-            <input id="input_cnpj" />
-          </div>
-
-          <div class="campo">
-            <span>Endereço:</span>
-            <input id="input_endereco" />
-          </div>
-
-          <div class="campo">
-            <span>CEP:</span>
-            <input id="input_cep" />
-            <span>Bairro:</span>
-            <input id="input_bairro" />
-          </div>
-
-          <div class="campo">
-            <span>DDD + Telefone</span>
-            <input type="tel" id="input_telefone_empresa" />
-          </div>
-
-          <button onclick="cadastrar()">Cadastrar</button> <br />
-          <span style="margin-bottom: 10px" id="span_confirmacao"></span>
+        <div class="campo">
+          <span>Nome:</span>
+          <input id="input_nome" />
         </div>
+
+        <div class="campo">
+          <span>E-mail:</span>
+          <input id="input_email" />
+        </div>
+
+        <div class="campo">
+          <span>Senha:</span>
+          <input id="input_senha" type="password" placeholder="********" />
+        </div>
+
+        <div class="campo">
+          <span>Confirmar Senha:</span>
+          <input id="input_senha_confirma" type="password" placeholder="********" />
+        </div>
+
+        <div class="campo">
+          <span>DDD + Telefone</span>
+          <input type="tel" id="input_telefone_responsavel" />
+        </div>
+
+        <!----------------CADASTRO EMPRESA------------------>
+
+        <h2>Informações da Empresa</h2>
+
+        <img class="imagem_login" src="assets/simbolo-empresa.png" alt="" />
+        <!--IMAGEM LOGIN -->
+
+        <div class="campo">
+          <span>Empresa:</span>
+          <select id="empresa_input">
+
+            <option value=''></option>
+
+          </select>
+        </div>
+
+        <div class="campo">
+          <span>Nome da rua:</span>
+          <input id="input_nomeRua" />
+        </div>
+
+        <div class="campo">
+          <span>Número:</span>
+          <input type="number" id="input_numero" />
+        </div>
+
+        <div class="campo">
+          <span>Estado:</span>
+          <input id="input_estado" />
+        </div>
+
+        <div class="campo">
+          <span>Cidade:</span>
+          <input id="input_cidade" />
+        </div>
+
+        <div class="campo">
+          <span>Bairro:</span>
+          <input id="input_bairro" />
+        </div>
+
+        <div class="campo">
+          <span>CEP:</span>
+          <input id="input_cep" />
+        </div>
+
+        <div class="campo">
+          <span>DDD + Telefone</span>
+          <input type="tel" id="input_telefone_empresa" />
+        </div>
+
+        <button onclick="cadastrar()">Cadastrar</button> <br />
+        <span style="margin-bottom: 10px" id="span_confirmacao"></span>
       </div>
     </div>
-    <!-------------------------rodapé-------------------------->
+  </div>
+  <!-------------------------rodapé-------------------------->
 
-    <footer id="rodape">
-      <div class="container">
-        <div class="dividerFooter">
-          <div class="contacts">
-            <div class="contact">
-              <img src="assets/location.svg" alt="" />
-              <div class="infoContact">
-                <h4>Endereço</h4>
-                <p style="font-size: 12px">
-                  Rua Haddock Lobo, 595 São Paulo - SP
-                </p>
-              </div>
-            </div>
-
-            <div class="contact">
-              <img src="assets/phone.svg" alt="" />
-              <div class="infoContact">
-                <h4>Telefone</h4>
-                <p style="font-size: 12px">(11) 3589-4043</p>
-              </div>
-            </div>
-
-            <div class="contact">
-              <img src="assets/letter.svg" alt="" />
-              <div class="infoContact">
-                <h4>E-mail</h4>
-                <p style="font-size: 12px">save.blood@sptech.school</p>
-              </div>
+  <footer id="rodape">
+    <div class="container">
+      <div class="dividerFooter">
+        <div class="contacts">
+          <div class="contact">
+            <img src="assets/location.svg" alt="" />
+            <div class="infoContact">
+              <h4>Endereço</h4>
+              <p style="font-size: 12px">
+                Rua Haddock Lobo, 595 São Paulo - SP
+              </p>
             </div>
           </div>
-          <div class="divider"></div>
-          <div class="footerDown">
-            <div class="footerLogo">
-              <img src="assets/logo.png" alt="" />
+
+          <div class="contact">
+            <img src="assets/phone.svg" alt="" />
+            <div class="infoContact">
+              <h4>Telefone</h4>
+              <p style="font-size: 12px">(11) 3589-4043</p>
             </div>
-            <div class="redesSocial">
-              <h3>Nos siga!</h3>
-              <div class="iconSocial">
-                <img src="assets/instagram-2016-5.svg" alt="" />
-                <img src="assets/whatsapp-3.svg" alt="" />
-                <img src="assets/facebook-3-2.svg" alt="" />
-              </div>
+          </div>
+
+          <div class="contact">
+            <img src="assets/letter.svg" alt="" />
+            <div class="infoContact">
+              <h4>E-mail</h4>
+              <p style="font-size: 12px">save.blood@sptech.school</p>
             </div>
           </div>
         </div>
-        <span style="color: red; font-size: 18px"></span>
+        <div class="divider"></div>
+        <div class="footerDown">
+          <div class="footerLogo">
+            <img src="assets/logo.png" alt="" />
+          </div>
+          <div class="redesSocial">
+            <h3>Nos siga!</h3>
+            <div class="iconSocial">
+              <img src="assets/instagram-2016-5.svg" alt="" />
+              <img src="assets/whatsapp-3.svg" alt="" />
+              <img src="assets/facebook-3-2.svg" alt="" />
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-  </body>
+      <span style="color: red; font-size: 18px"></span>
+    </div>
+  </footer>
+</body>
+
 </html>
 
 <script>
+
+
+  function listar() {
+    fetch("/empresas/listar", {
+      method: "GET",
+    })
+      .then(function (resposta) {
+        resposta.json().then((empresas) => {
+
+
+
+          empresas.forEach((empresa) => {
+            empresa_input.innerHTML += `<option value='${empresa.nome}'>${empresa.nome}</option>`;
+          });
+        });
+      })
+      .catch(function (resposta) {
+        console.log(`#ERRO: ${resposta}`);
+      });
+  }
+
+
   function cadastrar() {
     /*-------------CADASTRO RESPONSÁVEL-----------------*/
 
@@ -172,35 +202,32 @@
     var confirmarSenha = input_senha_confirma.value;
     var telefone = input_telefone_responsavel.value;
 
-    /*----------------CADASTRO EMPRESA------------------*/
-
-    var nomeFantasia = input_nome_fantasia.value;
-    var CNPJ = input_cnpj.value;
-    var endereco = input_endereco.value;
-    var CEP = input_cep.value;
+    var nomeRua = input_nomeRua;
+    var numero = input_numero;
+    var estado = input_estado;
+    var cidade = input_cidade;
     var bairro = input_bairro.value;
+    var CEP = input_cep.value;
     var telefoneEmpresa = input_telefone_empresa.value;
 
     if (
-      nomeResponsavel == false ||
-      email == false ||
-      senha == false ||
-      confirmarSenha == false ||
-      nomeFantasia == false ||
-      CNPJ == false ||
-      endereco == false ||
-      CEP == false ||
-      bairro == false ||
-      telefoneEmpresa == false
+      !nomeResponsavel ||
+      !email ||
+      !senha ||
+      !confirmarSenha ||
+      !nomeRua ||
+      !numero ||
+      !estado ||
+      !cidade ||
+      !bairro ||
+      !CEP ||
+      !telefoneEmpresa
     ) {
       span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Falta Informações!</span>`;
     } else {
-      if (senha.length >= 8 && CNPJ.length == 14 && CEP.length == 9) {
+      if (senha.length >= 8) {
         if (senha == confirmarSenha) {
-          // Aguardar 5 segundos antes de redirecionar para a página de login
-          // setTimeout(function () {
-          //   window.location.href = "page_login.html";
-          // }, 3000); // 5000 milissegundos = 5 segundos
+
           fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -210,23 +237,120 @@
               nomeResponsavel: nomeResponsavel,
               email: email,
               senha: senha,
-              telefone: telefone,
-              nomeFantasia: nomeFantasia,
-              cnpj: CNPJ,
-              endereco: endereco,
-              cep: CEP,
-              bairro: bairro,
-              telefoneEmpresa: telefoneEmpresa,
+              telefone: telefone
             }),
           }).then((response) => {
             response.json().then((json) => {
               console.log(json);
             });
           });
+          cadastrarEndereco()
         }
       } else {
         span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Informações Incorretas!</span>`;
       }
     }
   }
+
+
+  function cadastrarEndereco() {
+
+
+    var email = input_email.value;
+    var senha = input_senha.value;
+
+    /*----------------CADASTRO ENDEREÇO------------------*/
+
+    var nomeEmpresa = empresa_input.value;
+
+
+    var nomeRua = input_nomeRua.value;
+    var numero = input_numero.value;
+    var estado = input_estado.value;
+    var cidade = input_cidade.value;
+    var bairro = input_bairro.value;
+    var CEP = input_cep.value;
+    var telefoneEmpresa = input_telefone_empresa.value;
+
+
+    fetch("/empresas/cadastrar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+
+        empresaNomeServer: nomeEmpresa,
+
+        senhaServer: senha,
+        emailServer: email,
+        ruaServer: nomeRua,
+        numeroServer: numero,
+        estadoServer: estado,
+        cidadeServer: cidade,
+        bairroServer: bairro,
+        cepServer: CEP,
+        telefoneEmpresaServer: telefoneEmpresa
+      }),
+    }).then((response) => {
+      response.json().then((json) => {
+        console.log(json);
+      });
+    });
+
+    setTimeout(() => {
+      pegarid()
+    }, 1000);
+  }
+
+
+  function pegarid() {
+
+    var email = input_email.value;
+    var senha = input_senha.value;
+    var cep = input_cep.value;
+
+    fetch(`/usuarios/pegarID/${email}/${senha}/${cep}`, {
+      cache: 'no-store'
+    })
+      .then(function (response) {
+        if (response.ok) {
+          response.json().then(function (resposta) {
+
+            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+            resposta.reverse();
+
+            console.log(resposta[0].idUsuario)
+
+            setTimeout(() => {
+              fazerUpdate(resposta)
+            }, 1000);
+
+          });
+        } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+        }
+      })
+
+  }
+
+
+  function fazerUpdate(resposta) {
+    console.log('legal')
+    var fkEndereco = resposta[0].idEndereco;
+    var usuario = resposta[0].idUsuario;
+
+
+    fetch(`/empresas/update/${usuario}/${fkEndereco}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      }
+    })
+          // Aguardar 5 segundos antes de redirecionar para a página de login
+          setTimeout(function () {
+            window.location.href = "page_login.html";
+          }, 3000); // 5000 milissegundos = 5 segundos
+  }
+
 </script>

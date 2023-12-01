@@ -39,9 +39,42 @@ function cadastrar(req, res) {
   });
 }
 
+function cadastrarEndereco(req, res) {
+
+  var emailGestor = req.body.emailServer; 
+  var senhaGestor = req.body.senhaServer;
+
+  var nomeEmpresa = req.body.empresaNomeServer;
+
+  var nomeRua = req.body.ruaServer; 
+  var numero = req.body.numeroServer;
+  var estado = req.body.estadoServer;
+  var cidade = req.body.cidadeServer;
+  var bairro = req.body.bairroServer;
+  var CEP = req.body.cepServer
+  var telefoneEmpresa = req.body.telefoneEmpresaServer
+
+      empresaModel.cadastrarEndereco(nomeRua, numero, CEP, estado, cidade, bairro, nomeEmpresa, emailGestor, senhaGestor, telefoneEmpresa)
+      .then((resultado) => {
+        res.status(201).json(resultado);
+      });
+    }
+
+
+    function update(req, res) {
+      var endereco = req.params.endereco;
+      var usuario = req.params.usuario;
+  
+          empresaModel.update(usuario, endereco).then((resultado) => {
+            res.status(201).json(resultado);
+          });
+        }
+
 module.exports = {
   buscarPorCnpj,
   buscarPorId,
   cadastrar,
+  cadastrarEndereco,
   listar,
+  update,
 };

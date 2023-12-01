@@ -32,7 +32,7 @@
       <div class="container">
         <img
           class="imagem_fundo"
-          src="assets/undraw_medicine_b-1-ol.svg"
+          src="undraw_medicine_b-1-ol.svg"
           alt=""
         />
 
@@ -106,47 +106,75 @@
 
   <script>
     function botao_entrar() {
-      var email = input_email.value;
-      var senha = input_senha.value;
+        // aguardar();
 
-      fetch("/usuarios/autenticar", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          emailServer: email,
-          senhaServer: senha,
-        }),
-      }).then((response) => {
-        response.json().then((json) => {
-          console.log(json);
-        });
-      });
+        var emailVar = input_email.value;
+        var senhaVar = input_senha.value;
 
-      // senha aceita 8 ou mais caracteres
-      // if (senha.length >= 8) {
-      //   if (email == "gestor@gmail.com" && senha == "12345678") {
-      //     span_confirmacao.innerHTML = `Acessando ...`;
-      //     // demora 3 segundos para mudar de pagina
-      //     setTimeout(function () {
-      //       window.location.href = "dashboardGestor.html";
-      //     }, 3000); // = 3 segundos
-      //   } else if (email == "funcionario@gmail.com" && senha == "12345678") {
-      //     span_confirmacao.innerHTML = `Acessando ...`;
+        if (emailVar == "" || senhaVar == "") {
+            cardErro.style.display = "block"
+            mensagem_erro.innerHTML = "Preencha todos os campos";
+            // finalizarAguardar();
+            return false;
+        }
+        // else {
+        //     setInterval(sumirMensagem, 5000)
+        // }
 
-      //     // demora 3 segundos para mudar de pagina
-      //     setTimeout(function () {
-      //       window.location.href = "dashboardindex.html";
-      //     }, 3000); // = 3 segundos
-      //   } else {
-      //     // e-mail inválido ou senha
-      //     span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Usuário não encontrado!</span>`;
-      //   }
-      // } else {
-      //   // Senha com menos de 8 caracteres
-      //   span_confirmacao.innerHTML = `<span style="color: red; padding-bottom: 10px;">Senha deve ter pelo menos 8 caracteres!</span>`;
-      // }
+        console.log("FORM LOGIN: ", emailVar);
+        console.log("FORM SENHA: ", senhaVar);
+
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            })
+        }
+
+        ).then(function (resposta) {
+            // mensagem_erro.innerHTML = "redirecionando para a home..."
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nomenick;
+                    sessionStorage.ID_USUARIO = json.id;
+                    sessionStorage.TELEFONE_USUARIO = json.telefone
+
+
+
+                    setTimeout(function () {
+                        window.location = "dashboardGestor.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                mensagem_erro.innerHTML = "email ou senha inválidos!"
+
+                // resposta.text().then(texto => {
+                //     // console.error(texto);
+                //     // finalizarAguardar(texto);
+                // });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
     }
   </script>
 </html>

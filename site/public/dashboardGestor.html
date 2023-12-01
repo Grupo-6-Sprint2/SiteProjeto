@@ -5,20 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
-      rel="stylesheet"
-    />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
+    rel="stylesheet" />
   <title>dashboards</title>
-  <link rel="stylesheet" href="dashboardStyle.css">
+  <link rel="stylesheet" href="css/dashboardStyle.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body>
+<body onload="validarSessao(), listarFuncionarios()">
 
   <main>
 
@@ -43,13 +42,13 @@
 
       <div class="BemVindo">
         <div>
-          <span>Bem vindo, Samuel</span>
+          <span>Bem vindo(a), <span id="nome_do_usuario"></span></span>
         </div>
 
         <div style="display: flex; justify-content: space-evenly;width: 650px; align-items: center;">
           <input id="input_pesquisa" placeholder="Pesquisar">
           <a href="cadastro-funcionario.html" class="buttonCadastrar">Cadastrar funcionário</a>
-          <span>Samuel</span>
+          <span id="nomeUsuario_denovo"></span>
           <div id="profile" onclick="viewExit()">
             <div class="foto"></div>
           </div>
@@ -135,7 +134,7 @@
                 L</span>
             </div>
 
-            
+
           </div>
 
 
@@ -149,8 +148,26 @@
 
         <!-- FIM DA VISÃO GERAL -->
         <div class="container">
-          <div id="funcionarioCadastrado" style="background-color: white; width: 1000px; height: 200px; justify-content: center; margin-left: 150px; text-align: center; margin-top: 50px; border-radius: 10px;">
+          <div id="funcionarioCadastrado"
+            style="background-color: white; width: 1000px; height: 200px; justify-content: center; margin-left: 150px; text-align: center; margin-top: 50px; border-radius: 10px;">
             <p>Funionarios cadastrados</p>
+
+            <div id="funcionarios">
+
+
+              <!-- aqui é um template dos funcionários, os de verdade são inseridos através de um select no banco, que insere funcoinario por funcionario-->
+
+              <!-- 
+                
+              <div>
+                  <span id="nomeFuncionario">nome do funcionaro: jorge</span>
+                  <span id="emailFuncionario">email: @gmail.com</span>
+                  <span id="telefoneFuncionario">número: 120985</span>
+              </div>
+
+              -->
+
+            </div>
           </div>
 
         </div>
@@ -217,7 +234,7 @@
   });
 
   const moneyCtx = document.getElementById('moneyChart');
-  
+
   new Chart(moneyCtx, {
     type: 'line',
     data: {
@@ -239,13 +256,67 @@
 
   function viewExit() {
     viewDivExit = !viewDivExit
-    if(viewDivExit) {
+    if (viewDivExit) {
       profile.innerHTML = '<div class="foto"></div>'
     } else {
       profile.innerHTML = '<div class="foto"></div><div class="exit"><a href="page_login.html">Sair</a></div>'
     }
-            
+
   }
 
+
+  function validarSessao() {
+
+    var gestor = sessionStorage.GESTOR
+    var usuario = sessionStorage.NOME_USUARIO
+
+    if (gestor == "null") {
+      nome_do_usuario.innerHTML = usuario
+      nomeUsuario_denovo.innerHTML = usuario
+    }
+    else {
+      nome_do_usuario.innerHTML = 'você não tem nome ?'
+    }
+  }
+
+  function listarFuncionarios() {
+      var gestor = sessionStorage.ID_USUARIO;
+
+      fetch(`/usuarios/listar/${gestor}`,  { cache: 'no-store' }).then(function (response) {
+            if (response.ok) {
+                response.json().then(function (resposta) {
+
+                    console.log('pericias encontradas:' + resposta.length)
+    
+                  plotarFuncionarios(resposta)
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+  }
+
+  function plotarFuncionarios(resposta) {
+
+
+    for (i = 0; i < resposta.length; i ++) {
+
+      funcionarios.innerHTML += `
+            <div>
+              <span id="nomeFuncionario">nome do funcionaro: ${resposta[i].nomeNick}</span> 
+              <span id="emailFuncionario">email: ${resposta[i].email}</span>
+              <span id="telefoneFuncionario">número: ${resposta[i].telefone}</span>
+            </div>
+            `;
+
+    }
+
+
+
+  }
 
 </script>

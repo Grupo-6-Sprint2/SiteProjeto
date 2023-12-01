@@ -210,6 +210,9 @@
     var CEP = input_cep.value;
     var telefoneEmpresa = input_telefone_empresa.value;
 
+    var fkGestor = 'null'
+    var endereco = 'null'
+
     if (
       !nomeResponsavel ||
       !email ||
@@ -237,7 +240,9 @@
               nomeResponsavel: nomeResponsavel,
               email: email,
               senha: senha,
-              telefone: telefone
+              telefone: telefone,
+              fkGestorServer: fkGestor,
+              enderecoServer: endereco
             }),
           }).then((response) => {
             response.json().then((json) => {

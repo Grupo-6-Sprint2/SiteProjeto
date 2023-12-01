@@ -276,3 +276,24 @@ b {
   font-weight: 600;
   justify-content: space-evenly;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+#funcionarios {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+#funcionarios span {
+  margin-right: 20px;
+}

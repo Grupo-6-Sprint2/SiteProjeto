@@ -20,6 +20,7 @@ CEP char(8),
 estado char(2),
 cidade varchar(45),
 bairro varchar(45),
+telefoneEmpresa varchar(20),
 fkEmpresa char(11),
 fkResponsavel int,
 constraint FKEe foreign key (fkEmpresa) references empresa(CNPJ)
@@ -51,10 +52,8 @@ alter table endereco add constraint FKRe foreign key (fkResponsavel) references 
 
 -- testes de banco
 
-select * from usuario;
 
-select * from empresa;
-select * from endereco;
+
 
 insert into usuario values
 (null, 'joia@gmail.com', '123', 'Paulo', '11 9021381293', null, null);

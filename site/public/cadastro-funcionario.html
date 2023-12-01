@@ -41,12 +41,12 @@
 
             <div class="campo">
               <span>Nome completo:</span>
-              <input id="input_nome" value="Victor" />
+              <input id="input_nome" placeholder="Seu nome" />
             </div>
 
             <div class="campo">
               <span>E-mail:</span>
-              <input id="input_email" value="victor@gmail.com" />
+              <input id="input_email" placeholder="@gmail.com" />
             </div>
 
             <div class="campo">
@@ -55,7 +55,6 @@
                 id="input_senha"
                 type="password"
                 placeholder="********"
-                value="12345678"
               />
             </div>
 
@@ -65,31 +64,30 @@
                 id="input_confirmar_senha"
                 type="password"
                 placeholder="********"
-                value="12345678"
               />
             </div>
 
             <div class="campo">
               <span>DDD + Telefone</span>
-              <input type="tel" id="input_telefone" value="(11) 98646-7845" />
+              <input type="tel" id="input_telefone" placeholder="(11) 98646-7845" />
             </div>
 
             <div class="campo">
               <span>Cargo:</span>
-              <input id="input_endereco" value="Monitor" />
+              <input id="input_endereco" placeholder="Monitor" />
             </div>
 
             <div class="campo">
               <span>Permissões:</span>
               <select name="selecionar" id="selecionar_valor">
-                <option value="5" selected>
+                <option placeholder="5" selected>
                   Apenas visualização de relatórios e dashboards
                 </option>
-                <option value="8">
+                <option placeholder="8">
                   Acesso aos relatórios e dashboards, Permissão para editar,
                   gravar ou excluir dados.
                 </option>
-                <option value="13">
+                <option placeholder="13">
                   Acesso irrestrito as telas e dados. Permissão para inserir ou
                   excluir funcionários
                 </option></select
@@ -155,27 +153,78 @@
 
 <script>
 
-  
 
-  function cadastrar() {
+
+function cadastrar() {
+    /*-------------CADASTRO RESPONSÁVEL-----------------*/
+
+    var nomeResponsavel = input_nome.value;
+    var email = input_email.value;
     var senha = input_senha.value;
     var confirmarSenha = input_confirmar_senha.value;
+    var telefone = input_telefone.value;
 
-    if (senha.length >= 8) {
-      if (senha == confirmarSenha) {
-        // Senha com menos de 8 caracteres
-        span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px; display:flex; justify-content: center; flex-direction: column; align-items: center;">Cadastro realizado com sucesso! <br><br>
 
-              <span>
-                <a href="cadastro-funcionario.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Cadastrar novo funcionário</a>
-                
-                <a href="dashboardGestor.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Ir para Dashboards</a>
-              </span>`;
-      } else {
-        span_confirmacao.innerHTML = `<span style="font-size: 18px; color: red;">Dados Inseridos Incorretamente!</span>`;
-      }
+    var fkGestor = sessionStorage.ID_USUARIO
+    var endereco = sessionStorage.ENDERECO
+
+    if (
+      !nomeResponsavel ||
+      !email ||
+      !senha ||
+      !confirmarSenha ||
+      !telefone
+    ) {
+      span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Falta Informações!</span>`;
     } else {
-      span_confirmacao.innerHTML = `<span style="color: red;  font-size: 18px;">Senha deve ter pelo menos 8 caracteres!</span>`;
+      if (senha.length >= 8) {
+        if (senha == confirmarSenha) {
+
+          fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              nomeResponsavel: nomeResponsavel,
+              email: email,
+              senha: senha,
+              telefone: telefone,
+              fkGestorServer: fkGestor,
+              enderecoServer: endereco
+            }),
+          }).then((response) => {
+            response.json().then((json) => {
+              console.log(json);
+            });
+          });
+        }
+      } else {
+        span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Informações Incorretas!</span>`;
+      }
     }
   }
+  
+
+  // function cadastrar() {
+  //   var senha = input_senha.value;
+  //   var confirmarSenha = input_confirmar_senha.value;
+
+  //   if (senha.length >= 8) {
+  //     if (senha == confirmarSenha) {
+  //       // Senha com menos de 8 caracteres
+  //       span_confirmacao.innerHTML = `<span style="color: green; padding-bottom: 10px; display:flex; justify-content: center; flex-direction: column; align-items: center;">Cadastro realizado com sucesso! <br><br>
+
+  //             <span>
+  //               <a href="cadastro-funcionario.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Cadastrar novo funcionário</a>
+                
+  //               <a href="dashboardGestor.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Ir para Dashboards</a>
+  //             </span>`;
+  //     } else {
+  //       span_confirmacao.innerHTML = `<span style="font-size: 18px; color: red;">Dados Inseridos Incorretamente!</span>`;
+  //     }
+  //   } else {
+  //     span_confirmacao.innerHTML = `<span style="color: red;  font-size: 18px;">Senha deve ter pelo menos 8 caracteres!</span>`;
+  //   }
+  // }
 </script>

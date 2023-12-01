@@ -16,6 +16,12 @@ router.get("/pegarID/:emailUser/:senhaUser/:cep", function (req, res) {
     usuarioController.pegarID(req, res);
 });
 
+router.get("/listar/:gestor", function (req, res) {
+    usuarioController.listar(req, res);
+});
+
+
+
 
 
 

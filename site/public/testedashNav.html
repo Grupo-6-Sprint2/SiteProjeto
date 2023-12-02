@@ -17,28 +17,84 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
+
+<style>
+
+.navegacao_lateral{
+  cursor: pointer;
+  transition: 0.2s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: 1000px;
+
+  background-color: rgba(29, 78, 216, 1);
+}
+
+.navegacao_lateral_dropdown{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding-top: 5.5rem;
+}
+.navegacao_lateral_dropdown a{
+    color: white;
+    
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    display: none;
+    
+}
+
+.navegacao_lateral_dropdown label{
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+.navegacao_lateral_dropdown label img{
+    width: 55px;
+    object-fit: cover;
+}
+
+.navegacao_lateral_dropdown label:hover{
+    background-color: rgba(3, 13, 79, 0.6);
+    transition: all 0.2s ease-in-out;
+}
+
+.navegacao_lateral:hover .navegacao_lateral_dropdown a{ /*quando passar o mouse no 'dropdown' uma ação será realizada no 'dropdown-menu'*/
+    display: block;
+}
+  
+
+</style>
+
+
 <body onload="validarSessao(), listarFuncionarios()">
 
   <main>
 
-    <!-- COISINHA DO LADO -->
     <div class="navegacao_lateral">
         
-      <div class="navegacao_lateral_dropdown">  
+        <div class="navegacao_lateral_dropdown">  
 
-          <label>
-              <img src="assets/geladeira-removebg-preview.png">
-              <a href="gráficosDinamico.html">Estoque</a>
-          </label> 
+            <label>
+                <img src="assets/geladeira-removebg-preview.png">
+                <a href="gráficosDinamico.html">Estoque</a>
+            </label> 
 
-          <label>
-              <img src="assets/alerta-removebg-preview.png">
-              <a href="#">Alertas</a>
-          </label>
+            <label>
+                <img src="assets/alerta-removebg-preview.png">
+                <a href="#">Alertas</a>
+            </label>
 
-      </div>
-      
-  </div>
+        </div>
+        
+    </div>
     <!-- FIM DA COISINHA DO LADO -->
 
 
@@ -56,10 +112,9 @@
           <input id="input_pesquisa" placeholder="Pesquisar">
           <a href="cadastro-funcionario.html" class="buttonCadastrar">Cadastrar funcionário</a>
           <span id="nomeUsuario_denovo"></span>
-          <a href="page_login.html"><img src="assets/sair.png" alt="Log-out"></a>
-          <!-- <div id="profile" onclick="viewExit()">
-            
-          </div>-->
+          <div id="profile" onclick="viewExit()">
+            <img src="assets/sair.png" alt="Log-out">
+          </div>
         </div>
       </div>
 
@@ -180,7 +235,6 @@
 
         </div>
       </div>
-    </div>
 </body>
 
 </html>
@@ -263,7 +317,6 @@
     hoverOffset: 4
   });
 
-  /*
   function viewExit() {
     viewDivExit = !viewDivExit
     if (viewDivExit) {
@@ -273,7 +326,6 @@
     }
 
   }
-  */
 
 
   function validarSessao() {

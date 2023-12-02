@@ -40,11 +40,32 @@
 
       <!-- ------------------------------------------------------ fim div da esquerda ---------------------------------------------------------- -->
       <div class="sensor_isolado">
+        
+        <div class="info_sensor">
+
+          <div class="dadosSensores"> <!-- extraído page graficos.html -->
+            <div>
+              <span class="identificação corAlt"> Sensor #1012</span>
+            </div>
+            <span class="geladeira corAlt2"> Geladeira: 012</span>
+            <div class="status">
+              <span>status:</span> <span id="joinha">&#128077;</span>
+            </div>
+            <span
+              class="valorTemperatura"
+              style="font-size: 30px"
+              id="temperaturaValor1"
+            ></span>
+          </div>
+
+        </div>
+
         <div class="solitude" id="graficoTemp">
           <canvas id="myChart"></canvas>
         </div>
 
         <div class="dadosSolitude">
+
           <div class="dadosQuestão">
             <div class="data">
               <span>data</span>
@@ -56,8 +77,8 @@
               <input type="time" />
             </div>
           </div>
-
           <div class="dadosResposta"></div>
+
         </div>
       </div>
 

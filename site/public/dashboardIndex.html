@@ -23,15 +23,22 @@
   <main>
 
     <!-- COISINHA DO LADO -->
-    <div class="esquerda">
-      <div class="lista">
-        <span>ESTOQUES</span>
+    <div class="navegacao_lateral">
+        
+      <div class="navegacao_lateral_dropdown">  
 
-        <div class="estoque"><a href="gráficos.html">Estoque Norte</a></div>
-        <div class="estoque"><a href="gráficos.html">Estoque Leste</a></div>
-        <div class="estoque"><a href="gráficos.html">Estoque Sul</a></div>
-        <div class="estoque"><a href="gráficos.html">Estoque Oeste</a></div>
+          <label>
+              <img src="assets/geladeira-removebg-preview.png">
+              <a href="gráficosDinamico.html">Estoque</a>
+          </label> 
+
+          <label>
+              <img src="assets/alerta-removebg-preview.png">
+              <a href="#">Registros</a>
+          </label>
+
       </div>
+      
     </div>
     <!-- FIM DA COISINHA DO LADO -->
 
@@ -48,9 +55,7 @@
         <div style="display: flex; justify-content: space-evenly;width: 650px; align-items: center;">
           <input id="input_pesquisa" placeholder="Pesquisar">
           <span>Samuel</span>
-          <div id="profile" onclick="viewExit()">
-            <div class="foto"></div>
-          </div>
+          <a href="page_login.html"><img src="assets/sair.png" alt="Log-out"></a>
         </div>
       </div>
 
@@ -69,17 +74,6 @@
               <!-- card1 -->
               <div class="card">
                 <div style="margin: 5px;">
-                  <span>Número de sensores</span>
-                  <div style="display: flex; margin-top: 10px;">
-                    <div class="barra azul"></div>
-                    <b>2532</b>
-                  </div>
-                </div>
-              </div>
-
-              <!-- card2 -->
-              <div class="card">
-                <div style="margin: 5px;">
                   <span>Quantidade de geladeiras</span>
                   <div style="display: flex; margin-top: 10px;">
                     <div class="barra amarelo"></div>
@@ -88,7 +82,7 @@
                 </div>
               </div>
 
-              <!-- card3 -->
+              <!-- card2 -->
               <div class="card">
                 <div style="margin: 5px;">
                   <span>Status</span>
@@ -103,7 +97,7 @@
 
             <!-- gráfico -->
             <div class="grafico">
-              <span>QUANTIDADE LITROS DE SANGUE PERDIDOS</span>
+              <span>MÉDIA DE LITROS DE SANGUE PERDIDOS</span>
               <canvas id="myChart"></canvas>
             </div>
           </div>
@@ -112,7 +106,7 @@
 
             <div style="display: flex; flex-direction: column; align-items: center;">
               <div class="perdidos">
-                <span>LITROS DE SANGUE PERDIDOS NO MÊS</span>
+                <span>AQUI VAI FICAR OS SENSORES EM ALERTA <br>POVO BONITO</span>
               </div>
 
 
@@ -230,6 +224,7 @@
     hoverOffset: 4
   });
 
+  /*
   function viewExit() {
     viewDivExit = !viewDivExit
     if(viewDivExit) {
@@ -239,6 +234,6 @@
     }
             
   }
-
+  */
 
 </script>

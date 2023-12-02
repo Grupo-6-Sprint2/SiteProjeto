@@ -33,12 +33,12 @@
 
           <label>
               <img src="assets/alerta-removebg-preview.png">
-              <a href="#">Alertas</a>
+              <a href="#">Registros</a>
           </label>
 
       </div>
       
-  </div>
+    </div>
     <!-- FIM DA COISINHA DO LADO -->
 
 
@@ -57,9 +57,7 @@
           <a href="cadastro-funcionario.html" class="buttonCadastrar">Cadastrar funcionário</a>
           <span id="nomeUsuario_denovo"></span>
           <a href="page_login.html"><img src="assets/sair.png" alt="Log-out"></a>
-          <!-- <div id="profile" onclick="viewExit()">
-            
-          </div>-->
+          
         </div>
       </div>
 
@@ -78,7 +76,7 @@
               <!-- card1 -->
               <div class="card">
                 <div style="margin: 5px;">
-                  <span>Número de sensores</span>
+                  <span>Quantidade de geladeiras</span>
                   <div style="display: flex; margin-top: 10px;">
                     <div class="barra azul"></div>
                     <b>2532</b>
@@ -87,17 +85,6 @@
               </div>
 
               <!-- card2 -->
-              <div class="card">
-                <div style="margin: 5px;">
-                  <span>Quantidade de geladeiras</span>
-                  <div style="display: flex; margin-top: 10px;">
-                    <div class="barra amarelo"></div>
-                    <b>3647</b>
-                  </div>
-                </div>
-              </div>
-
-              <!-- card3 -->
               <div class="card">
                 <div style="margin: 5px;">
                   <span>Status</span>
@@ -110,9 +97,9 @@
             </div>
 
 
-            <!-- gráfico -->
+            <!-- gráfico ----------- ATUALIZAR DADOS DO GRÁFICO (antes era qntd, agora v ai ser média)-->
             <div class="grafico">
-              <span>QUANTIDADE LITROS DE SANGUE PERDIDOS</span>
+              <span>MÉDIA DE LITROS DE SANGUE PERDIDOS</span>
               <canvas id="myChart"></canvas>
             </div>
           </div>
@@ -121,7 +108,7 @@
 
             <div style="display: flex; flex-direction: column; align-items: center;">
               <div class="perdidos">
-                <span>LITROS DE SANGUE PERDIDOS NO MÊS</span>
+                <span>AQUI VAI FICAR OS SENSORES EM ALERTA <br>POVO BONITO</span>
               </div>
 
 
@@ -157,23 +144,52 @@
         <!-- FIM DA VISÃO GERAL -->
         <div class="container">
           <div id="funcionarioCadastrado"
-            style="background-color: white; width: 1000px; height: 200px; justify-content: center; margin-left: 150px; text-align: center; margin-top: 50px; border-radius: 10px;">
-            <p>Funionarios cadastrados</p>
+            style="
+            background-color: white; 
+            width: 990px; height: 200px; 
+            justify-content: center; text-align: center; 
+            margin-left: 150px; margin-top: 50px; border-radius: 10px; padding: 15px; ">
+            <!-- <p>Funionários cadastrados</p> -->
 
             <div id="funcionarios">
 
 
-              <!-- aqui é um template dos funcionários, os de verdade são inseridos através de um select no banco, que insere funcoinario por funcionario-->
-
-              <!-- 
+              <!-- aqui é um template dos funcionários, os de verdade são inseridos através de um select no banco, que insere funcoinario por funcionario
                 
               <div>
                   <span id="nomeFuncionario">nome do funcionaro: jorge</span>
                   <span id="emailFuncionario">email: @gmail.com</span>
                   <span id="telefoneFuncionario">número: 120985</span>
-              </div>
+              </div> -->
+                
 
-              -->
+              <!-- Testando o formato tabela -->
+              <table border="1">
+                <caption><strong>Funionários cadastrados</strong></caption> <!-- title-->
+                <tr> <!-- header-->
+                    <th>Nome</th>
+                    <th>E-mail</th>
+                    <th>Número</th>
+                </tr>
+                <tr> <!-- dados -->
+                    <td>Jorge</td>
+                    <td>Jorge@gmail.com</td>
+                    <td>120985</td>
+                </tr>
+                <tr>
+                  <td>Maria</td>
+                  <td>Maria@gmail.com</td>
+                  <td>123456</td>
+                </tr>
+                <tr>
+                  <td>Joana</td>
+                  <td>Joana@gmail.com</td>
+                  <td>987654</td>
+                </tr>
+            </table>
+              
+
+              
 
             </div>
           </div>

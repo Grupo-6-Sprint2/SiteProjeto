@@ -83,7 +83,7 @@ main {
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 1000px;
+  height: 970px;
 
   background-color: rgba(29, 78, 216, 1);
 }
@@ -92,13 +92,13 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    padding-top: 5.5rem;
+    padding-top: 8rem;
 }
 .navegacao_lateral_dropdown a{
     color: white;
     
     text-decoration: none;
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px;
     display: none;
     
@@ -110,10 +110,14 @@ main {
     margin-bottom: 10px;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
+
+    align-items: center;
+    justify-content: start;
 }
 .navegacao_lateral_dropdown label img{
-    width: 55px;
+    width: 60px;
     object-fit: cover;
+    margin: 2px;
 }
 
 .navegacao_lateral_dropdown label:hover{
@@ -141,7 +145,7 @@ main {
 .geral .BemVindo {
   background-color: #ffffff;
   display: flex;
-  justify-content: end;
+  justify-content: space-between;
   align-items: center;
   padding: 10px 40px;
   position: sticky;
@@ -150,7 +154,6 @@ main {
 .BemVindo span {
   font-weight: 600;
   font-size: 20px;
-  margin-right: 2rem;
 }
 
 .buttonCadastrar {
@@ -160,6 +163,12 @@ main {
   margin: 0 15px;
   text-align: center;
 }
+
+.buttonCadastrar:hover{
+  background-color: rgba(3, 13, 79, 1);
+  transition: all 0.2s ease-in-out;
+}
+
 
 #profile {
   cursor: pointer;
@@ -195,32 +204,33 @@ main {
   border: none;
   border-radius: 10px;
   width: 400px;
-  padding: 15px;
+  padding: 10px 40px;
   font-size: 20px;
 }
 
 .geral .dashboards {
-  padding: 20px 0px;
+  padding-top: 20px;
 }
 
 .dashboards .graphics {
   display: flex;
   justify-content: flex-end;
-  margin-right: 5rem;
+  margin-right: 8rem;
 }
 
 .geral .container {
-  height: 150px;
+  height: auto;
+  margin-bottom: 20px;
 }
 
 .status .container {
-  justify-content: center;
+  justify-content: start;
 }
 
 .card {
   background-color: white;
-  height: 100%;
-  width: 25%;
+  height: 155px;
+  width: 50%;
   border-radius: 20px;
   box-shadow: 2px 3px 6px 1px rgba(0, 0, 0, 0.4);
   display: flex;
@@ -261,6 +271,7 @@ b {
   display: flex;
   flex-direction: column;
   padding: 10px;
+
 }
 
 .grafico span {

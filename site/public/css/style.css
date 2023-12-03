@@ -48,7 +48,7 @@
 
 .banner {
   height: 500px;
-  background-image: url(images/fundo.jpg);
+  background-image: url(assets/fundo.jpg);
 }
 
 .banner .container {

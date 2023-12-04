@@ -56,7 +56,7 @@
           <input id="input_pesquisa" placeholder="Pesquisar">
           <a href="cadastro-funcionario.html" class="buttonCadastrar">Cadastrar funcionário</a>
           <span id="nomeUsuario_denovo"></span>
-          <a href="page_login.html"><img src="assets/sair.png" alt="Log-out"></a>
+          <img src="assets/sair.png" alt="Log-out" onclick="sair()" style="cursor: pointer;">
           
         </div>
       </div>
@@ -297,13 +297,8 @@
     var gestor = sessionStorage.GESTOR
     var usuario = sessionStorage.NOME_USUARIO
 
-    if (gestor == "null") {
-      nome_do_usuario.innerHTML = usuario
-      nomeUsuario_denovo.innerHTML = usuario
-    }
-    else {
-      nome_do_usuario.innerHTML = 'você não tem nome ?'
-    }
+    nome_do_usuario.innerHTML = usuario
+    nomeUsuario_denovo.innerHTML = usuario
   }
 
   function listarFuncionarios() {
@@ -343,6 +338,13 @@
     }
 
 
+
+  }
+
+  function sair() {
+
+    sessionStorage.clear()
+    window.location = "page_login.html"
 
   }
 

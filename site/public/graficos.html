@@ -359,7 +359,7 @@ function atualizarGrafico(idAquario, dados, myChart) {
 
   var listaGraficos = [grafico1, grafico2, grafico3];
   setInterval(() => {
-    fetch("http://localhost:3300/sensores/lm35/temperatura", {
+    fetch("/medidas/lm35", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -367,13 +367,13 @@ function atualizarGrafico(idAquario, dados, myChart) {
     }).then((response) => {
       response.json().then((json) => {
         // console.log(json);
-        var randomNumber = 0;
-        randomNumber = json;
+        var resposta = json;
+        console.log(json)
 
         var listaSensores = [];
-        listaSensores.push(randomNumber);
-        listaSensores.push(randomNumber - 1);
-        listaSensores.push(randomNumber * 2);
+        listaSensores.push(json[0].temperatura);
+        listaSensores.push(json[1].temperatura);
+        listaSensores.push(json[2].temperatura);
         console.log(listaSensores);
 
         for (
@@ -385,7 +385,7 @@ function atualizarGrafico(idAquario, dados, myChart) {
             `temperaturaValor${incremento + 1}`
           );
 
-          text.innerHTML = `${listaSensores[incremento].toFixed(1)}ºC`;
+          text.innerHTML = `${listaSensores[incremento]}ºC`;
 
           var element = document.getElementById(`sensorDiv${incremento + 1}`);
 
@@ -418,10 +418,9 @@ function atualizarGrafico(idAquario, dados, myChart) {
     grafico.update();
   }
 
-  const id = document.ge
 
 
-  const ctxblablabla = new Chart(document, {})
+
 
   for (i = 0; i < oTantodeSensores.lenght; i ++) {
 
@@ -431,7 +430,7 @@ function atualizarGrafico(idAquario, dados, myChart) {
       <canvas id = canvas
     `
 
-
+    var id = document
 
 
   }

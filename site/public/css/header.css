@@ -1,0 +1,38 @@
+.header {
+    background-color: #357cd0;
+  }
+  
+  .header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .container ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .container ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .header .container .botoes_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    color: black;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+  

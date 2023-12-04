@@ -1,182 +1,189 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <title>Login</title>
-    <link rel="stylesheet" href="./css/page-login.css" />
-    <link rel="stylesheet" href="./css/global.css" />
-  </head>
 
-  <body>
-    <!-- INICIO CABEÇALHO -->
-    <header>
-      <div class="logo">
-        <h1>Save<strong>Blood</strong></h1>
-      </div>
-      <ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <title>Login</title>
+
+  <link rel="stylesheet" href="./css/global.css" />
+  <link rel="stylesheet" href="./css/header.css">
+  <link rel="stylesheet" href="./css/page-login.css" />
+  <link rel="stylesheet" href="./css/fontes.css">
+
+</head>
+
+<body>
+  <!-- INICIO CABEÇALHO -->
+  <div class="header">
+    <div class="container">
+      <h1><img src="assets/logo.png" style="width: 200px" /></h1>
+
+      <ul style="margin-left: 100px;">
         <li><a href="index.html">Home</a></li>
-        <li><a href="cadastro-empresa.html" class="button">cadastro </a></li>
+        <li><a href="#">Contato</a></li>
       </ul>
-    </header>
+      <div class="botoes_header" style="margin-left: 150px">
+        <a style="text-decoration: none; color: #000" href="cadastro-empresa.html">Cadastre-se</a>
+      </div>
 
-    <!-- INICIO BANNER -->
+      <div class="botoes_header" style="margin-left: 20px">
+        <a style="text-decoration: none; color: #000" href="index.html">Voltar</a>
+      </div>
+    </div>
+  </div>
 
-    <div class="banner">
-      <div class="container">
-        <img
-          class="imagem_fundo"
-          src="assets/undraw_medicine_b-1-ol.svg"
-          alt=""
-        />
+  <!-- INICIO BANNER -->
 
-        <div class="formulario">
-          <h2>Acesse sua conta</h2>
+  <div class="banner">
+    <div class="container">
+      <img class="imagem_fundo" src="assets/undraw_medicine_b-1-ol.svg" alt="" />
 
-          <img class="imagem_login" src="assets/icon-login.svg" alt="" />
-          <!--IMAGEM LOGIN -->
+      <div class="formulario">
+        <h2>Acesse sua conta</h2>
 
-          <span>E-mail:</span>
-          <input id="input_email" />
+        <img class="imagem_login" src="assets/icon-login.svg" alt="" />
+        <!--IMAGEM LOGIN -->
 
-          <span>Senha:</span>
-          <input id="input_senha" type="password" placeholder="********" />
+        <span>E-mail:</span>
+        <input id="input_email" />
 
-          <span style="padding-bottom: 10px" id="span_confirmacao"></span>
+        <span>Senha:</span>
+        <input id="input_senha" type="password" placeholder="********" />
 
-          <button onclick="botao_entrar()">Entrar</button>
+        <span style="padding-bottom: 10px" id="span_confirmacao"></span>
+
+        <button onclick="botao_entrar()">Entrar</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="dividerFooter">
+        <div class="contacts">
+          <div class="contact">
+            <img src="assets/location.svg" alt="" />
+            <div class="infoContact">
+              <h4>Endereço</h4>
+              <p style="font-size: 12px">
+                Rua Haddock Lobo, 595 São Paulo - SP
+              </p>
+            </div>
+          </div>
+
+          <div class="contact">
+            <img src="assets/phone.svg" alt="" />
+            <div class="infoContact">
+              <h4>Telefone</h4>
+              <p style="font-size: 12px">(11) 3589-4043</p>
+            </div>
+          </div>
+
+          <div class="contact">
+            <img src="assets/letter.svg" alt="" />
+            <div class="infoContact">
+              <h4>E-mail</h4>
+              <p style="font-size: 12px">save.blood@sptech.school</p>
+            </div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="footerDown">
+          <div class="footerLogo">
+            <img src="assets/logo.png" alt="" />
+          </div>
+          <div class="redesSocial">
+            <h3>Nos siga!</h3>
+            <div class="iconSocial">
+              <img src="assets/instagram-2016-5.svg" alt="" />
+              <img src="assets/whatsapp-3.svg" alt="" />
+              <img src="assets/facebook-3-2.svg" alt="" />
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </footer>
+</body>
 
-    <footer>
-      <div class="container">
-        <div class="dividerFooter">
-          <div class="contacts">
-            <div class="contact">
-              <img src="assets/location.svg" alt="" />
-              <div class="infoContact">
-                <h4>Endereço</h4>
-                <p style="font-size: 12px">
-                  Rua Haddock Lobo, 595 São Paulo - SP
-                </p>
-              </div>
-            </div>
+<script>
+  function botao_entrar() {
+    // aguardar();
 
-            <div class="contact">
-              <img src="assets/phone.svg" alt="" />
-              <div class="infoContact">
-                <h4>Telefone</h4>
-                <p style="font-size: 12px">(11) 3589-4043</p>
-              </div>
-            </div>
+    var emailVar = input_email.value;
+    var senhaVar = input_senha.value;
 
-            <div class="contact">
-              <img src="assets/letter.svg" alt="" />
-              <div class="infoContact">
-                <h4>E-mail</h4>
-                <p style="font-size: 12px">save.blood@sptech.school</p>
-              </div>
-            </div>
-          </div>
-          <div class="divider"></div>
-          <div class="footerDown">
-            <div class="footerLogo">
-              <img src="assets/logo.png" alt="" />
-            </div>
-            <div class="redesSocial">
-              <h3>Nos siga!</h3>
-              <div class="iconSocial">
-                <img src="assets/instagram-2016-5.svg" alt="" />
-                <img src="assets/whatsapp-3.svg" alt="" />
-                <img src="assets/facebook-3-2.svg" alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
-  </body>
-
-  <script>
-    function botao_entrar() {
-        // aguardar();
-
-        var emailVar = input_email.value;
-        var senhaVar = input_senha.value;
-
-        if (emailVar == "" || senhaVar == "") {
-            cardErro.style.display = "block"
-            mensagem_erro.innerHTML = "Preencha todos os campos";
-            // finalizarAguardar();
-            return false;
-        }
-        // else {
-        //     setInterval(sumirMensagem, 5000)
-        // }
-
-        console.log("FORM LOGIN: ", emailVar);
-        console.log("FORM SENHA: ", senhaVar);
-
-        fetch("/usuarios/autenticar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            })
-        }
-
-        ).then(function (resposta) {
-            // mensagem_erro.innerHTML = "redirecionando para a home..."
-            console.log("ESTOU NO THEN DO entrar()!")
-
-            if (resposta.ok) {
-                console.log(resposta);
-
-                resposta.json().then(json => {
-                    console.log(json);
-                    console.log(JSON.stringify(json));
-                    sessionStorage.EMAIL_USUARIO = json.email;
-                    sessionStorage.NOME_USUARIO = json.nome;
-                    sessionStorage.ID_USUARIO = json.id;
-                    sessionStorage.TELEFONE_USUARIO = json.telefone;
-                    sessionStorage.GESTOR = json.id;
-                    sessionStorage.ENDERECO = json.endereco;
-
-
-
-                    setTimeout(function () {
-                        window.location = "dashboardGestor.html";
-                    }, 1000); // apenas para exibir o loading
-
-                });
-
-            } else {
-
-                console.log("Houve um erro ao tentar realizar o login!");
-
-                mensagem_erro.innerHTML = "email ou senha inválidos!"
-
-                // resposta.text().then(texto => {
-                //     // console.error(texto);
-                //     // finalizarAguardar(texto);
-                // });
-            }
-
-        }).catch(function (erro) {
-            console.log(erro);
-        })
-
-        return false;
+    if (emailVar == "" || senhaVar == "") {
+      cardErro.style.display = "block"
+      mensagem_erro.innerHTML = "Preencha todos os campos";
+      // finalizarAguardar();
+      return false;
     }
-  </script>
+    // else {
+    //     setInterval(sumirMensagem, 5000)
+    // }
+
+    console.log("FORM LOGIN: ", emailVar);
+    console.log("FORM SENHA: ", senhaVar);
+
+    fetch("/usuarios/autenticar", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        emailServer: emailVar,
+        senhaServer: senhaVar
+      })
+    }
+
+    ).then(function (resposta) {
+      // mensagem_erro.innerHTML = "redirecionando para a home..."
+      console.log("ESTOU NO THEN DO entrar()!")
+
+      if (resposta.ok) {
+        console.log(resposta);
+
+        resposta.json().then(json => {
+          console.log(json);
+          console.log(JSON.stringify(json));
+          sessionStorage.EMAIL_USUARIO = json.email;
+          sessionStorage.NOME_USUARIO = json.nome;
+          sessionStorage.ID_USUARIO = json.id;
+          sessionStorage.TELEFONE_USUARIO = json.telefone;
+          sessionStorage.GESTOR = json.id;
+          sessionStorage.ENDERECO = json.endereco;
+
+
+
+          setTimeout(function () {
+            window.location = "dashboardGestor.html";
+          }, 1000); // apenas para exibir o loading
+
+        });
+
+      } else {
+
+        console.log("Houve um erro ao tentar realizar o login!");
+
+        mensagem_erro.innerHTML = "email ou senha inválidos!"
+
+        // resposta.text().then(texto => {
+        //     // console.error(texto);
+        //     // finalizarAguardar(texto);
+        // });
+      }
+
+    }).catch(function (erro) {
+      console.log(erro);
+    })
+
+    return false;
+  }
+</script>
+
 </html>

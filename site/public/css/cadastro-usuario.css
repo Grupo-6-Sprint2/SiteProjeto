@@ -1,0 +1,159 @@
+html {
+    scroll-behavior: smooth;
+  }
+
+ 
+  
+  .container {
+    display: flex;
+    width: 80%;
+    margin: auto;
+  }
+
+  /* INICIO DO HEADER */
+  
+  .header {
+    background-color: #357cd0;
+  }
+
+  .header .container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+  }
+  
+  .container ul {
+    width: 400px;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .container ul li a {
+    text-decoration: none;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+  }
+  
+  .header .container .botoes_header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fafafa;
+    color: black;
+    font-size: 16px;
+    border-radius: 10px;
+    padding: 8px 12px;
+  }
+
+  .header .container .botoes_header:hover {
+    transform: scale(1.1);
+    
+  }
+  
+  
+  
+  
+  /* --- INICIO BANNER --- */
+  
+  .imagem_login {
+    height: 100px;
+    width: 100px;
+    margin-bottom: 20px;
+  }
+  
+  .formulario {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0px 0 0;
+    color: #000;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: -5px 10px 20px #bebebe, -10px -10px 20px #ffffff;
+    padding: 15px 0;
+  }
+  
+  /* card do formulario - cadastro funcionario */
+  .formulario_funcionario .banner .container .formulario {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 40px 0px 0 0;
+    color: #000;
+    border-radius: 50px;
+    background: #e0e0e0;
+    box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    padding: 15px 0;
+  }
+  /* ----------------------- */
+  
+  .banner .container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row-reverse;
+  }
+  
+  .banner .container .imagem_fundo {
+    width: 500px;
+  }
+  
+  .formulario input {
+    width: 700px;
+    border-radius: 10px;
+    border: none;
+    padding: 4px;
+  }
+  
+  /* input e select do formulario - cadastro funcionario */
+  .formulario_funcionario .banner .container .formulario input, select {
+    width: 440px;
+    border-radius: 10px;
+    border: none;
+    padding: 4px;
+  }
+  /* --------------------- */
+  
+  .formulario input, select:focus {
+    border: 3px solid #54a0ff;
+  }
+  
+  .formulario .campo {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .formulario h2 {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .formulario button {
+    height: 35px;
+    background-color: #54a0ff;
+    font-weight: bold;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 15px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  .botao_cadastro:hover {
+    background-color: #2980b9;
+  }
+  
+  .formulario input, select {
+    margin-bottom: 20px;
+  }
+  

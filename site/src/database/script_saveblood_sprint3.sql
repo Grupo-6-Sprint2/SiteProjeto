@@ -53,19 +53,17 @@ alter table endereco add constraint FKRe foreign key (fkResponsavel) references 
 -- testes de banco
 
 
+select * from usuario;
+
+select * from endereco;
 
 
-insert into usuario values
-(null, 'joia@gmail.com', '123', 'Paulo', '11 9021381293', null, null);
 
-insert into endereco values
-(null, 'hadock lobo', '213', '12345678', 'sp', 'são paulo', 'paulista', '12345678910', (select idUsuario from usuario where email = 'joia@gmail.com' and senha = '123'));
+insert into empresa values
+('12345678910', 'saveblood'),
+('12345678911', 'esquina do seu zé'),
+('12345678912', 'doações legais');
 
-insert into empresa values 
-('12345678910', 'Mandioquinha');
-
-insert into empresa values 
-('12345678911', 'Laranja');
 
 -- cria a foreign key da tabela empresa, para o responsável
 alter table empresa add constraint responsavel_foreignKey foreign key (fkResponsavel) references usuario(idUsuario);
@@ -95,15 +93,52 @@ insert into sensor (geladeira, fkEndereco) values
 
 truncate table sensor;
 
+select * from sensor;
+
 create table registro (
 idRegistro int primary key auto_increment,
 horario datetime default current_timestamp,
-temperatura decimal (2,1),
+temperatura decimal (10,2),
 fkSensor int,
 constraint FKSENSOr foreign key (fkSensor) references sensor(idSensor)
 ) auto_increment = 100000;
 
+alter table registro modify column temperatura decimal (10,2);
+
+select * from registro order by idRegistro desc limit 3;
+
+select * from registro where fkSensor = 1001 order by idRegistro desc limit 7;
+
+insert into registro (temperatura, fkSensor) values
+()
+
+select registro.temperatura, DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico from registro order by idRegistro desc limit 3;
+
+select registro.temperatura, DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico from registro order by idRegistro desc limit 3;
+
+
+select * from sensor;
+
+select 
+	registro.temperatura, 
+	DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico 
+    from registro 
+    order by idRegistro
+    LIMIT 3;
+
 drop table registro;
+
+select * from sensor;
+
+select * from endereco;
+
+insert into sensor (geladeira, fkEndereco) values
+('geladeira polishop', 100);
+
+select * from sensor;
+
+select * from registro where fkSensor = 1001;
+
 
 insert into registro (temperatura, fkSensor) values
 (05.2, 1000),

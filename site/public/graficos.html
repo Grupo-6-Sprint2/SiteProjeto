@@ -77,7 +77,7 @@
           </div>
         </div> -->
 
-        <a href="sensor.html" class="sensorContainer" id="sensorDiv1">
+        <div class="sensorContainer" id="sensorDiv1" onclick="escolherSensor(this.id)">
           <div class="dadosSensores">
             <div>
               <span class="identificação corAlt"> Sensor #1012</span>
@@ -95,9 +95,9 @@
           <div class="graficoContainer">
             <canvas id="myChart1"></canvas>
           </div>
-        </a>
+        </div>
 
-        <div class="sensorContainer" id="sensorDiv2">
+        <div class="sensorContainer" id="sensorDiv2" onclick="escolherSensor(this.id)">
           <div class="dadosSensores">
             <a href="sensor.html">
               <span class="identificação corAlt"> Sensor #1012</span>
@@ -113,7 +113,7 @@
           </div>
         </div>
 
-        <div class="sensorContainer" id="sensorDiv3">
+        <div class="sensorContainer" id="sensorDiv3" onclick="escolherSensor(this.id)">
           <div class="dadosSensores">
             <a href="sensor.html">
               <span class="identificação corAlt"> Sensor #1012</span>
@@ -389,11 +389,11 @@ function atualizarGrafico(idAquario, dados, myChart) {
 
           var element = document.getElementById(`sensorDiv${incremento + 1}`);
 
-          if (listaSensores[incremento] < 1 || listaSensores[incremento] > 6) {
+          if (listaSensores[incremento] < 2 || listaSensores[incremento] > 6) {
             element.style.border = "3px solid red";
           } else if (
-            listaSensores[incremento] < 2 ||
-            listaSensores[incremento] > 4
+            listaSensores[incremento] < 2.5 ||
+            listaSensores[incremento] > 5.5
           ) {
             element.style.border = "3px solid yellow";
           } else {
@@ -435,6 +435,26 @@ function atualizarGrafico(idAquario, dados, myChart) {
 
   }
 
+
+  function escolherSensor(id) {
+
+
+    console.log(id)
+
+
+    if (id == 'sensorDiv1') {
+      sessionStorage.SENSOR = 1001
+    }
+    else if (id == 'sensorDiv2') {
+      sessionStorage.SENSOR = 1002
+    }
+    else {
+      sessionStorage.SENSOR = 1004
+    }
+
+    window.location.href = "sensor.html"
+
+  }
 
 
 </script>

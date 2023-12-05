@@ -10,28 +10,37 @@
       rel="stylesheet"
     />
     <title>Cadastro de funcionario</title>
-    
+
     <link rel="stylesheet" href="css/global.css" />
     <link rel="stylesheet" href="css/header.css" />
     <link rel="stylesheet" href="css/cadastro-usuario.css" />
-    <link rel="stylesheet" href="css/fontes.css">
+    <link rel="stylesheet" href="css/fontes.css" />
   </head>
+
+  <script
+    data-jsd-embedded
+    data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
+    data-base-url="https://jsd-widget.atlassian.com"
+    src="https://jsd-widget.atlassian.com/assets/embed.js"
+  ></script>
 
   <body>
     <!-- Nosso Header -->
     <div class="header">
       <div class="container">
         <h1><img src="assets/logo.png" style="width: 200px" /></h1>
-    
-        <ul style="margin-left: 100px;">
+
+        <ul style="margin-left: 100px">
           <li><a href="index.html">Home</a></li>
           <li><a href="#">Contato</a></li>
         </ul>
         <div class="botoes_header" style="margin-left: 150px">
-          <a style="text-decoration: none; color: #000" href="index.html">Voltar</a>
+          <a style="text-decoration: none; color: #000" href="index.html"
+            >Voltar</a
+          >
         </div>
       </div>
-      </div>
+    </div>
 
     <!-- INICIO BANNER -->
     <div class="formulario_funcionario">
@@ -59,11 +68,7 @@
 
             <div class="campo">
               <span>Senha:</span>
-              <input
-                id="input_senha"
-                type="password"
-                placeholder="********"
-              />
+              <input id="input_senha" type="password" placeholder="********" />
             </div>
 
             <div class="campo">
@@ -77,7 +82,11 @@
 
             <div class="campo">
               <span>DDD + Telefone</span>
-              <input type="tel" id="input_telefone" placeholder="(11) 98646-7845" />
+              <input
+                type="tel"
+                id="input_telefone"
+                placeholder="(11) 98646-7845"
+              />
             </div>
 
             <div class="campo">
@@ -160,10 +169,7 @@
 </html>
 
 <script>
-
-
-
-function cadastrar() {
+  function cadastrar() {
     /*-------------CADASTRO RESPONSÁVEL-----------------*/
 
     var nomeResponsavel = input_nome.value;
@@ -172,22 +178,14 @@ function cadastrar() {
     var confirmarSenha = input_confirmar_senha.value;
     var telefone = input_telefone.value;
 
+    var fkGestor = sessionStorage.ID_USUARIO;
+    var endereco = sessionStorage.ENDERECO;
 
-    var fkGestor = sessionStorage.ID_USUARIO
-    var endereco = sessionStorage.ENDERECO
-
-    if (
-      !nomeResponsavel ||
-      !email ||
-      !senha ||
-      !confirmarSenha ||
-      !telefone
-    ) {
+    if (!nomeResponsavel || !email || !senha || !confirmarSenha || !telefone) {
       span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Falta Informações!</span>`;
     } else {
       if (senha.length >= 8) {
         if (senha == confirmarSenha) {
-
           fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -199,7 +197,7 @@ function cadastrar() {
               senha: senha,
               telefone: telefone,
               fkGestorServer: fkGestor,
-              enderecoServer: endereco
+              enderecoServer: endereco,
             }),
           }).then((response) => {
             response.json().then((json) => {
@@ -212,7 +210,6 @@ function cadastrar() {
       }
     }
   }
-  
 
   // function cadastrar() {
   //   var senha = input_senha.value;
@@ -225,7 +222,7 @@ function cadastrar() {
 
   //             <span>
   //               <a href="cadastro-funcionario.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Cadastrar novo funcionário</a>
-                
+
   //               <a href="dashboardGestor.html" style="height: 35px; background-color: #54a0ff; font-weight: bold;color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; margin-bottom: 15px;">Ir para Dashboards</a>
   //             </span>`;
   //     } else {

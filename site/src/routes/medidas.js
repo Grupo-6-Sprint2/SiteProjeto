@@ -23,6 +23,10 @@ router.get("/alertas", function (req, res) {
     medidaController.alertas(req, res);
 });
 
+router.get("/mediaAlerta", function (req, res) {
+    medidaController.mediaAlertas(req, res);
+});
+
 
 
 module.exports = router;

@@ -79,7 +79,16 @@ console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
 }
 
+function mediaAlertas() {
 
+    instrucaoSql = `
+    select count(*) as quantidade, tipo from alerta where tipo != 'verde' group by tipo;
+    `;
+
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
 
 
 
@@ -91,5 +100,6 @@ module.exports = {
     buscarMedidasEmTempoReal,
     buscarUltimasMedidasSensor,
     buscarMedidasEmTempoRealSensor,
-    alertas
+    alertas,
+    mediaAlertas
 }

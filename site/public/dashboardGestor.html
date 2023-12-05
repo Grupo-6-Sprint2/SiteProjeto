@@ -17,7 +17,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<body onload="validarSessao(), listarFuncionarios()">
+<body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas()">
 
   <main>
 
@@ -99,7 +99,7 @@
 
             <!-- gráfico ----------- ATUALIZAR DADOS DO GRÁFICO (antes era qntd, agora v ai ser média)-->
             <div class="grafico">
-              <span>MÉDIA DE LITROS DE SANGUE PERDIDOS</span>
+              <span>MÉDIA DE ALERTAS POR MÊS</span>
               <canvas id="myChart"></canvas>
             </div>
           </div>
@@ -183,40 +183,7 @@
 </html>
 
 <script>
-  const ctx = document.getElementById('myChart');
-  var viewDivExit = false;
 
-  new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-      datasets: [{
-        label: '2022',
-        borderColor: 'rgba(255, 99, 131, 1)',
-        backgroundColor: 'rgba(255, 99, 131, 1)',
-        data: [870, 290, 100, 450, 220, 590, 90, 420, 900, 20, 130, 521],
-        borderWidth: 2,
-      },
-      {
-        label: '2023',
-        borderColor: 'rgba(145, 145, 255, 1)',
-        backgroundColor: 'rgba(145, 145, 255, 1)',
-        data: [10, 100, 80, 50, 320, 100, 40, 220, 100, 0],
-        borderWidth: 2
-      },
-
-      ]
-
-    },
-    options: {
-      scales: {
-        y: {
-          max: 1000,
-          beginAtZero: true
-        }
-      }
-    }
-  });
 
   const ctx2 = document.getElementById('myChart2');
 
@@ -330,5 +297,71 @@
     window.location = "page_login.html"
 
   }
+
+
+
+  function pegarMediaAlertas() {
+
+
+fetch(`/medidas/mediaAlerta/`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (resposta) {
+
+            console.log('legal' + resposta)
+              plotarGraficoAlerta(resposta)
+
+          });
+      } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+      }
+  })
+      .catch(function (error) {
+          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+
+}
+
+function plotarGraficoAlerta(resposta) {
+
+
+  const ctx = document.getElementById('myChart');
+  var viewDivExit = false;
+
+  new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+      datasets: [{
+        label: 'alertas vermelhos',
+        borderColor: 'red',
+        backgroundColor: 'red',
+        data: [20, 10, 10, 23, 34, 12, 25, 12, 12, 52, 34, resposta[0].quantidade],
+        borderWidth: 2,
+      },
+      {
+        label: 'alertas amarelos',
+        borderColor: 'yellow',
+        backgroundColor: 'yellow',
+        data: [34, 15, 32, 21, 3, 12, 21, 12, 2, 42, 21, resposta[1].quantidade],
+        borderWidth: 2
+      },
+
+      ]
+
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+
+
+
+}
 
 </script>

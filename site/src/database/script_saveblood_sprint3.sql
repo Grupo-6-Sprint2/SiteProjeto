@@ -129,19 +129,27 @@ select * from alerta order by idAlerta desc;
 
 delimiter \\
 
-select * from sensor;
-
 create trigger alert after insert on registro for each row 
 begin
-	if new.temperatura >= 5.5 and (new.temperatura < 6 or new.temperatura <= 2.5) and new.temperatura > 2  and new.temperatura != 
+
+	declare vAlertaAntigo  varchar(20);
+    declare vNovoAlerta varchar(20);
     
-    then
-	insert into alerta (tipo, fkSensor) values ('alerta amarelo', new.fkSensor); 
-
-    elseif new.temperatura >= 6 or new.temperatura <= 2 
-
-    then
-    insert into alerta (tipo, fkSensor) values ('alerta vermelho',); 
+        
+    set vAlertaAntigo = ifnull((select tipo 
+                   from alerta al
+                   inner join (select max(idalerta) idalerta from alerta where fksensor = new.fksensor) as al1 on al1.idalerta = al.idalerta),'novo');
+ 
+	if new.temperatura >= 5.5 and new.temperatura < 6 or new.temperatura <= 2.5 and new.temperatura > 2 then
+       set vNovoAlerta = 'alerta amarelo';
+    elseif new.temperatura >= 6 or new.temperatura <= 2 then
+       set vNovoAlerta = 'alerta vermelho';
+ 	else
+       set vNovoAlerta = 'verde';
+    end if;
+    
+    if vAlertaAntigo <> vNovoAlerta then
+        insert into alerta (tipo, fkSensor) values (vNovoAlerta, new.fkSensor);
 	end if;
 end; \\
 
@@ -151,109 +159,40 @@ drop trigger alert;
 
 
 
+select avg(temperatura) from registro ;
 
+select count(*) as contagem, tipo from alerta where tipo != 'verde' group by tipo;
 
-
-
-
-
-alter table registro modify column temperatura decimal (10,2);
-
-select * from registro order by idRegistro desc limit 3;
-
-select * from registro where fkSensor = 1001 order by idRegistro desc limit 7;
-
-insert into registro (temperatura, fkSensor) values
-(6, 1001);
-
-select registro.temperatura, DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico from registro order by idRegistro desc limit 3;
-
-select registro.temperatura, DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico from registro order by idRegistro desc limit 3;
-
-
-select * from sensor;
-
-select 
-	registro.temperatura, 
-	DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico 
-    from registro 
-    order by idRegistro
-    LIMIT 3;
-
-drop table registro;
-
-select * from sensor;
+select * from usuario;
 
 select * from endereco;
 
-insert into sensor (geladeira, fkEndereco) values
-('geladeira polishop', 100);
+select * from sensor;
+
+SELECT COUNT(*) from sensor where fkEndereco = 100;
+
+insert into registro (temperatura, fkSensor) values
+(2.4, 1001);
+
+select * from sensor;
+
+select * from alerta order by idAlerta desc;
+
+select * from registro where fkSensor = 1001 order by idRegistro desc limit 7;
+
+-- aqui um template pra cê colocar as temperaturas nos sensores automaticamente cammy
+insert into registro (temperatura, fkSensor) values
+(6, 1001);
+
+
+drop table registro;
+
+select * from endereco;
 
 select * from sensor;
 
 select * from registro where fkSensor = 1001;
 
-
-insert into registro (temperatura, fkSensor) values
-(05.2, 1000),
-(05.5, 1000),
-(03.2, 1000),
-(02.6, 1000),
-(04.2, 1000),
-
-(03.5, 1001),
-(03.5, 1001),
-(05.2, 1001),
-(02.6, 1001),
-(07.2, 1001),
-
-(05.2, 1002),
-(03.4, 1002),
-(04.5, 1002),
-(06.2, 1002),
-(06.1, 1002),
-
--- endereço 1 acima ^^^
-
-(04.2, 1003),
-(04.5, 1003),
-(02.6, 1003),
-(05.9, 1003),
-(02.8, 1003),
-
-(04.9, 1004),
-(02.5, 1004),
-(04.6, 1004),
-(01.5, 1004),
-(02.1, 1004),
-
-(06.2, 1005),
-(02.5, 1005),
-(05.6, 1005),
-(03.4, 1005),
-(05.3, 1005),
-
--- endereço 2 acima ^^^
-
-(03.5, 1006),
-(06.3, 1006),
-(03.5, 1006),
-(01.4, 1006),
-(04.9, 1006),
-
-(04.6, 1007),
-(02.4, 1007),
-(05.6, 1007),
-(03.6, 1007),
-(02.4, 1007),
-
-(05.8, 1008),
-(03.7, 1008),
-(05.7, 1008),
-(02.5, 1008),
-(01.4, 1008);
-
-truncate table registro;
 
 -- select das empresas e seus respectivos endereços
 select empresa.nome as empresa, endereco.nomeRua as endereço from empresa join endereco on idEmpresa = fkEmpresa;

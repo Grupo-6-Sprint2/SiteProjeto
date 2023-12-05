@@ -103,6 +103,60 @@ fkSensor int,
 constraint FKSENSOr foreign key (fkSensor) references sensor(idSensor)
 ) auto_increment = 100000;
 
+
+
+
+
+
+
+
+create table alerta (
+idAlerta int primary key auto_increment,
+horario datetime default current_timestamp,
+tipo varchar(45),
+fkSensor int,
+constraint foreign_key_sensorDoAlerta foreign key (FkSensor) references sensor(idSensor))
+auto_increment = 2000;
+
+insert into registro (temperatura, fkSensor) values
+(2, 1001);
+
+select * from registro where fkSensor = 1001 order by idRegistro desc;
+
+select fkSensor from registro order by idRegistro desc limit 1;
+
+select * from alerta order by idAlerta desc;
+
+delimiter \\
+
+select * from sensor;
+
+create trigger alert after insert on registro for each row 
+begin
+	if new.temperatura >= 5.5 and (new.temperatura < 6 or new.temperatura <= 2.5) and new.temperatura > 2  and new.temperatura != 
+    
+    then
+	insert into alerta (tipo, fkSensor) values ('alerta amarelo', new.fkSensor); 
+
+    elseif new.temperatura >= 6 or new.temperatura <= 2 
+
+    then
+    insert into alerta (tipo, fkSensor) values ('alerta vermelho',); 
+	end if;
+end; \\
+
+delimiter ;
+
+drop trigger alert;
+
+
+
+
+
+
+
+
+
 alter table registro modify column temperatura decimal (10,2);
 
 select * from registro order by idRegistro desc limit 3;
@@ -110,7 +164,7 @@ select * from registro order by idRegistro desc limit 3;
 select * from registro where fkSensor = 1001 order by idRegistro desc limit 7;
 
 insert into registro (temperatura, fkSensor) values
-()
+(6, 1001);
 
 select registro.temperatura, DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico from registro order by idRegistro desc limit 3;
 

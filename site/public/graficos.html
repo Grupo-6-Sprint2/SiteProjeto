@@ -420,22 +420,6 @@ function atualizarGrafico(idAquario, dados, myChart) {
 
 
 
-
-
-  for (i = 0; i < oTantodeSensores.lenght; i ++) {
-
-    div.innerHTML += `
-      div bana
-
-      <canvas id = canvas
-    `
-
-    var id = document
-
-
-  }
-
-
   function escolherSensor(id) {
 
 
@@ -455,6 +439,28 @@ function atualizarGrafico(idAquario, dados, myChart) {
     window.location.href = "sensor.html"
 
   }
+
+
+setInterval(() => {
+  
+  fetch(`/medidas/alertas/`, { cache: 'no-store' }).then(function (response) {
+        if (response.ok) {
+            response.json().then(function (resposta) {
+
+
+                console.log(resposta[0].tipo, resposta[0].fkSensor)
+
+            });
+        } else {
+            console.error('Nenhum dado encontrado ou erro na API');
+        }
+    })
+        .catch(function (error) {
+            console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        });
+}, 500);
+
+
 
 
 </script>

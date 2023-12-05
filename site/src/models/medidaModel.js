@@ -68,6 +68,17 @@ console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
 }
 
+function alertas() {
+
+    instrucaoSql = `
+    select * from alerta  order by idAlerta desc;;
+    `;
+
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
+
 
 
 
@@ -79,5 +90,6 @@ module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
     buscarUltimasMedidasSensor,
-    buscarMedidasEmTempoRealSensor
+    buscarMedidasEmTempoRealSensor,
+    alertas
 }

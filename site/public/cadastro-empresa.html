@@ -1,202 +1,211 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Cadastre-se</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet" />
-  <title>Cadastre-se</title>
- 
-  <link rel="stylesheet" href="./css/global.css" />
-  <link rel="stylesheet" href="css/header.css" />
-  <link rel="stylesheet" href="./css/cadastro-empresa.css" />
-  <link rel="stylesheet" href="css/fontes.css">
-</head>
+    <link rel="stylesheet" href="./css/global.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="./css/cadastro-empresa.css" />
+    <link rel="stylesheet" href="css/fontes.css" />
+  </head>
 
-<body onload="listar()">
-  <!-- Nosso Header -->
-  <div class="header">
-  <div class="container">
-    <h1><img src="assets/logo.png" style="width: 200px" /></h1>
+  <script
+    data-jsd-embedded
+    data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
+    data-base-url="https://jsd-widget.atlassian.com"
+    src="https://jsd-widget.atlassian.com/assets/embed.js"
+  ></script>
 
-    <ul style="margin-left: 100px;">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="index.html">Home</a></li>
-    </ul>
-    <div class="botoes_header" style="margin-left: 150px">
-      <a style="text-decoration: none; color: #000" href="page_login.html">Login</a>
-    </div>
+  <body onload="listar()">
+    <!-- Nosso Header -->
+    <div class="header">
+      <div class="container">
+        <h1><img src="assets/logo.png" style="width: 200px" /></h1>
 
-    <div class="botoes_header" style="margin-left: 20px">
-      <a
-        style="text-decoration: none; color: #000"
-        href="index.html"
-        >Voltar</a
-      >
-    </div>
-  </div>
-  </div>
-
-  <!-- INICIO BANNER -->
-
-  <div class="banner">
-    <div class="container">
-      <div class="formulario">
-        <!-----------------CADASTRO RESPONSÁVEL------------------>
-
-        <h2>Informações do Responsável</h2>
-
-        <img class="imagem_login" src="assets/simbolo-responsavel.png" alt="" />
-        <!--IMAGEM LOGIN -->
-
-        <div class="campo">
-          <span>Nome:</span>
-          <input id="input_nome" />
+        <ul style="margin-left: 100px">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
+        </ul>
+        <div class="botoes_header" style="margin-left: 150px">
+          <a style="text-decoration: none; color: #000" href="page_login.html"
+            >Login</a
+          >
         </div>
 
-        <div class="campo">
-          <span>E-mail:</span>
-          <input id="input_email" />
-        </div>
-
-        <div class="campo">
-          <span>Senha:</span>
-          <input id="input_senha" type="password" placeholder="********" />
-        </div>
-
-        <div class="campo">
-          <span>Confirmar Senha:</span>
-          <input id="input_senha_confirma" type="password" placeholder="********" />
-        </div>
-
-        <div class="campo">
-          <span>DDD + Telefone</span>
-          <input type="tel" id="input_telefone_responsavel" />
-        </div>
-
-        <!----------------CADASTRO EMPRESA------------------>
-
-        <h2>Informações da Empresa</h2>
-
-        <img class="imagem_login" src="assets/simbolo-empresa.png" alt="" />
-        <!--IMAGEM LOGIN -->
-
-        <div class="campo">
-          <span>Empresa:</span>
-          <select id="empresa_input">
-
-            <option value=''></option>
-
-          </select>
-        </div>
-
-        <div class="campo">
-          <span>Nome da rua:</span>
-          <input id="input_nomeRua" />
-        </div>
-
-        <div class="campo">
-          <span>Número:</span>
-          <input type="number" id="input_numero" />
-        </div>
-
-        <div class="campo">
-          <span>Estado:</span>
-          <input id="input_estado" />
-        </div>
-
-        <div class="campo">
-          <span>Cidade:</span>
-          <input id="input_cidade" />
-        </div>
-
-        <div class="campo">
-          <span>Bairro:</span>
-          <input id="input_bairro" />
-        </div>
-
-        <div class="campo">
-          <span>CEP:</span>
-          <input id="input_cep" />
-        </div>
-
-        <div class="campo">
-          <span>DDD + Telefone</span>
-          <input type="tel" id="input_telefone_empresa" />
-        </div>
-
-        <button onclick="cadastrar()">Cadastrar</button> <br />
-        <span style="margin-bottom: 10px" id="span_confirmacao"></span>
-      </div>
-    </div>
-  </div>
-  <!-------------------------rodapé-------------------------->
-
-  <footer>
-    <div class="container">
-      <div class="dividerFooter">
-        <div class="contacts">
-          <div class="contact">
-            <img src="assets/location.svg" alt="" />
-            <div class="infoContact">
-              <h4>Endereço</h4>
-              <p style="font-size: 12px">
-                Rua Haddock Lobo, 595 São Paulo - SP
-              </p>
-            </div>
-          </div>
-
-          <div class="contact">
-            <img src="assets/phone.svg" alt="" />
-            <div class="infoContact">
-              <h4>Telefone</h4>
-              <p style="font-size: 12px">(11) 3589-4043</p>
-            </div>
-          </div>
-
-          <div class="contact">
-            <img src="assets/letter.svg" alt="" />
-            <div class="infoContact">
-              <h4>E-mail</h4>
-              <p style="font-size: 12px">save.blood@sptech.school</p>
-            </div>
-          </div>
-        </div>
-        <div class="divider"></div>
-        <div class="footerDown">
-          <div class="footerLogo">
-            <img src="assets/logo.png" alt="" />
-          </div>
-          <div class="redesSocial">
-            <h3>Nos siga!</h3>
-            <div class="iconSocial">
-              <img src="assets/instagram-2016-5.svg" alt="" />
-              <img src="assets/whatsapp-3.svg" alt="" />
-              <img src="assets/facebook-3-2.svg" alt="" />
-            </div>
-          </div>
+        <div class="botoes_header" style="margin-left: 20px">
+          <a style="text-decoration: none; color: #000" href="index.html"
+            >Voltar</a
+          >
         </div>
       </div>
     </div>
-  </footer>
-</body>
 
+    <!-- INICIO BANNER -->
+
+    <div class="banner">
+      <div class="container">
+        <div class="formulario">
+          <!-----------------CADASTRO RESPONSÁVEL------------------>
+
+          <h2>Informações do Responsável</h2>
+
+          <img
+            class="imagem_login"
+            src="assets/simbolo-responsavel.png"
+            alt=""
+          />
+          <!--IMAGEM LOGIN -->
+
+          <div class="campo">
+            <span>Nome:</span>
+            <input id="input_nome" />
+          </div>
+
+          <div class="campo">
+            <span>E-mail:</span>
+            <input id="input_email" />
+          </div>
+
+          <div class="campo">
+            <span>Senha:</span>
+            <input id="input_senha" type="password" placeholder="********" />
+          </div>
+
+          <div class="campo">
+            <span>Confirmar Senha:</span>
+            <input
+              id="input_senha_confirma"
+              type="password"
+              placeholder="********"
+            />
+          </div>
+
+          <div class="campo">
+            <span>DDD + Telefone</span>
+            <input type="tel" id="input_telefone_responsavel" />
+          </div>
+
+          <!----------------CADASTRO EMPRESA------------------>
+
+          <h2>Informações da Empresa</h2>
+
+          <img class="imagem_login" src="assets/simbolo-empresa.png" alt="" />
+          <!--IMAGEM LOGIN -->
+
+          <div class="campo">
+            <span>Empresa:</span>
+            <select id="empresa_input">
+              <option value=""></option>
+            </select>
+          </div>
+
+          <div class="campo">
+            <span>Nome da rua:</span>
+            <input id="input_nomeRua" />
+          </div>
+
+          <div class="campo">
+            <span>Número:</span>
+            <input type="number" id="input_numero" />
+          </div>
+
+          <div class="campo">
+            <span>Estado:</span>
+            <input id="input_estado" />
+          </div>
+
+          <div class="campo">
+            <span>Cidade:</span>
+            <input id="input_cidade" />
+          </div>
+
+          <div class="campo">
+            <span>Bairro:</span>
+            <input id="input_bairro" />
+          </div>
+
+          <div class="campo">
+            <span>CEP:</span>
+            <input id="input_cep" />
+          </div>
+
+          <div class="campo">
+            <span>DDD + Telefone</span>
+            <input type="tel" id="input_telefone_empresa" />
+          </div>
+
+          <button onclick="cadastrar()">Cadastrar</button> <br />
+          <span style="margin-bottom: 10px" id="span_confirmacao"></span>
+        </div>
+      </div>
+    </div>
+    <!-------------------------rodapé-------------------------->
+
+    <footer>
+      <div class="container">
+        <div class="dividerFooter">
+          <div class="contacts">
+            <div class="contact">
+              <img src="assets/location.svg" alt="" />
+              <div class="infoContact">
+                <h4>Endereço</h4>
+                <p style="font-size: 12px">
+                  Rua Haddock Lobo, 595 São Paulo - SP
+                </p>
+              </div>
+            </div>
+
+            <div class="contact">
+              <img src="assets/phone.svg" alt="" />
+              <div class="infoContact">
+                <h4>Telefone</h4>
+                <p style="font-size: 12px">(11) 3589-4043</p>
+              </div>
+            </div>
+
+            <div class="contact">
+              <img src="assets/letter.svg" alt="" />
+              <div class="infoContact">
+                <h4>E-mail</h4>
+                <p style="font-size: 12px">save.blood@sptech.school</p>
+              </div>
+            </div>
+          </div>
+          <div class="divider"></div>
+          <div class="footerDown">
+            <div class="footerLogo">
+              <img src="assets/logo.png" alt="" />
+            </div>
+            <div class="redesSocial">
+              <h3>Nos siga!</h3>
+              <div class="iconSocial">
+                <img src="assets/instagram-2016-5.svg" alt="" />
+                <img src="assets/whatsapp-3.svg" alt="" />
+                <img src="assets/facebook-3-2.svg" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
 </html>
 
 <script>
-
-
   function listar() {
     fetch("/empresas/listar", {
       method: "GET",
     })
       .then(function (resposta) {
         resposta.json().then((empresas) => {
-
-
-
           empresas.forEach((empresa) => {
             empresa_input.innerHTML += `<option value='${empresa.nome}'>${empresa.nome}</option>`;
           });
@@ -206,7 +215,6 @@
         console.log(`#ERRO: ${resposta}`);
       });
   }
-
 
   function cadastrar() {
     /*-------------CADASTRO RESPONSÁVEL-----------------*/
@@ -225,8 +233,8 @@
     var CEP = input_cep.value;
     var telefoneEmpresa = input_telefone_empresa.value;
 
-    var fkGestor = 'null'
-    var endereco = 'null'
+    var fkGestor = "null";
+    var endereco = "null";
 
     if (
       !nomeResponsavel ||
@@ -245,7 +253,6 @@
     } else {
       if (senha.length >= 8) {
         if (senha == confirmarSenha) {
-
           fetch("/usuarios/cadastrar", {
             method: "POST",
             headers: {
@@ -257,14 +264,14 @@
               senha: senha,
               telefone: telefone,
               fkGestorServer: fkGestor,
-              enderecoServer: endereco
+              enderecoServer: endereco,
             }),
           }).then((response) => {
             response.json().then((json) => {
               console.log(json);
             });
           });
-          cadastrarEndereco()
+          cadastrarEndereco();
         }
       } else {
         span_confirmacao.innerHTML = `<span style="color: red; font-size: 18px;">Informações Incorretas!</span>`;
@@ -272,17 +279,13 @@
     }
   }
 
-
   function cadastrarEndereco() {
-
-
     var email = input_email.value;
     var senha = input_senha.value;
 
     /*----------------CADASTRO ENDEREÇO------------------*/
 
     var nomeEmpresa = empresa_input.value;
-
 
     var nomeRua = input_nomeRua.value;
     var numero = input_numero.value;
@@ -292,14 +295,12 @@
     var CEP = input_cep.value;
     var telefoneEmpresa = input_telefone_empresa.value;
 
-
     fetch("/empresas/cadastrar", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-
         empresaNomeServer: nomeEmpresa,
 
         senhaServer: senha,
@@ -310,7 +311,7 @@
         cidadeServer: cidade,
         bairroServer: bairro,
         cepServer: CEP,
-        telefoneEmpresaServer: telefoneEmpresa
+        telefoneEmpresaServer: telefoneEmpresa,
       }),
     }).then((response) => {
       response.json().then((json) => {
@@ -319,58 +320,49 @@
     });
 
     setTimeout(() => {
-      pegarid()
+      pegarid();
     }, 1000);
   }
 
-
   function pegarid() {
-
     var email = input_email.value;
     var senha = input_senha.value;
     var cep = input_cep.value;
 
     fetch(`/usuarios/pegarID/${email}/${senha}/${cep}`, {
-      cache: 'no-store'
-    })
-      .then(function (response) {
-        if (response.ok) {
-          response.json().then(function (resposta) {
+      cache: "no-store",
+    }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+          console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+          resposta.reverse();
 
-            console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
-            resposta.reverse();
+          console.log(resposta[0].idUsuario);
 
-            console.log(resposta[0].idUsuario)
-
-            setTimeout(() => {
-              fazerUpdate(resposta)
-            }, 1000);
-
-          });
-        } else {
-          console.error('Nenhum dado encontrado ou erro na API');
-        }
-      })
-
+          setTimeout(() => {
+            fazerUpdate(resposta);
+          }, 1000);
+        });
+      } else {
+        console.error("Nenhum dado encontrado ou erro na API");
+      }
+    });
   }
 
-
   function fazerUpdate(resposta) {
-    console.log('legal')
+    console.log("legal");
     var fkEndereco = resposta[0].idEndereco;
     var usuario = resposta[0].idUsuario;
-
 
     fetch(`/empresas/update/${usuario}/${fkEndereco}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-      }
-    })
+      },
+    });
     // Aguardar 5 segundos antes de redirecionar para a página de login
     setTimeout(function () {
       window.location.href = "page_login.html";
     }, 3000); // 5000 milissegundos = 5 segundos
   }
-
 </script>

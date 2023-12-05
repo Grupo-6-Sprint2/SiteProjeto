@@ -17,6 +17,13 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
+<script
+    data-jsd-embedded
+    data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
+    data-base-url="https://jsd-widget.atlassian.com"
+    src="https://jsd-widget.atlassian.com/assets/embed.js"
+  ></script>
+
 <body onload="validarSessao(), listarFuncionarios()">
 
   <main>
@@ -151,7 +158,7 @@
             margin-left: 150px; margin-top: 50px; border-radius: 10px; padding: 15px; ">
             <!-- <p>Funionários cadastrados</p> -->
 
-            <div id="funcionarios">
+            <div>
 
 
               <!-- aqui é um template dos funcionários, os de verdade são inseridos através de um select no banco, que insere funcoinario por funcionario
@@ -164,28 +171,9 @@
                 
 
               <!-- Testando o formato tabela -->
-              <table border="1">
+              <table border="1"  id="funcionarios">
                 <caption><strong>Funionários cadastrados</strong></caption> <!-- title-->
-                <tr> <!-- header-->
-                    <th>Nome</th>
-                    <th>E-mail</th>
-                    <th>Número</th>
-                </tr>
-                <tr> <!-- dados -->
-                    <td>Jorge</td>
-                    <td>Jorge@gmail.com</td>
-                    <td>120985</td>
-                </tr>
-                <tr>
-                  <td>Maria</td>
-                  <td>Maria@gmail.com</td>
-                  <td>123456</td>
-                </tr>
-                <tr>
-                  <td>Joana</td>
-                  <td>Joana@gmail.com</td>
-                  <td>987654</td>
-                </tr>
+
             </table>
               
 
@@ -327,12 +315,14 @@
 
     for (i = 0; i < resposta.length; i ++) {
 
+      console.log(resposta)
+
       funcionarios.innerHTML += `
-            <div>
-              <span id="nomeFuncionario">nome do funcionaro: ${resposta[i].nomeNick}</span> 
-              <span id="emailFuncionario">email: ${resposta[i].email}</span>
-              <span id="telefoneFuncionario">número: ${resposta[i].telefone}</span>
-            </div>
+               <tr> <!-- header-->
+                    <th>${resposta[i].nomeNick}</th>
+                    <th>${resposta[i].email}</th>
+                    <th>${resposta[i].telefone}</th>
+                </tr>
             `;
 
     }

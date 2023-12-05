@@ -83,7 +83,9 @@ main {
   align-items: center;
   justify-content: center;
   width: auto;
-  height: 970px;
+  height: 100%;
+  margin-right: 40px;
+  position: absolute;
 
   background-color: rgba(29, 78, 216, 1);
 }
@@ -225,6 +227,7 @@ main {
 
 .status .container {
   justify-content: start;
+  width: 800px;
 }
 
 .card {

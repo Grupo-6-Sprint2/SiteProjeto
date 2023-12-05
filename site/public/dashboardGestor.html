@@ -17,9 +17,6 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<<<<<<< HEAD
-<body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas()">
-=======
 <script
     data-jsd-embedded
     data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
@@ -27,8 +24,7 @@
     src="https://jsd-widget.atlassian.com/assets/embed.js"
   ></script>
 
-<body onload="validarSessao(), listarFuncionarios()">
->>>>>>> 5e7eca6393718840635d46134daf9e752f4cdd51
+<body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas()">
 
   <main>
 
@@ -143,7 +139,7 @@
 
           </div>
 
-
+          
 
 
         </div> <!--fim da div "dashboards" -->
@@ -196,43 +192,43 @@
 <script>
 
 
-  const ctx2 = document.getElementById('myChart2');
+    const ctx2 = document.getElementById('myChart2');
 
-  new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-      labels: ['Total', 'Perdidos'],
-      datasets: [{
-        label: 'litros de sangue',
-        backgroundColor: [
-          'rgba(67, 209, 67, 1)',
-          'rgba(255, 99, 131, 1)'
-        ],
-        data: [1500, 150],
-        borderWidth: 0,
+    new Chart(ctx2, {
+      type: 'doughnut',
+      data: {
+        labels: ['Total', 'Perdidos'],
+        datasets: [{
+          label: 'litros de sangue',
+          backgroundColor: [
+            'rgba(67, 209, 67, 1)',
+            'rgba(255, 99, 131, 1)'
+          ],
+          data: [1500, 150],
+          borderWidth: 0,
+        },
+        ]
+
       },
-      ]
+      hoverOffset: 4
+    });
 
-    },
-    hoverOffset: 4
-  });
+    const moneyCtx = document.getElementById('moneyChart');
 
-  const moneyCtx = document.getElementById('moneyChart');
-
-  new Chart(moneyCtx, {
-    type: 'line',
-    data: {
-      labels: ['Total'],
-      datasets: [{
-        label: 'litros de sangue',
-        backgroundColor: [
-          'rgba(67, 209, 67, 1)',
-          'rgba(255, 99, 131, 1)'
-        ],
-        data: [1500, 150],
-        borderWidth: 0,
-      },
-      ]
+    new Chart(moneyCtx, {
+      type: 'line',
+      data: {
+        labels: ['Total'],
+        datasets: [{
+          label: 'litros de sangue',
+          backgroundColor: [
+            'rgba(67, 209, 67, 1)',
+            'rgba(255, 99, 131, 1)'
+          ],
+          data: [1500, 150],
+          borderWidth: 0,
+        },
+        ]
 
     },
     hoverOffset: 4

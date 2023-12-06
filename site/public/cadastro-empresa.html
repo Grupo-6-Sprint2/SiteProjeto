@@ -32,7 +32,7 @@
 
         <ul style="margin-left: 100px">
           <li><a href="index.html">Home</a></li>
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#rodape">Contato</a></li>
         </ul>
         <div class="botoes_header" style="margin-left: 150px">
           <a style="text-decoration: none; color: #000" href="page_login.html"
@@ -149,7 +149,7 @@
     </div>
     <!-------------------------rodapé-------------------------->
 
-    <footer>
+    <footer id="rodape">
       <div class="container">
         <div class="dividerFooter">
           <div class="contacts">
@@ -196,10 +196,28 @@
         </div>
       </div>
     </footer>
+
+    <div id="modalCadastro" class="modal-cadastro">
+      <div class="modal-fundo">
+        <div class="modal-informacao">
+          <img src="assets/icon/icon-positivo.png" alt="" class="icon-certo">
+          <span class="span-modalCadastro">Cadastro efetuado com sucesso!</span>
+        </div>
+      </div>
+    </div>
+  
   </body>
 </html>
 
 <script>
+  function abrirModalCadastro() {
+    modalCadastro.style.display = 'flex';
+  }
+
+  function fecharModal() {
+    modalCadastro.style.display = 'none';
+  }
+
   function listar() {
     fetch("/empresas/listar", {
       method: "GET",
@@ -343,6 +361,8 @@
             fazerUpdate(resposta);
           }, 1000);
         });
+
+
       } else {
         console.error("Nenhum dado encontrado ou erro na API");
       }
@@ -363,6 +383,8 @@
       },
     });
     // Aguardar 5 segundos antes de redirecionar para a página de login
+    
+    abrirModalCadastro();
     setTimeout(function () {
       window.location.href = "page_login.html";
     }, 3000); // 5000 milissegundos = 5 segundos

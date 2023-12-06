@@ -21,13 +21,6 @@ fkResponsavel int,
 constraint FKEe foreign key (fkEmpresa) references empresa(CNPJ)
 ) auto_increment = 100;
 
-insert into endereco (nomeRua, numero, CEP, estado, cidade, bairro, CNPJ, fkEmpresa) values
-('Hadock Lobo', '0932', '01234567', 'SP', 'São Paulo', 'Paulista', '12345678909', 1),
-('Canadense', '126', '09876543', 'SP', 'São Paulo', 'Osasco', '09876543212', 2),
-('Liberdade', '632', '01928374', 'SP', 'São Paulo', 'Liberdade', '10293847565', 3),
-('Diadema', '1574', '20938475', 'MG', 'Belo Horizonte', 'Justinopolis', '67584930212', 1),
-('Parapicuiba', '1694', '21046965', 'SP', 'Peruibe', 'Anhagabau', '6574389101', 2);
-
 create table usuario (
 idUsuario int primary key auto_increment,
 email varchar(100),
@@ -45,13 +38,6 @@ constraint FKGESt foreign key (fkGestor) references usuario(idUsuario)
 
 alter table endereco add constraint FKRe foreign key (fkResponsavel) references usuario(idUsuario);
 
--- testes de banco
-
-
-select * from usuario;
-
-select * from endereco;
-
 insert into empresa values
 ('12345678910', 'saveblood'),
 ('12345678911', 'esquina do seu zé'),
@@ -61,19 +47,6 @@ insert into empresa values
 -- cria a foreign key da tabela empresa, para o responsável
 alter table empresa add constraint responsavel_foreignKey foreign key (fkResponsavel) references usuario(idUsuario);
 
--- gestores
-insert into usuario (email, senha, nomeNick, telefone, fkEndereco) values
-('Caioleal@gmail.com', 'caio123', 'CaioLeal','(11) 98765-4321', 100),
-('FatimaCalçado@gmail.com', 'calcados12490@432', 'Fatima Calçado','(11) 91234-5677', 101),
-('FernandoBrandão@gmail.com', '#34#!f9as!0934', 'Big Brando','(11) 90876-1523', 102);
-
--- monitoradores
-insert into usuario (email, senha, nomeNick, telefone, fkEndereco, fkGestor) values 
-('Thiago.Gomes@gmail.com', '39248236', 'Gomes','(11)98776-5231', 100, 200),
-('Manoela@gmail.com', 'Manoelinha123', 'Larissa Manoela','(11) 98233-3281', 101, 201),
-('Joao@gmail.com', 'Joao1239851', 'Joao Pedro','(11) 91248-1256', 102, 202),
-('Tulinho@gmail.com', 'TuLLi0#124', 'Túlinho','(11) 91376-2366', 100, 200);
-
 create table sensor (
 idSensor int primary key auto_increment,
 geladeira varchar(45),
@@ -82,53 +55,44 @@ constraint FKGELa foreign key (fkEndereco) references endereco(idEndereco)
 ) auto_increment = 1000;
 
 insert into sensor (geladeira, fkEndereco) values
-('Geladeira #2502', 100),
-('Geladeira #2503', 100),
-('Geladeira #2504', 100);
+('Geladeira #2502', 100);
 
-truncate sensor;
+truncate table sensor;
 
 select * from sensor;
-
-select * from endereco;
-
-select 
-sensor.idSensor,
-sensor.geladeira,
-        registro.temperatura, 
-        DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico 
-        
-    from registro
-    join sensor on fkSensor = idSensor
-    order by idRegistro 
-    desc limit 3;
 
 create table registro (
 idRegistro int primary key auto_increment,
 horario datetime default current_timestamp,
 temperatura decimal (10,2),
 fkSensor int,
-constraint FKSensorRegistro foreign key (fkSensor) references sensor(idSensor)
+constraint FKSENSOr foreign key (fkSensor) references sensor(idSensor)
 ) auto_increment = 100000;
+
 
 create table alerta (
 idAlerta int primary key auto_increment,
 horario datetime default current_timestamp,
 tipo varchar(45),
+temperatura decimal(10,2),
+acesso boolean,
 fkSensor int,
 constraint foreign_key_sensorDoAlerta foreign key (FkSensor) references sensor(idSensor))
 auto_increment = 2000;
 
 insert into registro (temperatura, fkSensor) values
-(2, 1005);
-
-select * from sensor;
+(1.3, 1001);
 
 select * from registro where fkSensor = 1001 order by idRegistro desc;
 
 select fkSensor from registro order by idRegistro desc limit 1;
 
+select * from registro;
 select * from alerta order by idAlerta desc;
+
+ select * from alerta where fkEndereco = 100 order by idAlerta desc;
+
+drop table alerta;
 
 delimiter \\
 
@@ -152,13 +116,15 @@ begin
     end if;
     
     if vAlertaAntigo <> vNovoAlerta then
-        insert into alerta (tipo, fkSensor) values (vNovoAlerta, new.fkSensor);
+        insert into alerta (tipo, fkSensor, temperatura, acesso) values (vNovoAlerta, new.fkSensor, new.temperatura, false);
 	end if;
 end; \\
 
 delimiter ;
 
 drop trigger alert;
+
+
 
 select avg(temperatura) from registro ;
 

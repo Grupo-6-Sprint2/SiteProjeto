@@ -109,31 +109,73 @@
 
           <div class="rolha"> <!--div para o gráfico de rolhas + dados adicionais-->
 
-            <div style="display: flex; flex-direction: column; align-items: center;">
+            <div style="display: flex; flex-direction: column; align-items: center;" >
               <div class="perdidos">
-                <span>AQUI VAI FICAR OS SENSORES EM ALERTA <br>POVO BONITO</span>
+                <span>ALERTAS</span>
               </div>
 
+              <div id="caixaAlertas"></div>
 
-              <!-- grafico de rolha -->
-              <div class="graficoRolha">
-                <canvas id="myChart2"></canvas>
+
+
+              <!--NOTIFICAÇÃO DE ALERTA VERMELHO-->
+              <!-- <div class="notificaçãoAlerta" id="PARAMETRO DA FK" onclick="escolherSensor(this.id)">
+
+                <div>
+                  <span style="color: white; font-weight: 800; text-decoration: underline;">ALERTA VERMELHO</span>
+                </div>
+
+                <div class="infos">
+
+                  <div>
+                    <img src="assets/alerta.png" alt="" style="width: 80px;">
+                  </div>
+
+                  <div class="infosAlerta">
+                    <span id="sensor_span">sensor 1001</span>
+                    <span id="temp_span">temperatura: 0.2</span>
+                    <span id="hora_span">horário: 13:44</span>
+                  </div>
+
+                </div>
               </div>
+              <!--fim da notificação-->
 
-            </div>
 
-            <div class="informações">
-              <span>Total de litros armazenado: <br>
-                Total de litros Perdidos:
-              </span>
+              <!--NOTIFICAÇÃO DE ALERTA AMARELO-->
+              <!--<div class="notificaçãoAlertaAmarelo" id="PARAMETRO DA FK" onclick="escolherSensor(this.id)">
 
-              <span>1500L<br>
-                150
-                L</span>
+                <div>
+                  <span style="color: rgb(255, 46, 46); font-weight: 800; text-decoration: underline;">ALERTA
+                    AMARELO</span>
+                </div>
+
+                <div class="infos">
+
+                  <div>
+                    <img src="assets/exclamationP.png" alt="" style="width: 80px;">
+                  </div>
+
+                  <div class="infosAlerta" style="color: rgb(255, 46, 46);">
+                    <span id="sensor_span">sensor 1001</span>
+                    <span id="temp_span">temperatura: 0.2</span>
+                    <span id="hora_span">horário: 13:44</span>
+                  </div>
+
+                </div>
+              </div> -->
+              <!--fim da notificação-->
+
+
+
+
             </div>
 
 
           </div>
+
+
+
 
 
 
@@ -150,7 +192,7 @@
             background-color: white; 
             width: 990px; height: 200px; 
             justify-content: center; text-align: center; 
-            margin-left: 150px; margin-top: 50px; border-radius: 10px; padding: 15px; ">
+            margin-left: 100px; margin-top: 50px; border-radius: 10px; padding: 15px; ">
             <!-- <p>Funionários cadastrados</p> -->
 
             <div>
@@ -187,47 +229,7 @@
 <script>
 
 
-  const ctx2 = document.getElementById('myChart2');
 
-  new Chart(ctx2, {
-    type: 'doughnut',
-    data: {
-      labels: ['Total', 'Perdidos'],
-      datasets: [{
-        label: 'litros de sangue',
-        backgroundColor: [
-          'rgba(67, 209, 67, 1)',
-          'rgba(255, 99, 131, 1)'
-        ],
-        data: [1500, 150],
-        borderWidth: 0,
-      },
-      ]
-
-    },
-    hoverOffset: 4
-  });
-
-  const moneyCtx = document.getElementById('moneyChart');
-
-  new Chart(moneyCtx, {
-    type: 'line',
-    data: {
-      labels: ['Total'],
-      datasets: [{
-        label: 'litros de sangue',
-        backgroundColor: [
-          'rgba(67, 209, 67, 1)',
-          'rgba(255, 99, 131, 1)'
-        ],
-        data: [1500, 150],
-        borderWidth: 0,
-      },
-      ]
-
-    },
-    hoverOffset: 4
-  });
 
   /*
   function viewExit() {
@@ -309,7 +311,7 @@
       if (response.ok) {
         response.json().then(function (resposta) {
 
-          console.log('legal' + resposta)
+          console.log('legal' + resposta[0])
           plotarGraficoAlerta(resposta)
 
         });
@@ -384,5 +386,134 @@
       .catch(function (error) {
         console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
+  }
+
+
+  // função que pega os alertas de 1 em 1 segundo -----------------------------
+
+  var fkEnderecoAlertas = sessionStorage.ENDERECO
+
+
+  setInterval(() => {
+    
+  
+
+    fetch(`medidas/alertas/${fkEnderecoAlertas}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        return response.json().then(function (resposta) {
+
+          console.log(resposta)
+
+          plotarAlertas(resposta)
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+
+    }, 3000);
+
+  // -------------------------------------------------------------------------------
+
+  function plotarAlertas(resposta) {
+
+    caixaAlertas.innerHTML = ``
+
+    for (i = 0; i < resposta.length; i++) {
+
+      if (resposta[i].tipo == 'alerta vermelho' && resposta[i].acesso == 0) {
+
+        caixaAlertas.innerHTML += `
+      
+                <div class="notificaçãoAlerta" id="${resposta[i].fkSensor}" onclick="escolherSensor(this.id, ${resposta[i].idAlerta})">
+
+                        <div>
+                              <span style="color: white; font-weight: 800; text-decoration: underline;">ALERTA VERMELHO</span>
+                        </div>
+
+                        <div class="infos">
+                        
+                              <div>
+                                    <img src="assets/alerta.png" alt="" style="width: 80px;">
+                              </div>
+                        
+                              <div class="infosAlerta">
+                                    <span id="sensor_span">sensor: ${resposta[i].fkSensor}</span>
+                                    <span id="temp_span">temperatura: ${resposta[i].temperatura}</span>
+                                    <span id="hora_span">horário: ${resposta[i].horario}</span>
+                              </div>
+                        
+                        </div>
+                </div>
+      `
+
+      }
+      else if (resposta[i].tipo == 'alerta amarelo' && resposta[i].acesso == 0) {
+
+        caixaAlertas.innerHTML += `
+      
+                <div class="notificaçãoAlertaAmarelo" id="${resposta[i].fkSensor}" onclick="escolherSensor(this.id, ${resposta[i].idAlerta})">
+
+                        <div>
+                              <span style="color: white; font-weight: 800; text-decoration: underline;">ALERTA AMARELO</span>
+                        </div>
+
+                        <div class="infos">
+                        
+                              <div>
+                                    <img src="assets/exclamationP.png" alt="" style="width: 80px;">
+                              </div>
+                        
+                              <div class="infosAlerta" style="color: red">
+                                    <span id="sensor_span">sensor: ${resposta[i].fkSensor}</span>
+                                    <span id="temp_span">temperatura: ${resposta[i].temperatura}</span>
+                                    <span id="hora_span">horário: ${resposta[i].horario}</span>
+                              </div>
+                        
+                        </div>
+                </div>
+      `
+
+
+
+      }
+
+    }
+
+
+  }
+
+
+
+
+
+
+
+
+
+  function escolherSensor(id, acesso) {
+    
+
+    fetch(`/medidas/alterarAcesso/${acesso}`, {
+            method: "post",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+
+            });
+
+    sessionStorage.SENSOR = id;
+    window.location.href = "sensor.html";
   }
 </script>

@@ -33,13 +33,19 @@ function buscarMedidasEmTempoReal() {
 
 function buscarUltimasMedidasSensor(idSensor) {
   instrucaoSql = `
-    select registro.*, sensor.geladeira
-    from registro 
-    join sensor on fkSensor = idSensor
-    where fkSensor = ${idSensor} 
-    order by idRegistro 
-    desc limit 7;
-    ;`;
+  select 
+  registro.idRegistro,
+  registro.temperatura,
+  registro.fkSensor,
+  sensor.geladeira,
+  DATE_FORMAT(horario, '%H:%i:%s')as horario
+  
+from registro 
+join sensor on fkSensor = idSensor
+where fkSensor = 1001 
+order by idRegistro 
+desc limit 7;
+;`;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
   return database.executar(instrucaoSql);
@@ -62,9 +68,21 @@ function buscarMedidasEmTempoRealSensor(idSensor) {
   return database.executar(instrucaoSql);
 }
 
-function alertas() {
+function alertas(fkEndereco) {
   instrucaoSql = `
-    select * from alerta  order by idAlerta desc;;
+  select  
+    alerta.idAlerta,
+    alerta.tipo,
+    alerta.temperatura,
+    alerta.acesso,
+    alerta.fkSensor,
+    DATE_FORMAT(horario, '%H:%i:%s')as horario
+  
+  
+  
+  from alerta 
+  join sensor on idSensor = fkSensor
+   where sensor.fkEndereco = ${fkEndereco} order by idAlerta desc;
     `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -80,9 +98,21 @@ function mediaAlertas() {
   return database.executar(instrucaoSql);
 }
 
+
+
 function qtnSensor(fkEndereco) {
   instrucaoSql = `
-        select count(*) as qtdSensor from sensor join endereco on idEndereco = ${fkEndereco};
+        select count(*) as qtdSensor from sensor where fkEndereco = ${fkEndereco};
+    `;
+
+  console.log("Executando a instrução SQL: \n" + instrucaoSql);
+  return database.executar(instrucaoSql);
+}
+
+
+function alterarAcesso(idAlerta) {
+  instrucaoSql = `
+  update alerta set acesso = true where idAlerta = ${idAlerta};
     `;
 
   console.log("Executando a instrução SQL: \n" + instrucaoSql);
@@ -97,4 +127,5 @@ module.exports = {
   alertas,
   mediaAlertas,
   qtnSensor,
+  alterarAcesso
 };

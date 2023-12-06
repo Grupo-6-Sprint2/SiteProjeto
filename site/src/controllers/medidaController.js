@@ -74,12 +74,17 @@ function buscarMedidasEmTempoRealSensor(req, res) {
     });
 }
 
+
+
+
 function alertas(req, res) {
     
+    console.log('poggers')
+    var fkEndereco = req.params.fkEndereco
     
     console.log(`Recuperando medidas em tempo real`);
     
-    medidaModel.alertas().then(function (resultado) {
+    medidaModel.alertas(fkEndereco).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -92,9 +97,11 @@ function alertas(req, res) {
     });
 }
 
+
+
+
+
 function mediaAlertas(req, res) {
-    
-    
     console.log(`pegando média de alertas`);
     
     medidaModel.mediaAlertas().then(function (resultado) {
@@ -129,6 +136,30 @@ function qtnSensor(req, res) {
 
 
 
+function alterarAcesso(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+
+    var idAlerta = req.params.idAlerta
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        medidaModel.alterarAcesso(idAlerta)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o update! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+
+
 module.exports = {
     buscarUltimasMedidas,
     buscarMedidasEmTempoReal,
@@ -136,6 +167,7 @@ module.exports = {
     buscarMedidasEmTempoRealSensor,
     alertas,
     mediaAlertas,
-    qtnSensor
+    qtnSensor,
+    alterarAcesso
 
 }

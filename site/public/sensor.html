@@ -91,6 +91,8 @@
       </div>
 
       <script>
+
+        idSensor.innerHTML = sessionStorage.SENSOR 
         const ctx = document.getElementById("myChart");
 
         // new Chart(ctx, {
@@ -195,7 +197,7 @@
                   console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                   resposta.reverse();
 
-                  idSensor.innerHTML = resposta[0].fkSensor;
+                  
                   idGeladeira.innerHTML = resposta[0].geladeira;
 
                   plotarGrafico(resposta);

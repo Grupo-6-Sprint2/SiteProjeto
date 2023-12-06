@@ -42,7 +42,7 @@ function buscarUltimasMedidasSensor(idSensor) {
   
 from registro 
 join sensor on fkSensor = idSensor
-where fkSensor = 1001 
+where fkSensor = ${idSensor} 
 order by idRegistro 
 desc limit 7;
 ;`;

@@ -28,5 +28,9 @@ router.get("/mediaAlerta", function (req, res) {
 });
 
 
+router.get("/qtnSensor", function (req, res) {
+    medidaController.qtnSensor(req, res);
+});
+
 
 module.exports = router;

@@ -90,6 +90,16 @@ console.log("Executando a instrução SQL: \n" + instrucaoSql);
 return database.executar(instrucaoSql);
 }
 
+function qtnSensor(fkEndereco) {
+
+    instrucaoSql = `
+        select sum(idSensor) as sensor from sensor join endereco on idEndereco = ${fkEndereco};
+    `;
+
+
+console.log("Executando a instrução SQL: \n" + instrucaoSql);
+return database.executar(instrucaoSql);
+}
 
 
 
@@ -101,5 +111,6 @@ module.exports = {
     buscarUltimasMedidasSensor,
     buscarMedidasEmTempoRealSensor,
     alertas,
-    mediaAlertas
+    mediaAlertas,
+    qtnSensor
 }

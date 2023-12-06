@@ -110,6 +110,25 @@ function mediaAlertas(req, res) {
     });
 }
 
+function qtnSensor(req, res) {
+    
+    
+    console.log(`pegando média de alertas`);
+    
+    medidaModel.qtnSensor().then(function (resultado) {
+        if (resultado.length > 0) {
+            res.status(200).json(resultado);
+        } else {
+            res.status(204).send("Nenhum resultado encontrado!")
+        }
+    }).catch(function (erro) {
+        console.log(erro);
+        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        res.status(500).json(erro.sqlMessage);
+    });
+}
+
+
 
 module.exports = {
     buscarUltimasMedidas,
@@ -117,6 +136,7 @@ module.exports = {
     buscarUltimasMedidasSensor,
     buscarMedidasEmTempoRealSensor,
     alertas,
-    mediaAlertas
+    mediaAlertas,
+    qtnSensor
 
 }

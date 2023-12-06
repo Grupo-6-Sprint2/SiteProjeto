@@ -17,12 +17,8 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
-<script
-    data-jsd-embedded
-    data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
-    data-base-url="https://jsd-widget.atlassian.com"
-    src="https://jsd-widget.atlassian.com/assets/embed.js"
-  ></script>
+<script data-jsd-embedded data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
+  data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
 
 <body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas()">
 
@@ -30,21 +26,21 @@
 
     <!-- COISINHA DO LADO -->
     <div class="navegacao_lateral">
-        
-      <div class="navegacao_lateral_dropdown">  
 
-          <label>
-              <a href="graficos.html"><img src="assets/geladeira-removebg-preview.png"></a> 
-              <a href="gráficosDinamico.html">Estoque</a>
-          </label> 
+      <div class="navegacao_lateral_dropdown">
 
-          <label>
-              <img src="assets/alerta-removebg-preview.png">
-              <a href="#">Registros</a>
-          </label>
+        <label>
+          <a href="graficos.html"><img src="assets/geladeira-removebg-preview.png"></a>
+          <a href="gráficosDinamico.html">Estoque</a>
+        </label>
+
+        <label>
+          <img src="assets/alerta-removebg-preview.png">
+          <a href="#">Registros</a>
+        </label>
 
       </div>
-      
+
     </div>
     <!-- FIM DA COISINHA DO LADO -->
 
@@ -64,7 +60,7 @@
           <a href="cadastro-funcionario.html" class="buttonCadastrar">Cadastrar funcionário</a>
           <span id="nomeUsuario_denovo"></span>
           <img src="assets/sair.png" alt="Log-out" onclick="sair()" style="cursor: pointer;">
-          
+
         </div>
       </div>
 
@@ -139,7 +135,7 @@
 
           </div>
 
-          
+
 
 
         </div> <!--fim da div "dashboards" -->
@@ -150,8 +146,7 @@
 
         <!-- FIM DA VISÃO GERAL -->
         <div class="container">
-          <div id="funcionarioCadastrado"
-            style="
+          <div id="funcionarioCadastrado" style="
             background-color: white; 
             width: 990px; height: 200px; 
             justify-content: center; text-align: center; 
@@ -168,16 +163,16 @@
                   <span id="emailFuncionario">email: @gmail.com</span>
                   <span id="telefoneFuncionario">número: 120985</span>
               </div> -->
-                
+
 
               <!-- Testando o formato tabela -->
-              <table border="1"  id="funcionarios">
+              <table border="1" id="funcionarios">
                 <caption><strong>Funionários cadastrados</strong></caption> <!-- title-->
 
-            </table>
-              
+              </table>
 
-              
+
+
 
             </div>
           </div>
@@ -192,43 +187,43 @@
 <script>
 
 
-    const ctx2 = document.getElementById('myChart2');
+  const ctx2 = document.getElementById('myChart2');
 
-    new Chart(ctx2, {
-      type: 'doughnut',
-      data: {
-        labels: ['Total', 'Perdidos'],
-        datasets: [{
-          label: 'litros de sangue',
-          backgroundColor: [
-            'rgba(67, 209, 67, 1)',
-            'rgba(255, 99, 131, 1)'
-          ],
-          data: [1500, 150],
-          borderWidth: 0,
-        },
-        ]
-
+  new Chart(ctx2, {
+    type: 'doughnut',
+    data: {
+      labels: ['Total', 'Perdidos'],
+      datasets: [{
+        label: 'litros de sangue',
+        backgroundColor: [
+          'rgba(67, 209, 67, 1)',
+          'rgba(255, 99, 131, 1)'
+        ],
+        data: [1500, 150],
+        borderWidth: 0,
       },
-      hoverOffset: 4
-    });
+      ]
 
-    const moneyCtx = document.getElementById('moneyChart');
+    },
+    hoverOffset: 4
+  });
 
-    new Chart(moneyCtx, {
-      type: 'line',
-      data: {
-        labels: ['Total'],
-        datasets: [{
-          label: 'litros de sangue',
-          backgroundColor: [
-            'rgba(67, 209, 67, 1)',
-            'rgba(255, 99, 131, 1)'
-          ],
-          data: [1500, 150],
-          borderWidth: 0,
-        },
-        ]
+  const moneyCtx = document.getElementById('moneyChart');
+
+  new Chart(moneyCtx, {
+    type: 'line',
+    data: {
+      labels: ['Total'],
+      datasets: [{
+        label: 'litros de sangue',
+        backgroundColor: [
+          'rgba(67, 209, 67, 1)',
+          'rgba(255, 99, 131, 1)'
+        ],
+        data: [1500, 150],
+        borderWidth: 0,
+      },
+      ]
 
     },
     hoverOffset: 4
@@ -257,30 +252,30 @@
   }
 
   function listarFuncionarios() {
-      var gestor = sessionStorage.ID_USUARIO;
+    var gestor = sessionStorage.ID_USUARIO;
 
-      fetch(`/usuarios/listar/${gestor}`,  { cache: 'no-store' }).then(function (response) {
-            if (response.ok) {
-                response.json().then(function (resposta) {
+    fetch(`/usuarios/listar/${gestor}`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
 
-                    console.log('pericias encontradas:' + resposta.length)
-    
-                  plotarFuncionarios(resposta)
+          console.log('pericias encontradas:' + resposta.length)
 
-                });
-            } else {
-                console.error('Nenhum dado encontrado ou erro na API');
-            }
-        })
-            .catch(function (error) {
-                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
-            });
+          plotarFuncionarios(resposta)
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
   }
 
   function plotarFuncionarios(resposta) {
 
 
-    for (i = 0; i < resposta.length; i ++) {
+    for (i = 0; i < resposta.length; i++) {
 
       console.log(resposta)
 
@@ -310,65 +305,82 @@
   function pegarMediaAlertas() {
 
 
-fetch(`/medidas/mediaAlerta/`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/mediaAlerta/`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
-          response.json().then(function (resposta) {
+        response.json().then(function (resposta) {
 
-            console.log('legal' + resposta)
-              plotarGraficoAlerta(resposta)
+          console.log('legal' + resposta)
+          plotarGraficoAlerta(resposta)
 
-          });
+        });
       } else {
-          console.error('Nenhum dado encontrado ou erro na API');
+        console.error('Nenhum dado encontrado ou erro na API');
       }
-  })
+    })
       .catch(function (error) {
-          console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
       });
+  }
+
+  function plotarGraficoAlerta(resposta) {
 
 
-}
+    const ctx = document.getElementById('myChart');
+    var viewDivExit = false;
 
-function plotarGraficoAlerta(resposta) {
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
+        datasets: [{
+          label: 'alertas vermelhos',
+          borderColor: 'red',
+          backgroundColor: 'red',
+          data: [20, 10, 10, 23, 34, 12, 25, 12, 12, 52, 34, resposta[0].quantidade],
+          borderWidth: 2,
+        },
+        {
+          label: 'alertas amarelos',
+          borderColor: 'yellow',
+          backgroundColor: 'yellow',
+          data: [34, 15, 32, 21, 3, 12, 21, 12, 2, 42, 21, resposta[1].quantidade],
+          borderWidth: 2
+        },
 
+        ]
 
-  const ctx = document.getElementById('myChart');
-  var viewDivExit = false;
-
-  new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'],
-      datasets: [{
-        label: 'alertas vermelhos',
-        borderColor: 'red',
-        backgroundColor: 'red',
-        data: [20, 10, 10, 23, 34, 12, 25, 12, 12, 52, 34, resposta[0].quantidade],
-        borderWidth: 2,
       },
-      {
-        label: 'alertas amarelos',
-        borderColor: 'yellow',
-        backgroundColor: 'yellow',
-        data: [34, 15, 32, 21, 3, 12, 21, 12, 2, 42, 21, resposta[1].quantidade],
-        borderWidth: 2
-      },
-
-      ]
-
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
         }
       }
-    }
-  });
+    });
 
 
 
 
-}
+  }
 
+
+  function pegarQtnSensor() {
+
+
+    fetch(`/medidas/qtnSensor/`, { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+        response.json().then(function (resposta) {
+
+          console.log('legal' + resposta)
+
+        });
+      } else {
+        console.error('Nenhum dado encontrado ou erro na API');
+      }
+    })
+      .catch(function (error) {
+        console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+      });
+  }
 </script>

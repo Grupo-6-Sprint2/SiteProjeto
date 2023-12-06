@@ -112,11 +112,10 @@ function mediaAlertas(req, res) {
 
 function qtnSensor(req, res) {
     
-    
-    console.log(`pegando média de alertas`);
-    
-    medidaModel.qtnSensor().then(function (resultado) {
-        if (resultado.length > 0) {
+    console.log("fkEndereco", fkEndereco);
+
+    usuarioModel.qtnSensor(fkEndereco).then(function (resultado) {
+        if (resultado.length>0) {
             res.status(200).json(resultado);
         } else {
             res.status(204).send("Nenhum resultado encontrado!")

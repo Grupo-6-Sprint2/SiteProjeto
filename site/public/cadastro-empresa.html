@@ -351,8 +351,10 @@
 
   function fazerUpdate(resposta) {
     console.log("legal");
+
     var fkEndereco = resposta[0].idEndereco;
     var usuario = resposta[0].idUsuario;
+    
 
     fetch(`/empresas/update/${usuario}/${fkEndereco}`, {
       method: "POST",

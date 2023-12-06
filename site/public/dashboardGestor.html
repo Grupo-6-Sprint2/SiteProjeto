@@ -20,7 +20,7 @@
 <script data-jsd-embedded data-key="4585f893-7c1b-400e-baab-8f890fc4a01e"
   data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js"></script>
 
-<body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas()">
+<body onload="validarSessao(), listarFuncionarios(), pegarMediaAlertas(), pegarQtnSensor(sessionStorage.ENDERECO)">
 
   <main>
 
@@ -30,12 +30,12 @@
       <div class="navegacao_lateral_dropdown">
 
         <label>
-          <a href="graficos.html"><img src="assets/geladeira-removebg-preview.png"></a>
+          <a href="graficos.html"><img src="assets/geladeira-removebg-preview.png" alt=""></a>
           <a href="gráficosDinamico.html">Estoque</a>
         </label>
 
         <label>
-          <img src="assets/alerta-removebg-preview.png">
+          <img src="assets/alerta-removebg-preview.png" alt="">
           <a href="#">Registros</a>
         </label>
 
@@ -364,13 +364,13 @@
 
   }
 
+  function pegarQtnSensor(fkEndereco) {
 
-  function pegarQtnSensor() {
+    console.log('fkEndereco', fkEndereco)
 
-
-    fetch(`/medidas/qtnSensor/`, { cache: 'no-store' }).then(function (response) {
+    fetch(`/medidas/qtnSensor/${fkEndereco}`, { cache: 'no-store' }).then(function (response) {
       if (response.ok) {
-        response.json().then(function (resposta) {
+        return response.json().then(function (resposta) {
 
           console.log('legal' + resposta)
 

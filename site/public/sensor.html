@@ -54,9 +54,11 @@
           <div class="dadosSensores">
             <!-- extraído page graficos.html -->
             <div>
-              <span class="identificação corAlt"> Sensor #1012</span>
+              <span class="identificação corAlt">
+                Sensor #<span id="idSensor"></span
+              ></span>
             </div>
-            <span class="geladeira corAlt2"> Geladeira: 012</span>
+            <span class="geladeira corAlt2" id="idGeladeira"></span>
             <div class="status">
               <span>status:</span> <span id="joinha">&#128077;</span>
             </div>
@@ -192,6 +194,9 @@
                 response.json().then(function (resposta) {
                   console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
                   resposta.reverse();
+
+                  idSensor.innerHTML = resposta[0].fkSensor;
+                  idGeladeira.innerHTML = resposta[0].geladeira;
 
                   plotarGrafico(resposta);
                 });

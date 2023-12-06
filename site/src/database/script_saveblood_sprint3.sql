@@ -7,11 +7,6 @@ CNPJ char(11) primary key,
 nome varchar(45)
 );
 
-insert into empresa (nome, responsável) values
-('saveBlood', 'Samuel Oliveira'),
-('Doe Já', 'Larisso Manoel'),
-('SangueFluido', 'Gagliasso Peixinho');
-
 create table endereco (
 idEndereco int primary key auto_increment,
 nomeRua varchar(45),
@@ -57,8 +52,6 @@ select * from usuario;
 
 select * from endereco;
 
-
-
 insert into empresa values
 ('12345678910', 'saveblood'),
 ('12345678911', 'esquina do seu zé'),
@@ -89,26 +82,34 @@ constraint FKGELa foreign key (fkEndereco) references endereco(idEndereco)
 ) auto_increment = 1000;
 
 insert into sensor (geladeira, fkEndereco) values
-('Geladeira #2502', 100);
+('Geladeira #2502', 100),
+('Geladeira #2503', 100),
+('Geladeira #2504', 100);
 
-truncate table sensor;
+truncate sensor;
 
 select * from sensor;
+
+select * from endereco;
+
+select 
+sensor.idSensor,
+sensor.geladeira,
+        registro.temperatura, 
+        DATE_FORMAT(horario,'%H:%i:%s') as momento_grafico 
+        
+    from registro
+    join sensor on fkSensor = idSensor
+    order by idRegistro 
+    desc limit 3;
 
 create table registro (
 idRegistro int primary key auto_increment,
 horario datetime default current_timestamp,
 temperatura decimal (10,2),
 fkSensor int,
-constraint FKSENSOr foreign key (fkSensor) references sensor(idSensor)
+constraint FKSensorRegistro foreign key (fkSensor) references sensor(idSensor)
 ) auto_increment = 100000;
-
-
-
-
-
-
-
 
 create table alerta (
 idAlerta int primary key auto_increment,
@@ -119,7 +120,9 @@ constraint foreign_key_sensorDoAlerta foreign key (FkSensor) references sensor(i
 auto_increment = 2000;
 
 insert into registro (temperatura, fkSensor) values
-(2, 1001);
+(2, 1005);
+
+select * from sensor;
 
 select * from registro where fkSensor = 1001 order by idRegistro desc;
 
@@ -156,8 +159,6 @@ end; \\
 delimiter ;
 
 drop trigger alert;
-
-
 
 select avg(temperatura) from registro ;
 

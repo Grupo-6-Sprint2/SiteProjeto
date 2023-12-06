@@ -111,10 +111,10 @@ function mediaAlertas(req, res) {
 }
 
 function qtnSensor(req, res) {
-    
-    console.log("fkEndereco", fkEndereco);
 
-    usuarioModel.qtnSensor(fkEndereco).then(function (resultado) {
+    var fkEndereco = req.params.fkEndereco
+
+    medidaModel.qtnSensor(fkEndereco).then(function (resultado) {
         if (resultado.length>0) {
             res.status(200).json(resultado);
         } else {

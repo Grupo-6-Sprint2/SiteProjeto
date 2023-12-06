@@ -79,10 +79,10 @@
               <!-- card1 -->
               <div class="card">
                 <div style="margin: 5px;">
-                  <span>Quantidade de geladeiras</span>
+                  <span>Quantidade de sensores</span>
                   <div style="display: flex; margin-top: 10px;">
                     <div class="barra azul"></div>
-                    <b>2532</b>
+                    <b id="qtdSensores">2532</b>
                   </div>
                 </div>
               </div>
@@ -372,7 +372,9 @@
       if (response.ok) {
         return response.json().then(function (resposta) {
 
-          console.log('legal' + resposta)
+          console.log(resposta)
+
+          qtdSensores.innerHTML = resposta[0].qtdSensor
 
         });
       } else {

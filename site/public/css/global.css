@@ -151,3 +151,52 @@ footer .container {
 .iconSocial img {
   width: 30px;
 }
+
+.modal-cadastro {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+
+
+.modal-fundo{
+  background-color:rgba(73, 108, 128, 0.7);
+  padding:20px;
+  width: 17%;
+  height: 80px;
+  border-radius: 25px;
+}
+
+
+.modal-informacao{
+  display: flex; 
+  flex-direction: column; 
+  align-items: center;
+}
+
+
+.icon-certo{
+  width: 57px; 
+  height: 57px;
+}
+
+.span-modalCadastro{
+  color: #fff; 
+  margin-top: 5px;
+  font-size: 13px;
+}
+
+.modalErro{
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+}
